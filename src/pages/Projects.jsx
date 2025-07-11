@@ -1,10 +1,25 @@
 import styles from "./Home.module.css";
+import projects from "../data/projects";
 
 export default function Projects() {
-    return (
-        <section id="projects" className={styles.section}>
-            <h1>projects</h1>
-            <p>lists1234</p>
-        </section>
-    );
+  return (
+    <section id="projects" className={styles.section}>
+      <h1>Projects</h1>
+      <div className="project-list">
+        {projects.map((project, index) => (
+          <div key={index} className="project-card">
+            <img src={project.image} alt={project.title} />
+            <h2>{project.title}</h2>
+            <p>{project.description}</p>
+            <p>Tech: {project.technologies.join(", ")}</p>
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+              View Project
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
+
+

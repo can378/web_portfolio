@@ -1,0 +1,47 @@
+.contactContainer {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #007acc;
+}
+
+.name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.title {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 2rem;
+    white-space: pre-line; /* 줄바꿈 유지 */
+}
+
+.socialLinks a {
+    display: inline-block;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #007acc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.socialLinks a:hover {
+    background-color: #005fa3;
+}
