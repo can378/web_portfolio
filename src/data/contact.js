@@ -5,7 +5,7 @@ const contactData = {
     Passionate about Computer Vision, Human Pose Estimation and building
     tools that make people’s lives easier.
   `,
-  profileImage: "/assets/profile.jpg", // public 폴더 이미지 경로
+  profileImage: "/web_portfolio/assets/image/profile.jpg",
   socialLinks: {
     github: "https://github.com/yourid",
     linkedin: "https://linkedin.com/in/yourid",

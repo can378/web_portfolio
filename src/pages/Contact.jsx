@@ -1,6 +1,6 @@
 import contactData from "../data/contact";
 import homeStyles from "./Home.module.css";
-import contactStyles from "./Contact.modules.css";
+import contactStyles from "./Contact.module.css";
 
 export default function Contact() {
     return (

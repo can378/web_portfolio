@@ -8,7 +8,7 @@ function Sidebar(){
 
     return(
         <div>
-            <button onClick={()=>scrollToSection("about")}>About</button>
+            <button onClick={()=>scrollToSection("home")}>Home</button>
             <button onClick={()=>scrollToSection("projects")}>projects</button>
             <button onClick={()=>scrollToSection("contact")}>contact</button>
         </div>
