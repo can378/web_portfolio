@@ -1,10 +1,11 @@
 import styles from "./Home.module.css";
+import defaultData from "../data/default";
 
 export default function Main() {
     return (
         <section id="home" className={styles.section}>
-            <h1>Me</h1>
-            <p>hello its me hello hello developer</p>
+            <h1>defaultData.title</h1>
+            <p>defaultData.description</p>
         </section>
     );
 }
