@@ -1,47 +1,62 @@
 .contactContainer {
-    max-width: 600px;
-    margin: 0 auto;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
 }
 
 .profileImage {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    border: 3px solid #007acc;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* 동그란 이미지 */
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.greeting {
+  font-size: 1.2rem;
+  color: #0077ff;
+  margin-bottom: 0.5rem;
 }
 
 .name {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0.5rem 0;
+  font-size: 2rem;
+  margin: 0.2rem 0;
+  color: #333;
 }
 
 .title {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 1rem;
 }
 
 .description {
-    font-size: 1rem;
-    color: #777;
-    margin-bottom: 2rem;
-    white-space: pre-line; /* 줄바꿈 유지 */
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
 .socialLinks a {
-    display: inline-block;
-    margin: 0 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #007acc;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
+  background: #0077ff;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s ease;
 }
 
 .socialLinks a:hover {
-    background-color: #005fa3;
+  background: #005fcc;
 }

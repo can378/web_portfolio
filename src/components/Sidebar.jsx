@@ -7,8 +7,11 @@ function Sidebar(){
     };
 
     return(
-        <div>
+        <div className={styles.sidebar}>
             <button onClick={()=>scrollToSection("home")}>Home</button>
+            <button onClick={()=>scrollToSection("introduction")}>Introduction</button>
+            <button onClick={()=>scrollToSection("goal")}>Goal</button>
+            <button onClick={()=>scrollToSection("history")}>history</button>
             <button onClick={()=>scrollToSection("projects")}>projects</button>
             <button onClick={()=>scrollToSection("contact")}>contact</button>
         </div>

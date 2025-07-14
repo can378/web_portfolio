@@ -1,12 +1,19 @@
 import Main from "./Main";
-import Projects from "./Projects";
+import Goal from "./Goal";
+import Project from "./Project";
+import History from "./History";
 import Contact from "./Contact";
+import Introduction from "./Introduction";
+
 
 export default function Home() {
     return (
         <div>
             <Main />
-            <Projects />
+            <Introduction/>
+            <Goal/>
+            <History/>
+            <Project />
             <Contact />
         </div>
     );
