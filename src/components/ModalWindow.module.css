@@ -1,0 +1,47 @@
+.modal {
+  width: 400px;
+  height: 300px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  background-color: #f0f0f0;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  user-select: none;
+}
+
+.titleBar {
+  background-color: #0078d7; /* 윈도우 파란색 */
+  color: white;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.titleBar:active {
+  cursor: grabbing;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: #ff5c5c;
+}
+
+.content {
+  padding: 10px;
+  font-size: 14px;
+}

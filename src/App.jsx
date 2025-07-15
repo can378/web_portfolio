@@ -1,13 +1,11 @@
-import Sidebar from './components/Sidebar'
-import Home from './pages/Home'
+import Main from './pages/Main'
 import './App.css'
 
 function App() {
 
   return (
     <div className="app">
-      <Home/>
-      <Sidebar/>
+      <Main/>
     </div>
   )
 }

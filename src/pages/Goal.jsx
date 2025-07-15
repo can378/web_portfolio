@@ -1,4 +1,4 @@
-import homeStyles from "./Home.module.css";
+import homeStyles from "./Main.module.css";
 import goalStyles from "./Goal.module.css";
 
 export default function Goal() {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./Home.module.css";
+import styles from "./Main.module.css";
 import projects from "../data/projects";
 import projectStyles from "./Project.module.css";
 import ProjectModal from "../components/ProjectModal";

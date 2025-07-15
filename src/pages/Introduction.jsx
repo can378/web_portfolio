@@ -1,4 +1,4 @@
-import homeStyles from "./Home.module.css";
+import homeStyles from "./Main.module.css";
 import introStyles from "./Introduction.module.css";
 import skillData from "../data/skillset"; // 데이터 import
 

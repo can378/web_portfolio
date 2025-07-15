@@ -1,4 +1,4 @@
-import homeStyles from "./Home.module.css"; // section만 여기서
+import homeStyles from "./Main.module.css"; // section만 여기서
 import historyStyles from "./History.module.css"; // 나머지 전용 스타일
 import historyData from "../data/history"; // 데이터 import
 
