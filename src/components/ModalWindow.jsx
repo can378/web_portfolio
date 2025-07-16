@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import styles from "./ModalWindow.module.css";
 
-export default function ModalWindow({ title, onClose }) {
+export default function ModalWindow({ title, onClose, children, defaultPosition }) {
     const modalRef = useRef(null);
-    const [position, setPosition] = useState({ x: 100, y: 100 });
+    const [position, setPosition] = useState(defaultPosition || { x: 100, y: 100 });
     const [dragging, setDragging] = useState(false);
     const offset = useRef({ x: 0, y: 0 });
 
@@ -19,10 +19,8 @@ export default function ModalWindow({ title, onClose }) {
 
     const handleMouseMove = (e) => {
         if (!dragging) return;
-
         let newX = e.clientX - offset.current.x;
         let newY = e.clientY - offset.current.y;
-
         setPosition({ x: newX, y: newY });
     };
 
@@ -42,7 +40,6 @@ export default function ModalWindow({ title, onClose }) {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
         >
-            {/* 상단바 */}
             <div
                 className={styles.titleBar}
                 onMouseDown={handleMouseDown}
@@ -53,11 +50,7 @@ export default function ModalWindow({ title, onClose }) {
                     ✕
                 </button>
             </div>
-
-            {/* 내용 */}
-            <div className={styles.content}>
-                <p>여기에 모달 내용이 들어갑니다.</p>
-            </div>
+            <div className={styles.content}>{children}</div>
         </div>
     );
 }
