@@ -1,32 +1,47 @@
 .taskbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 40px;
-  width: 100%;
-  background-color: #003366; /* XP 스타일 진한 파란색 */
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 10px;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #202020;
+    color: white;
+    height: 40px;
+    padding: 0 10px;
+
+    position: fixed; /* 화면 아래 고정 */
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 999; /* 항상 위에 있도록 */
 }
 
 .startButton {
-  background-color: #008000; /* Start 버튼 초록색 */
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
+    background-color: #0078d7;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.taskbarItems {
-  display: flex;
-  gap: 15px;
+.startButton:hover {
+    background-color: #005a9e;
+}
+
+.openWindows {
+    display: flex;
+    gap: 10px;
+}
+
+.windowItem {
+    background-color: #404040;
+    padding: 3px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.windowItem:hover {
+    background-color: #606060;
 }
 
 .clock {
-  font-family: monospace;
+    font-size: 14px;
 }
