@@ -1,43 +1,133 @@
+import memoMap from "../iconData/memo";
+import folderMap from "../iconData/folder";
 import Icon from "../components/Icon";
-import styles from "./Main.module.css";
+import FolderWindow from "../components/FolderWindow";
+import Memo from "../components/Memo";
+import stickerMap from "../iconData/sticky";
+import Sticky from "../components/Sticky";
 import Taskbar from "../components/TaskBar";
-import ModalWindow from "../components/ModalWindow";
-import { useRef } from "react";
+import styles from "./Main.module.css";
 import { useState } from "react";
 
 export default function Main() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
+    const [openFolders, setOpenFolders] = useState([]);
+    const [openMemos, setOpenMemos] = useState([]);
+    const [openStickies, setOpenStickies] = useState([]);
 
-    const desktopRef = useRef(null); // 바탕화면 영역 참조
-
-    const openFolderWindow = () => {
-        console.log("폴더 열림!");
+    const openFolder = (folderId) => {
+        if (!openFolders.includes(folderId)) {
+            setOpenFolders([...openFolders, folderId]);
+        }
     };
 
+    const closeFolder = (folderId) => {
+        setOpenFolders(openFolders.filter((id) => id !== folderId));
+    };
+
+    const openMemo = (memoId) => {
+        if (!openMemos.includes(memoId)) {
+            setOpenMemos([...openMemos, memoId]);
+        }
+    };
+
+    const closeMemo = (memoId) => {
+        setOpenMemos(openMemos.filter((id) => id !== memoId));
+    };
+
+    const openSticker = (stickerId) => {
+    if (!openStickies.includes(stickerId)) {
+        setOpenStickies([...openStickies, stickerId]);
+        }
+    };
+
+    const closeSticker = (stickerId) => {
+        setOpenStickies(openStickies.filter((id) => id !== stickerId));
+    };
+
+
     return (
-        <div className={styles.desktop} ref={desktopRef}>
-            {/* 아이콘들 */}
-            <div className={styles.desktopIcons}>
-                <Icon
-                    icon={"/web_portfolio/assets/image/icons/folder_icon.png"}
-                    label="Projects"
-                    onClick={openModal}
-                />
-                <Icon
-                    icon={"/web_portfolio/assets/image/icons/trash_icon.png"}
-                    label="Recycle Bin"
-                    onClick={() => alert("휴지통 클릭!")}
-                />
+        <div className={styles.desktopContainer}>
+            {/* 바탕화면 */}
+            <div className={styles.desktop}>
+                {/* 👇 아이콘 전용 영역 */}
+                <div className={styles.desktopIcons}>
+                    {[...folderMap.values()].map((folder) => (
+                        <Icon
+                            key={folder.id}
+                            icon={folder.icon}
+                            label={folder.name}
+                            onClick={() => openFolder(folder.id)}
+                        />
+                    ))}
+
+                    {[...memoMap.values()]
+                        .filter((memo) => memo.folder === "바탕화면")
+                        .map((memo) => (
+                            <Icon
+                                key={memo.id}
+                                icon={memo.icon}
+                                label={memo.name}
+                                onClick={() => openMemo(memo.id)}
+                            />
+                        ))}
+                    {/* 바탕화면 스티커 아이콘 */}
+                    {[...stickerMap.values()]
+                        .filter((sticky) => sticky.folder === "바탕화면")
+                        .map((sticky) => (
+                            <Icon
+                                key={sticky.id}
+                                icon={sticky.icon}
+                                label={sticky.name}
+                                onClick={() => openSticker(sticky.id)}
+                            />
+                        ))}
+
+                </div>
+
+                {/* 👇 열린 폴더/메모들은 배경 위에 띄움 */}
+                {openFolders.map((folderId) => (
+                    <FolderWindow
+                        key={folderId}
+                        folderId={folderId}
+                        onClose={() => closeFolder(folderId)}
+                        onOpenMemo={openMemo}
+                    />
+                ))}
+
+                {openMemos.map((memoId) => {
+                    const memo = memoMap.get(memoId);
+                    return (
+                        <Memo
+                            key={memo.id}
+                            title={memo.name}
+                            initialText={memo.text}
+                            editable={memo.editable}
+                            onClose={() => closeMemo(memo.id)}
+                        />
+                    );
+                })}
+
+                {/* 열린 스티커들 */}
+                {openStickies.map((stickerId) => {
+                    const sticky = stickerMap.get(stickerId);
+                    return (
+                        <Sticky
+                            key={sticky.id}
+                            title={sticky.name}
+                            initialText={sticky.text}
+                            editable={sticky.editable}
+                            onClose={() => closeSticker(sticky.id)}
+                        />
+                    );
+                })}
             </div>
 
-            {isModalOpen && (
-                <ModalWindow title="Projects" onClose={closeModal} />
-            )}
-
-            {/* 작업표시줄 */}
-            <Taskbar />
+            {/* Taskbar */}
+            <Taskbar
+                openFolders={openFolders}
+                openMemos={openMemos}
+                openStickies={openStickies} 
+            />
         </div>
     );
 }
