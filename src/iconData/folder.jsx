@@ -4,12 +4,14 @@ const folderArray = [
         name: "Projects",
         icon: "/web_portfolio/assets/image/icons/folder_icon.png",
         memoIds: [1, 2], // 이 폴더 안의 메모 ID
+        
     },
     {
-        id: "documents",
-        name: "Documents",
-        icon: "/web_portfolio/assets/image/icons/folder_icon.png",
-        memoIds: [3], // 다른 메모들
+        id: "trashbin",
+        name: "Trash",
+        icon: "/web_portfolio/assets/image/icons/trash_icon.png",
+        memoIds: [4,5], // 다른 메모들
+        imgIds:[1],
     },
     {
         id: "work",

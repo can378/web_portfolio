@@ -1,11 +1,11 @@
-import Main from './pages/Main'
+import Desktop from './pages/Desktop'
 import './App.css'
 
 function App() {
 
   return (
     <div className="app">
-      <Main/>
+      <Desktop/>
     </div>
   )
 }

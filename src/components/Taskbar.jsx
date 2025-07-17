@@ -1,7 +1,7 @@
 import styles from "./Taskbar.module.css";
 import { useState, useEffect } from "react";
 
-export default function Taskbar({ openFolders, openMemos }) {
+export default function Taskbar({ openWindows }) {
     const [time, setTime] = useState(new Date());
 
     useEffect(() => {
@@ -16,14 +16,12 @@ export default function Taskbar({ openFolders, openMemos }) {
         <div className={styles.taskbar}>
             <div className={styles.startButton}>🟢 Start</div>
             <div className={styles.openWindows}>
-                {openFolders.map((id) => (
+                {openWindows.map(({ id, type }) => (
                     <span key={id} className={styles.windowItem}>
-                        📁 {id}
-                    </span>
-                ))}
-                {openMemos.map((id) => (
-                    <span key={id} className={styles.windowItem}>
-                        📝 {id}
+                        {type === "folder" && <>📁 {id}</>}
+                        {type === "memo" && <>📝 {id}</>}
+                        {type === "sticker" && <>📌 {id}</>}
+                        {type === "image" && <>🖼 {id}</>}
                     </span>
                 ))}
             </div>

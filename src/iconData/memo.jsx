@@ -4,8 +4,9 @@ const memoArray = [
         name: "메모 1",
         text: "메모 1의 기본 텍스트입니다.",
         editable: true,
-        folder: "바탕화면",
+        folder: "",
         icon: "/web_portfolio/assets/image/icons/memo_icon.png",
+        fixed:true
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ const memoArray = [
         editable: false,
         folder: "Projects",
         icon: "/web_portfolio/assets/image/icons/memo_icon.png",
+        fixed:true
     },
     {
         id: 3,
@@ -22,6 +24,25 @@ const memoArray = [
         editable: true,
         folder: "Documents",
         icon: "/web_portfolio/assets/image/icons/memo_icon.png",
+        fixed:true
+    },
+    {
+        id: 4,
+        name: "Hobby",
+        text: "1. 식물 키우기 2. 피겨스케이트",
+        editable: true,
+        folder: "Trashbin",
+        icon: "/web_portfolio/assets/image/icons/memo_icon.png",
+        fixed:true
+    },
+    {
+        id: 5,
+        name: "Bucket List",
+        text: "bucket list 1 2 3 4",
+        editable: true,
+        folder: "Trashbin",
+        icon: "/web_portfolio/assets/image/icons/memo_icon.png",
+        fixed:true
     },
 ];
 
