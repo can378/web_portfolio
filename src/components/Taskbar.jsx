@@ -22,6 +22,7 @@ export default function Taskbar({ openWindows }) {
                         {type === "memo" && <>📝 {id}</>}
                         {type === "sticker" && <>📌 {id}</>}
                         {type === "image" && <>🖼 {id}</>}
+                        {!["folder", "memo", "sticker", "image"].includes(type) && <>{id}</>}
                     </span>
                 ))}
             </div>
