@@ -1,11 +1,17 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import styles from "./ModalWindow.module.css";
 
-export default function ModalWindow({ title, onClose, children, defaultPosition }) {
+export default function ModalWindow({
+    title,
+    onClose,
+    children,
+    defaultPosition,
+    defaultSize, // ✅ 크기 props 추가
+}) {
     const modalRef = useRef(null);
     const [position, setPosition] = useState(defaultPosition || { x: 100, y: 100 });
-    const [dragging, setDragging] = useState(false);
     const offset = useRef({ x: 0, y: 0 });
+    const [dragging, setDragging] = useState(false);
 
     const handleMouseDown = (e) => {
         setDragging(true);
@@ -19,8 +25,8 @@ export default function ModalWindow({ title, onClose, children, defaultPosition 
 
     const handleMouseMove = (e) => {
         if (!dragging) return;
-        let newX = e.clientX - offset.current.x;
-        let newY = e.clientY - offset.current.y;
+        const newX = e.clientX - offset.current.x;
+        const newY = e.clientY - offset.current.y;
         setPosition({ x: newX, y: newY });
     };
 
@@ -35,6 +41,8 @@ export default function ModalWindow({ title, onClose, children, defaultPosition 
             style={{
                 left: position.x,
                 top: position.y,
+                width: defaultSize?.width || 400, // ✅ 기본 너비 400
+                height: defaultSize?.height || 300, // ✅ 기본 높이 300
                 position: "absolute",
             }}
             onMouseMove={handleMouseMove}

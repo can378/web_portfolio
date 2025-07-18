@@ -4,7 +4,7 @@ import Icon from "./Icon";
 import ImageViewer from "./Image";
 import { useState } from "react";
 
-export default function FolderWindow({ folderId, onClose, onOpen }) {
+export default function FolderWindow({ folderId, onClose, onOpen,defaultPosition,defaultSize, }) {
     const folder = iconMap.get(folderId);
     if (!folder) return null;
 
@@ -30,7 +30,9 @@ export default function FolderWindow({ folderId, onClose, onOpen }) {
 
     return (
         <>
-            <ModalWindow title={folder.name} onClose={onClose}>
+            <ModalWindow title={folder.name} onClose={onClose}
+            defaultPosition={defaultPosition}
+            defaultSize={defaultSize}>
                 <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
                     {folder.childIds?.map((childId) => {
                         const child = iconMap.get(childId);

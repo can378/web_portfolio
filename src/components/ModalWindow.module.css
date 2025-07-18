@@ -1,13 +1,12 @@
 .modal {
-  width: 400px;
-  height: 300px;
   border: 2px solid #333;
   border-radius: 6px;
   background-color: #f0f0f0;
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   user-select: none;
-  position: absolute; /* body 기준 */
+  position: absolute;
+  overflow: hidden;
 }
 
 .titleBar {
@@ -45,4 +44,6 @@
 .content {
   padding: 10px;
   font-size: 14px;
+  height: calc(100% - 40px); /* TitleBar 높이 제외 */
+  overflow: auto; /* ✅ 넘치면 스크롤 표시 */
 }
