@@ -2,9 +2,10 @@ const projects = [
 
   //웹개발============================================================================
   {
-    title: "기업 자산화 포탈 사이트 개선",
+    title: "자산화",
     short_description: "사용자 편의성을 증대하고자 기능 개선",
     technologies: ["C++", "SDL2", "Team Management"],
+    icon:"/web_portfolio/assets/image/projects/test.jpg",
     image: "/web_portfolio/assets/image/projects/test.jpg",
     description: `
 **진행 일정: 2025.03.17 ~ 2025.04.20 (분석/설계:10일, 개발:15일)**
@@ -132,6 +133,7 @@ node.js cluster mode 사용
     title: "Library - Bible",
     short_description: "library web",
     technologies: ["Python", "PyTorch", "Mediapipe"],
+    icon:"/web_portfolio/assets/image/projects/test.jpg",
     image: "/web_portfolio/assets/image/projects/test.jpg",
     description:`
 
@@ -239,6 +241,7 @@ Notion, Googl Drive, drow.io, git, Figma
     title: "아무개전",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
+    icon:"/web_portfolio/assets/image/projects/test.jpg",
     image: "/web_portfolio/assets/image/projects/test.jpg",
     description:`
 ### 개발 기획
@@ -288,6 +291,7 @@ https://github.com/can378/SpiritGameProject.git
     title: "새콤달콤 딸기공장",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
+    icon:"/web_portfolio/assets/image/projects/test.jpg",
     image: "/web_portfolio/assets/image/projects/test.jpg",
     description:``
   },
@@ -295,6 +299,7 @@ https://github.com/can378/SpiritGameProject.git
     title: "멍냥멍냥",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
+    icon:"/web_portfolio/assets/image/projects/test.jpg",
     image: "/web_portfolio/assets/image/projects/test.jpg",
     description:``
   },
@@ -302,6 +307,7 @@ https://github.com/can378/SpiritGameProject.git
     title: "ERROR",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
+    icon:"/web_portfolio/assets/image/projects/test.jpg",
     image: "/web_portfolio/assets/image/projects/test.jpg",
     description:``
   },
@@ -311,6 +317,7 @@ https://github.com/can378/SpiritGameProject.git
     title: "baseball info",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
+    icon:"/web_portfolio/assets/image/projects/test.jpg",
     image: "/web_portfolio/assets/image/projects/test.jpg",
     description:``
   },
@@ -318,13 +325,15 @@ https://github.com/can378/SpiritGameProject.git
     title: "쭐래쭐래",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
+    icon:"/web_portfolio/assets/image/projects/test.jpg",
     image: "/web_portfolio/assets/image/projects/test.jpg",
     description:``
   },
   {
-    title: "Human Post Estimation",
+    title: "Pose Estimation",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
+    icon:"/web_portfolio/assets/image/projects/test.jpg",
     image: "/web_portfolio/assets/image/projects/test.jpg",
     description:`### test`
   },

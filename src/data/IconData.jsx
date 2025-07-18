@@ -3,13 +3,16 @@ import Memo from "../components/Memo";
 import Sticky from "../components/Sticky";
 import ImageViewer from "../components/Image";
 import GameLibrary from "../pages/GameLibrary";
+import Project from "../pages/Project";
+import Welcome from "../pages/Welcome";
+import Introduction from "../pages/Introduction";
 
 const iconArray = [
     // 📂 폴더
     {
         id: 100,
         type: "folder",
-        name: "Projects",
+        name: "Test",
         icon: "/web_portfolio/assets/image/icons/folder_icon.png",
         path: "desktop",
         component: FolderWindow,
@@ -29,12 +32,17 @@ const iconArray = [
     {
         id: 102,
         type: "folder",
-        name: "Work",
-        icon: "/web_portfolio/assets/image/icons/folder_icon.png",
+        name: "Favorite",
+        icon: "/web_portfolio/assets/image/icons/favorite_icon.png",
         path: "desktop",
         component: FolderWindow,
-        props: { folderId: 102 },
-        childIds: [200, 201],
+        props: { 
+            folderId: 102,
+            defaultPosition:{ x: 150, y: 200 },
+            defaultSize:{ width: 300, height: 300 },
+        },
+        childIds: [300,301,302,601,1001],
+
     },
 
     // 📝 메모
@@ -227,7 +235,37 @@ Goal
                 "/web_portfolio/assets/image/gameThumbnail/bioshock_infinite.png",
             ]
         }
-    }
+    },
+    {
+        id:1001,
+        type:"website",
+        name:"Projects",
+        path:"desktop",
+        icon:"/web_portfolio/assets/image/icons/website_icon.png",
+        fixed:false,
+        component:Project,
+        props: { 
+            title: "Giggle",
+        }
+    },
+    {
+        id:1002,
+        type:"website",
+        name:"Welcome",
+        path:"desktop",
+        icon:"/web_portfolio/assets/test.jpg",
+        fixed:false,
+        component:Welcome,
+    },
+    {
+        id:1003,
+        type:"website",
+        name:"Messanger",
+        path:"desktop",
+        icon:"/web_portfolio/assets/test.jpg",
+        fixed:false,
+        component:Introduction,
+    },
 ];
 
 const iconMap = new Map(iconArray.map((icon) => [icon.id, icon]));
