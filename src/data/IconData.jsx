@@ -201,6 +201,15 @@ Goal
             editable: false
         }
     },
+    {
+        id: 601,
+        type: "pdf",
+        name: "resume",
+        path: "desktop",
+        icon: "/web_portfolio/assets/image/icons/pdf_icon.png",
+        fixed: false,
+        filepath:"/web_portfolio/assets/pdf/cv.pdf",
+    },
     // Special
     {
         id:1000,

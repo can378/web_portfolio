@@ -1,7 +1,6 @@
 import iconMap from "../data/IconData";
 import Icon from "../components/Icon";
 import Taskbar from "../components/TaskBar";
-import GameLibrary from "./GameLibrary";
 import styles from "./Desktop.module.css";
 import { useState } from "react";
 
@@ -16,6 +15,15 @@ export default function Desktop() {
         if (icon.type === "link" && icon.url) {
             window.open(icon.url, "_blank");
             return;
+        }
+
+        if(icon.type==="pdf"&&icon.filepath){
+            const link = document.createElement("a");
+            link.href = icon.filepath;
+            link.download = "yunji_cv.pdf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
         if (!openWindows.find((w) => w.id === id)) {
@@ -33,16 +41,16 @@ export default function Desktop() {
                 {/* 바탕화면 아이콘 */}
                 <div className={styles.desktopIcons}>
                     {[...iconMap.values()]
-                        .filter((icon) => icon.path === "desktop")
-                        .map((icon) => (
-                            <Icon
-                                key={icon.id}
-                                icon={icon.icon}
-                                label={icon.name}
-                                onClick={() => openWindow(icon.id)}
-                                fixed={icon.fixed}
-                            />
-                        ))}
+                    .filter((icon) => icon.path === "desktop")
+                    .map((icon) => (
+                        <Icon
+                            key={icon.id}
+                            icon={icon.icon}
+                            label={icon.name}
+                            onClick={() => openWindow(icon.id)}
+                            fixed={icon.fixed}
+                        />
+                    ))}
                 </div>
 
                 {/* 열린 창들 렌더링 */}
@@ -57,7 +65,8 @@ export default function Desktop() {
                             key={id}
                             {...icon.props}
                             onClose={() => closeWindow(id)}
-                            onOpen={(childId) => openWindow(childId)} // 폴더 내부에서 열기 지원
+                            onOpen={(childId) => openWindow(childId)} 
+                            // 폴더 내부에서 열기 지원
                         />
                     );
                 })}
