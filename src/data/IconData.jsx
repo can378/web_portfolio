@@ -6,13 +6,14 @@ import GameLibrary from "../pages/GameLibrary";
 import Project from "../pages/Project";
 import Welcome from "../pages/Welcome";
 import Introduction from "../pages/Introduction";
+import History from "../pages/History";
 
 const iconArray = [
     // 📂 폴더
     {
         id: 100,
         type: "folder",
-        name: "Test",
+        name: "Work",
         icon: "/web_portfolio/assets/image/icons/folder_icon.png",
         path: "desktop",
         component: FolderWindow,
@@ -265,6 +266,15 @@ Goal
         icon:"/web_portfolio/assets/test.jpg",
         fixed:false,
         component:Introduction,
+    },
+    {
+        id:1004,
+        type:"website",
+        name:"History Game",
+        path:"desktop",
+        icon:"/web_portfolio/assets/test.jpg",
+        fixed:false,
+        component:History,
     },
 ];
 
