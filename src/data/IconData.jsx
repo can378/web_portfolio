@@ -7,6 +7,7 @@ import Project from "../pages/Project";
 import Welcome from "../pages/Welcome";
 import Introduction from "../pages/Introduction";
 import History from "../pages/History";
+import Email from "../pages/Email";
 
 const iconArray = [
     // 📂 폴더
@@ -286,6 +287,15 @@ Goal
         fixed:false,
         component:History,
     },
+    {
+        id:1005,
+        type:"website",
+        name:"Email",
+        path:"desktop",
+        icon:"/web_portfolio/assets/image/icons/email_icon.png",
+        fixed:false,
+        component:Email,
+    }
 ];
 
 const iconMap = new Map(iconArray.map((icon) => [icon.id, icon]));
