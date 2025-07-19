@@ -6,7 +6,9 @@ export default function ImageViewer({ title, imageUrl, onClose, onMinimize }) {
         <ModalWindow
             title={title}
             onClose={onClose}
-            onMinimize={onMinimize} // ✅ 최소화 콜백 추가
+            onMinimize={onMinimize}
+            defaultPosition={{ x: 150, y: 200 }}
+            defaultSize={{ width: 500, height: 500 }}
         >
             <div className={styles.imageContainer}>
                 <img

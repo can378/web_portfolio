@@ -28,7 +28,7 @@ const iconArray = [
         path: "desktop",
         component: FolderWindow,
         props: { folderId: 101 },
-        childIds: [203,204,400,1000],
+        childIds: [203,204,400,401,1000],
     },
     {
         id: 102,
@@ -89,7 +89,7 @@ const iconArray = [
         name: "Hobby",
         text: "1. 식물 키우기 2. 피겨스케이트",
         editable: true,
-        path: "trashbin",
+        path: "user",
         icon: "/web_portfolio/assets/image/icons/memo_icon.png",
         fixed: true,
         component: Memo,
@@ -101,7 +101,7 @@ const iconArray = [
         name: "Bucket List",
         text: "bucket list 1 2 3 4",
         editable: true,
-        path: "trashbin",
+        path: "user",
         icon: "/web_portfolio/assets/image/icons/memo_icon.png",
         fixed: true,
         component: Memo,
@@ -140,10 +140,20 @@ const iconArray = [
         type: "image",
         name: "Childhood",
         imageUrl: "/web_portfolio/assets/image/childhood.jpg",
-        path: "trashbin",
+        path: "user",
         icon: "/web_portfolio/assets/image/childhood.jpg",
         component: ImageViewer,
         props: { title: "Childhood", imageUrl: "/web_portfolio/assets/image/childhood.jpg" }
+    },
+    {
+        id: 401,
+        type: "image",
+        name: "favorite artist",
+        imageUrl: "/web_portfolio/assets/image/henri_rousseau.jpg",
+        path: "user",
+        icon: "/web_portfolio/assets/image/henri_rousseau.jpg",
+        component: ImageViewer,
+        props: { title: "favorite artist", imageUrl: "/web_portfolio/assets/image/henri_rousseau.jpg" }
     },
 
     // 📌 스티커
@@ -246,7 +256,7 @@ Goal
         fixed:false,
         component:Project,
         props: { 
-            title: "Giggle",
+            title: "Projects",
         }
     },
     {

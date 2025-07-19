@@ -6,11 +6,11 @@ export default function Icon({ icon, label, onClick, bounds, fixed = false }) {
     const nodeRef = useRef(null);
 
     return (
-        <Draggable nodeRef={nodeRef} bounds={bounds} disabled={fixed}>
-            <div ref={nodeRef} className={styles.iconContainer} onDoubleClick={onClick}>
+        <div bounds={bounds} disabled={fixed}>
+            <div className={styles.iconContainer} onClick={onClick}>
                 <img src={icon} alt={label} className={styles.iconImage} />
                 <p className={styles.iconLabel}>{label}</p>
             </div>
-        </Draggable>
+        </div>
     );
 }

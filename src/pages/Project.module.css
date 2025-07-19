@@ -7,7 +7,7 @@
 
 
 /* google title----------------------- */
-.giggle {
+/* .giggle {
     font-family: "Product Sans", Arial, sans-serif;
     font-size: 64px;
     font-weight: bold;
@@ -17,7 +17,7 @@
 .blue { color: #4285F4; }
 .red { color: #EA4335; }
 .yellow { color: #FBBC05; }
-.green { color: #34A853; }
+.green { color: #34A853; } */
 
 /* project icons---------------------- */
 .projectGrid {
@@ -125,3 +125,31 @@
     flex: 1; /* 제목이 버튼 옆에 꽉 차도록 */
 }
 
+/* search------------------------------- */
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 80%; /* 검색창 너비 */
+    height: 45px; /* 검색창 높이 */
+    background-color: #fff;
+    border-radius: 24px; /* 둥근 모서리 */
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28); /* 구글 스타일 그림자 */
+    padding: 0 14px;
+    transition: box-shadow 0.2s ease, border 0.2s ease;
+}
+
+.search input {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    background: transparent;
+}
+
+.search:focus-within {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.5);
+    border: 1px solid #dfe1e5;
+}
