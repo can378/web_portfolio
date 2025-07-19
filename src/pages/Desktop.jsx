@@ -68,11 +68,22 @@ export default function Desktop() {
 
     const toggleWindow = (id) => {
         const win = openWindows.find((w) => w.id === id);
-        if (win) bringToFront(id); // 클릭 시 맨 앞으로
-        setOpenWindows(openWindows.map((w) =>
-            w.id === id ? { ...w, isVisible: !w.isVisible } : w
-        ));
+        if (!win) return;
+
+        if (!win.isVisible) {
+            // 최소화된 창 복원 + 맨 앞으로
+            setOpenWindows(openWindows.map((w) =>
+                w.id === id ? { ...w, isVisible: true, zIndex: zCounter } : w
+            ));
+            setZCounter(zCounter + 1);
+        } else {
+            // 이미 열려있으면 최소화
+            setOpenWindows(openWindows.map((w) =>
+                w.id === id ? { ...w, isVisible: false } : w
+            ));
+        }
     };
+
 
     return (
         <div className={styles.desktopContainer}>
@@ -109,6 +120,7 @@ export default function Desktop() {
                                 {...icon.props}
                                 onClose={() => closeWindow(id)}
                                 onMinimize={() => minimizeWindow(id)}
+                                onOpen={openWindow}
                             />
                         </div>
                     );

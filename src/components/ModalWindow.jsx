@@ -7,58 +7,76 @@ export default function ModalWindow({
     onMinimize,
     children,
     defaultPosition,
-    defaultSize, // size props
-    isVisible=true,
+    defaultSize,
+    isVisible = true,
 }) {
     const modalRef = useRef(null);
-    const [position, setPosition] = useState(defaultPosition || { x: 100, y: 100 });
     const [size, setSize] = useState(defaultSize || { width: 400, height: 300 });
-    const [dragging, setDragging] = useState(false);
-    const [isMaximized, setIsMaximized] = useState(false); // 최대화 상태 관리
+    const [isMaximized, setIsMaximized] = useState(false);
+    const dragging = useRef(false);
+    const position = useRef(defaultPosition || { x: 100, y: 100 }); // 위치 기억
     const offset = useRef({ x: 0, y: 0 });
     const taskbarHeight = 40;
 
     if (!isVisible) return null;
 
     const handleMouseDown = (e) => {
-        if (isMaximized) return; // 최대화 상태일 때 드래그 막기
-        console.log("dragging");
-        setDragging(true);
-        const rect = modalRef.current.getBoundingClientRect();
+        if (isMaximized) return;
+
+        dragging.current = true;
+
+        // 현재 transform 위치 포함한 offset 계산
         offset.current = {
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top,
+            x: e.clientX - position.current.x,
+            y: e.clientY - position.current.y,
         };
+
         e.preventDefault();
     };
 
     const handleMouseMove = (e) => {
-        if (!dragging) return;
+        if (!dragging.current) return;
+
         const newX = e.clientX - offset.current.x;
         const newY = e.clientY - offset.current.y;
-        setPosition({ x: newX, y: newY });
+
+        position.current = { x: newX, y: newY };
+
+        if (modalRef.current) {
+            modalRef.current.style.transform = `translate(${newX}px, ${newY}px)`;
+        }
     };
 
     const handleMouseUp = () => {
-        setDragging(false);
+        dragging.current = false;
     };
 
     const maximizeWindow = () => {
-    if (!modalRef.current?.parentElement) return;
+    if (!modalRef.current) return;
 
-    const parentRect = modalRef.current.parentElement.getBoundingClientRect(); // 부모 크기 가져오기
-    setPosition({ x: 0, y: 0 });
+    modalRef.current.style.position = "fixed";
+    modalRef.current.style.top = "0px";
+    modalRef.current.style.left = "0px";
+    modalRef.current.style.transform = "none";
+
+    const viewportHeight = window.innerHeight - taskbarHeight;
+    const viewportWidth = window.innerWidth;
+
     setSize({
-        width: parentRect.width,
-        height: parentRect.height - taskbarHeight,
+        width: viewportWidth,
+        height: viewportHeight,
     });
 };
 
+const restoreWindow = () => {
+    if (!modalRef.current) return;
 
-    const restoreWindow = () => {
-        //setPosition(defaultPosition || { x: 100, y: 100 });
-        setSize(defaultSize || { width: 400, height: 300 });
-    };
+    modalRef.current.style.position = "absolute";
+    modalRef.current.style.transform = `translate(${position.current.x}px, ${position.current.y}px)`;
+
+    setSize(defaultSize || { width: 400, height: 300 });
+};
+
 
     const toggleMaximize = () => {
         if (!isMaximized) {
@@ -68,21 +86,24 @@ export default function ModalWindow({
         }
         setIsMaximized(!isMaximized);
     };
-    const toggleMinimize=()=>{
-        onMinimize();
 
-    }
-    // 창 크기 바뀌면 최대화 상태 유지
     useEffect(() => {
         const handleResize = () => {
             if (isMaximized) {
                 maximizeWindow();
             }
         };
+
+        const handleMouseUpGlobal = () => {
+            dragging.current = false;
+        };
+
         window.addEventListener("resize", handleResize);
+        window.addEventListener("mouseup", handleMouseUpGlobal);
 
         return () => {
             window.removeEventListener("resize", handleResize);
+            window.removeEventListener("mouseup", handleMouseUpGlobal);
         };
     }, [isMaximized]);
 
@@ -91,29 +112,24 @@ export default function ModalWindow({
             ref={modalRef}
             className={styles.modal}
             style={{
-                left: position.x,
-                top: position.y,
                 width: size.width,
                 height: size.height,
                 position: "absolute",
+                transform: `translate(${position.current.x}px, ${position.current.y}px)`,
             }}
             onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
         >
             <div
                 className={styles.titleBar}
                 onMouseDown={handleMouseDown}
-                onMouseUp={handleMouseUp}
             >
                 <span className={styles.title}>{title}</span>
                 <div className={styles.buttonGroup}>
-                    <button className={styles.minimizeButton} onClick={toggleMinimize}>🗕</button>
+                    <button className={styles.minimizeButton} onClick={onMinimize}>🗕</button>
                     <button className={styles.maximizeButton} onClick={toggleMaximize}>
-                        {isMaximized ? "🗗" : "🗖"} {/* 최대화/복원 */}
+                        {isMaximized ? "🗗" : "🗖"}
                     </button>
-                    <button className={styles.closeButton} onClick={onClose}>
-                        ✕
-                    </button>
+                    <button className={styles.closeButton} onClick={onClose}>✕</button>
                 </div>
             </div>
             <div className={styles.content}>{children}</div>
