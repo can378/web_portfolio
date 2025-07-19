@@ -4,7 +4,7 @@ import styles from "./Project.module.css";
 import projects from "../data/projects";
 import ReactMarkdown from "react-markdown";
 
-export default function Project({ title, onClose }) {
+export default function Project({ title, onClose,onMinimize }) {
     const [selectedProject, setSelectedProject] = useState(null); // 상세보기 상태
 
     return (
@@ -13,6 +13,7 @@ export default function Project({ title, onClose }) {
             onClose={onClose}
             defaultPosition={{ x: 150, y: 200 }}
             defaultSize={{ width: 600, height: 500 }}
+            onMinimize={onMinimize}
         >
             <div className={styles.container}>
                 {/* 상세보기일 때 상단 고정 뒤로가기 */}

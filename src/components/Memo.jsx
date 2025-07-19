@@ -1,11 +1,11 @@
 import { useState } from "react";
 import ModalWindow from "./ModalWindow";
 
-export default function Memo({ title, initialText, editable, onClose }) {
+export default function Memo({ title, initialText, editable, onClose, onMinimize }) {
     const [content, setContent] = useState(initialText);
 
     return (
-        <ModalWindow title={title} onClose={onClose}>
+        <ModalWindow title={title} onClose={onClose}  onMinimize={onMinimize}>
             <textarea
                 style={{
                     width: "100%",

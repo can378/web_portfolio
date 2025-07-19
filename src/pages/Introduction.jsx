@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ModalWindow from "../components/ModalWindow";
 import styles from "./Introduction.module.css";
 
-export default function Introduction({ title, onClose }) {
+export default function Introduction({ title, onClose, onMinimize }) {
     const [visibleChats, setVisibleChats] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [typingChat, setTypingChat] = useState(null);
@@ -56,6 +56,7 @@ export default function Introduction({ title, onClose }) {
             onClose={onClose}
             defaultPosition={{ x: 50, y: 80 }}
             defaultSize={{ width: 700, height: 600 }}
+            onMinimize={onMinimize}
         >
             <div className={styles.chatContainer}>
                 {/* 채팅 내용 */}

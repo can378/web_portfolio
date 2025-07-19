@@ -1,7 +1,7 @@
 import styles from "./Taskbar.module.css";
 import { useState, useEffect } from "react";
 
-export default function Taskbar({ openWindows }) {
+export default function Taskbar({ openWindows, toggleWindow }) {
     const [time, setTime] = useState(new Date());
 
     useEffect(() => {
@@ -16,13 +16,20 @@ export default function Taskbar({ openWindows }) {
         <div className={styles.taskbar}>
             <div className={styles.startButton}>🟢 Start</div>
             <div className={styles.openWindows}>
-                {openWindows.map(({ id, type }) => (
-                    <span key={id} className={styles.windowItem}>
-                        {type === "folder" && <>📁 {id}</>}
-                        {type === "memo" && <>📝 {id}</>}
-                        {type === "sticker" && <>📌 {id}</>}
-                        {type === "image" && <>🖼 {id}</>}
-                        {!["folder", "memo", "sticker", "image"].includes(type) && <>{id}</>}
+                {openWindows.map(({ id, type, title, isVisible }) => (
+                    <span
+                        key={id}
+                        className={styles.windowItem}
+                        onClick={() => toggleWindow(id)} // ✅ 클릭 시 보이기/숨기기
+                        style={{
+                            backgroundColor: isVisible ? "#404040" : "#202020",
+                        }}
+                    >
+                        {type === "folder" && <>📁 {title}</>}
+                        {type === "memo" && <>📝 {title}</>}
+                        {type === "sticker" && <>📌 {title}</>}
+                        {type === "image" && <>🖼 {title}</>}
+                        {!["folder", "memo", "sticker", "image"].includes(type) && <>{title}</>}
                     </span>
                 ))}
             </div>

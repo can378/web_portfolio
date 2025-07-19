@@ -3,7 +3,7 @@ import ModalWindow from "../components/ModalWindow";
 import historyData from "../data/history"; // 프로젝트 데이터
 import styles from "./History.module.css";
 
-export default function History({ onClose }) {
+export default function History({ onClose, onMinimize }) {
     const [position, setPosition] = useState({ x: 100, y: 0 });
     const [velocity, setVelocity] = useState({ x: 0, y: 0 });
     const [isJumping, setIsJumping] = useState(false);
@@ -99,6 +99,7 @@ export default function History({ onClose }) {
         <ModalWindow
             title="History Game"
             onClose={onClose}
+            onMinimize={onMinimize}
             defaultPosition={{ x: 50, y: 80 }}
             defaultSize={{ width: viewportWidth, height: 600 }}
         >

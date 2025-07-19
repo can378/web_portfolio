@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ModalWindow from "../components/ModalWindow";
 import styles from "./Welcome.module.css";
 
-export default function Welcome({ title, onClose }) {
+export default function Welcome({ title, onClose,onMinimize }) {
     const [showContent, setShowContent] = useState(false);
 
     useEffect(() => {
@@ -16,6 +16,7 @@ export default function Welcome({ title, onClose }) {
             onClose={onClose}
             defaultPosition={{ x: 50, y: 80 }}
             defaultSize={{ width: 700, height: 400 }}
+            onMinimize={onMinimize}
         >
             <div className={`${styles.container} ${showContent ? styles.fadeIn : ""}`}>
                 <h1 className={styles.title}>👋 Hello, Welcome!</h1>

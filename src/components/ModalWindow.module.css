@@ -47,3 +47,20 @@
   height: calc(100% - 40px); /* TitleBar 높이 제외 */
   overflow: auto; /* ✅ 넘치면 스크롤 표시 */
 }
+
+.buttonGroup {
+    display: flex;
+    gap: 4px;
+}
+
+.maximizeButton, .closeButton,.minimizeButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 2px 6px;
+}
+
+.maximizeButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+}

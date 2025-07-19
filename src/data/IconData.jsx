@@ -23,8 +23,8 @@ const iconArray = [
     {
         id: 101,
         type: "folder",
-        name: "Trash",
-        icon: "/web_portfolio/assets/image/icons/trash_icon.png",
+        name: "user",
+        icon: "/web_portfolio/assets/image/icons/user_icon.png",
         path: "desktop",
         component: FolderWindow,
         props: { folderId: 101 },

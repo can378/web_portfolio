@@ -1,9 +1,13 @@
 import ModalWindow from "../components/ModalWindow";
 import styles from "./GameLibrary.module.css";
 
-export default function GameLibrary({ title, headerImage, gameImages, onClose }) {
+export default function GameLibrary({ title, headerImage, gameImages, onClose, onMinimize }) {
     return (
-        <ModalWindow title={title} onClose={onClose}>
+        <ModalWindow
+            title={title}
+            onClose={onClose}
+            onMinimize={onMinimize} // ✅ 최소화 콜백 추가
+        >
             <div className={styles.container}>
                 {/* 왼쪽 상단 고정 이미지 */}
                 <div className={styles.header}>
