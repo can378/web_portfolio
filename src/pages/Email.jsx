@@ -20,31 +20,47 @@ export default function Email({ title, onClose, onMinimize }) {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    sender: receiverEmail,
-                    recipient: "devmoon00@gmail.com",
-                    subject: "Email from web_portfolio",
-                    body: message,
+                    sender: receiverEmail,           // 보내는 사람 이메일
+                    recipient: "devmoon00@gmail.com", // 받는 사람 이메일 (고정)
+                    subject: "포트폴리오에서 온 새 메시지", // 제목
+                    body: message,                   // 메시지 본문
                 }),
             });
 
+            // 서버 응답이 성공이면
             if (response.ok) {
                 const result = await response.json();
                 console.log(result);
                 setStatus("메일 전송 성공!");
                 setReceiverEmail(""); // 입력 초기화
                 setMessage("");
-            } else {
+            } 
+            // 서버가 400/500 오류를 반환했으면
+            else {
                 const errorResult = await response.json();
                 console.error(errorResult);
-                setStatus("메일 전송 실패. 다시 시도해 주세요.");
+
+                let errorMessage = "";
+                if (typeof errorResult.detail === "string") {
+                    errorMessage = errorResult.detail; // 문자열 detail
+                } else if (Array.isArray(errorResult.detail)) {
+                    errorMessage = errorResult.detail[0]?.msg || "유효성 검사 실패";
+                } else {
+                    errorMessage = "알 수 없는 오류가 발생했습니다.";
+                }
+
+                setStatus(`${errorMessage}`);
             }
-        } catch (error) {
+        } 
+        // fetch 자체가 실패한 경우 (네트워크 끊김 등)
+        catch (error) {
             console.error(error);
-            setStatus("오류 발생. 네트워크를 확인하세요.");
+            setStatus("네트워크 오류가 발생했습니다.");
         } finally {
             setLoading(false);
         }
     };
+
 
 
     return (
