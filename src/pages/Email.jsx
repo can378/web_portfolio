@@ -13,33 +13,39 @@ export default function Email({ title, onClose, onMinimize }) {
         setLoading(true);
         setStatus(""); // 상태 초기화
 
-        const formData = new FormData();
-        formData.append("access_key", "");
-        formData.append("subject", "포트폴리오에서 온 새 메시지"); // 메일 제목
-        formData.append("email", receiverEmail); // 보낸 사람 이메일
-        formData.append("message", message); // 메시지 내용
-
         try {
-            const response = await fetch("https://api.web3forms.com/submit", {
+            const response = await fetch("http://localhost:8000/email/send", {
                 method: "POST",
-                body: formData,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    sender: receiverEmail,
+                    recipient: "devmoon00@gmail.com",
+                    subject: "Email from web_portfolio",
+                    body: message,
+                }),
             });
 
-            const result = await response.json();
-            if (result.success) {
-                setStatus("✅ 메일 전송 성공!");
+            if (response.ok) {
+                const result = await response.json();
+                console.log(result);
+                setStatus("메일 전송 성공!");
                 setReceiverEmail(""); // 입력 초기화
                 setMessage("");
             } else {
-                setStatus("❌ 메일 전송 실패. 다시 시도해 주세요.");
+                const errorResult = await response.json();
+                console.error(errorResult);
+                setStatus("메일 전송 실패. 다시 시도해 주세요.");
             }
         } catch (error) {
             console.error(error);
-            setStatus("❌ 오류 발생. 네트워크를 확인하세요.");
+            setStatus("오류 발생. 네트워크를 확인하세요.");
         } finally {
             setLoading(false);
         }
     };
+
 
     return (
         <ModalWindow
@@ -65,7 +71,7 @@ export default function Email({ title, onClose, onMinimize }) {
                     receiver
                     <input
                         type="email"
-                        value="m@naver.com"
+                        value="devmoon00@gmail.com"
                         disabled
                         className={styles.input}
                     />
