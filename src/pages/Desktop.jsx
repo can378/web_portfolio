@@ -2,6 +2,7 @@ import iconMap from "../data/IconData";
 import Icon from "../components/Icon";
 import Taskbar from "../components/TaskBar";
 import styles from "./Desktop.module.css";
+import AssistantDog from "../components/AssistantDog";
 import { useState } from "react";
 
 export default function Desktop() {
@@ -126,6 +127,10 @@ export default function Desktop() {
                     );
                 })}
             </div>
+            
+            {/* Assistant AI Agent Dog */}
+            <AssistantDog status="sitting" />
+
 
             {/* 작업표시줄 */}
             <Taskbar
