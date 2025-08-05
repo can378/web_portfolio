@@ -118,8 +118,9 @@ const AssistantDog = ({ status = "sitting", size = 100 }) => {
               onClose={() => setShowChat(false)}
               style={{
                 position: "absolute",
-                top: `-${size * 1.2}px`,
-                left: "0",
+                bottom: `${size + 10}px`,
+                left: "50%",
+                transform: "translateX(-50%)",
               }}
             />
           )}
