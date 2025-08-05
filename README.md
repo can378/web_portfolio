@@ -1,8 +1,9 @@
 # hello
 
 # Start
+.env에 API_BASE_URL설정
 npm install
-
+npm run dev
 
 # Deploy
 수정후에는 git에 올리고
