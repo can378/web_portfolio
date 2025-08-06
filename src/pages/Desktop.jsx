@@ -1,6 +1,6 @@
 import iconMap from "../data/IconData";
 import Icon from "../components/Icon";
-import Taskbar from "../components/TaskBar";
+import Taskbar from "../components/Taskbar";
 import styles from "./Desktop.module.css";
 import AssistantDog from "../components/AssistantDog";
 import { useState } from "react";
