@@ -3,6 +3,9 @@ name: Deploy Vite front app of web portfolio
 on:
   push:
     branches: [main]
+    
+permissions:
+  content: write
 
 jobs:
   build-deploy:
