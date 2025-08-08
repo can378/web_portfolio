@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { askAgent } from "../utils/api";
+import styles from "./AssistantDogChat.module.css";
 
 const AssistantDogChat = ({ onClose, style }) => {
   const [messages, setMessages] = useState([
@@ -37,44 +38,23 @@ const AssistantDogChat = ({ onClose, style }) => {
 
   return (
     <div
+      className={styles.chatContainer}
+      style={style}
       onMouseDown={(e) => e.stopPropagation()}
       onMouseUp={(e) => e.stopPropagation()}
-      style={{
-        ...style,
-        background: "#fff",
-        padding: "10px",
-        borderRadius: "12px",
-        width: "250px",
-        boxShadow: "0 0 10px rgba(0,0,0,0.2)",
-      }}
     >
-      <div
-        style={{
-          maxHeight: "150px",
-          overflowY: "auto",
-          marginBottom: "8px",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+      <div className={styles.messagesContainer}>
         {messages.map((m, i) => (
           <div
             key={i}
-            style={{
-              textAlign: m.role === "user" ? "right" : "left",
-              marginBottom: "8px",
-              display: "flex",
-              justifyContent: m.role === "user" ? "flex-end" : "flex-start",
-            }}
+            className={`${styles.messageRow} ${
+              m.role === "user" ? styles.userRow : styles.botRow
+            }`}
           >
             <span
-              style={{
-                background: m.role === "user" ? "#daf" : "#eee",
-                padding: "6px 10px",
-                borderRadius: "12px",
-                maxWidth: "80%",
-                wordBreak: "break-word",
-              }}
+              className={`${styles.messageBubble} ${
+                m.role === "user" ? styles.userBubble : styles.botBubble
+              }`}
             >
               {m.content}
             </span>
@@ -82,18 +62,17 @@ const AssistantDogChat = ({ onClose, style }) => {
         ))}
         <div ref={messageEndRef} />
       </div>
-      <div style={{ display: "flex", gap: "4px" }}>
+      <div className={styles.inputArea}>
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
-          style={{ flex: 1 }}
           disabled={loading}
         />
         <button onClick={handleSend} disabled={loading}>
           {loading ? "..." : "전송"}
         </button>
-        <button onClick={onClose}>✕</button>
+        <button className={styles.closeBtn} onClick={onClose}>✕</button>
       </div>
     </div>
   );
