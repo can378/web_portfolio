@@ -24,7 +24,7 @@
 .iconLabel {
   margin-top: 4px;
   font-size: 12px;
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
   word-break: keep-all;
 }
