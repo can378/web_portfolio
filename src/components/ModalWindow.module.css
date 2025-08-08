@@ -64,3 +64,15 @@
 .maximizeButton:hover {
     background: rgba(255, 255, 255, 0.1);
 }
+/* 드래그 제스처가 브라우저 스크롤/당겨서새로고침에 가로채지 않도록 */
+.titleBar {
+  touch-action: none;
+  -ms-touch-action: none;
+  user-select: none;
+  cursor: move;
+}
+
+/* 모달은 기본 absolute로 두는 전제 */
+.modal {
+  position: absolute;
+}
