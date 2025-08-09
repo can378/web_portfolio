@@ -226,7 +226,7 @@ Goal
         type: "pdf",
         name: "resume",
         path: "desktop",
-        icon: "/web_portfolio/assets/image/icons/pdf_icon.png",
+        icon: "/web_portfolio/assets/image/icons/resume_icon.png",
         fixed: false,
         filepath:"/web_portfolio/assets/pdf/cv.pdf",
     },
@@ -253,7 +253,7 @@ Goal
         type:"website",
         name:"Projects",
         path:"desktop",
-        icon:"/web_portfolio/assets/image/icons/website_icon.png",
+        icon:"/web_portfolio/assets/image/icons/projects_icon.png",
         fixed:false,
         component:Project,
         props: { 
