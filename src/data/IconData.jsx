@@ -30,7 +30,7 @@ const iconArray = [
         path: "desktop",
         component: FolderWindow,
         props: { folderId: 101 },
-        childIds: [203,204,400,401,1000],
+        childIds: [203,204,401,1000],
     },
     {
         id: 102,
@@ -150,12 +150,12 @@ const iconArray = [
     {
         id: 401,
         type: "image",
-        name: "favorite artist",
+        name: "favorite",
         imageUrl: "/web_portfolio/assets/image/henri_rousseau.jpg",
         path: "user",
         icon: "/web_portfolio/assets/image/henri_rousseau.jpg",
         component: ImageViewer,
-        props: { title: "favorite artist", imageUrl: "/web_portfolio/assets/image/henri_rousseau.jpg" }
+        props: { title: "favorite", imageUrl: "/web_portfolio/assets/image/henri_rousseau.jpg" }
     },
 
     // 📌 스티커
