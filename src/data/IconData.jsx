@@ -283,7 +283,7 @@ Goal
         type:"website",
         name:"History Game",
         path:"desktop",
-        icon:"/web_portfolio/assets/test.jpg",
+        icon:"/web_portfolio/assets/image/icons/game_icon.png",
         fixed:false,
         component:History,
     },
