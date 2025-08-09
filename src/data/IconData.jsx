@@ -9,13 +9,15 @@ import Introduction from "../pages/Introduction";
 import History from "../pages/History";
 import Email from "../pages/Email";
 
+import folder_icon from "/web_portfolio/assets/image/icons/folder_icon.png";
+
 const iconArray = [
     // 📂 폴더
     {
         id: 100,
         type: "folder",
         name: "Work",
-        icon: "/web_portfolio/assets/image/icons/folder_icon.png",
+        icon: folder_icon,
         path: "desktop",
         component: FolderWindow,
         props: { folderId: 100 },

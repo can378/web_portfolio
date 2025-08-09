@@ -1,78 +1,84 @@
 .modal {
-  border: 2px solid #333;
-  border-radius: 6px;
-  background-color: #f0f0f0;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  user-select: none;
   position: absolute;
+  background: #CFCFCF;                  /* 베이지 톤(이미지 내부 배경) */
+  border: 2px solid var(--main-border-color);            /* 회색 프레임 */
+  border-radius: 4px;
+  /* 이미지처럼 깊게 보이는 그림자(본체 그림자 + 바닥판 느낌) */
+  box-shadow:
+    0 2px 0 #bdbdbd inset,              /* 내부 살짝 눌린 라인 */
+    12px 12px 0 rgba(0,0,0,0.25);       /* 외부 그림자 */
+  user-select: none;
   overflow: hidden;
+  z-index: 1000;
 }
 
+/* 타이틀바 */
 .titleBar {
-  background-color: #0078d7; /* 윈도우 파란색 */
-  color: white;
-  padding: 6px 10px;
+  height: 28px;
+  background: #CFCFCF;                  /* 이미지의 연한 회색 */
+  /*border-bottom: 2px solid #808080;*/
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  cursor: grab;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  justify-content: space-between;
+  padding: 0 6px 0 8px;
+  cursor: move;
+  touch-action: none;
 }
 
-.titleBar:active {
-  cursor: grabbing;
+.titleLeft {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.windowIcon {
+  width: 14px;
+  height: 14px;
+  image-rendering: pixelated;           /* 레트로 느낌 */
 }
 
 .title {
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 600;
+  color: #111;
 }
 
-.closeButton {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 16px;
+/* 우측 버튼(작은 정사각형) */
+.buttonGroup {
+  display: flex;
+  gap: 4px;
+}
+
+.squareBtn {
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 0;
+  border: 2px solid var(--main-border-color);  
+  border-radius: 3px;
+  background: #E5E5E5;
   cursor: pointer;
 }
+.squareBtn:hover { filter: brightness(0.95); }
 
-.closeButton:hover {
-  color: #ff5c5c;
+.closeBtn {
+  background: #CF1C1C;                  /* 빨간 X */
+  color: #fff;
 }
+.closeBtn:hover { background: #a71b1b; }
 
+/* 콘텐츠 영역 (타이틀바 높이 제외) */
 .content {
+  height: calc(100% - 36px);     /* 타이틀바 제외 + 여유 */
+  margin: 4px;                   /* 바깥 프레임 여유 */
+  margin-top:0px;
   padding: 10px;
+  overflow: auto;
   font-size: 14px;
-  height: calc(100% - 40px); /* TitleBar 높이 제외 */
-  overflow: auto; /* ✅ 넘치면 스크롤 표시 */
+  background: var(--main-beige-color);           /* 내부 배경 */
+  border: 2px solid var(--main-border-color);        /* 안쪽 테두리 */
+  border-radius: 2px;
+  /*box-shadow: inset 0 0 0 2px #fff;*/ /* 레트로 느낌의 안쪽 라인 */
 }
 
-.buttonGroup {
-    display: flex;
-    gap: 4px;
-}
-
-.maximizeButton, .closeButton,.minimizeButton {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 2px 6px;
-}
-
-.maximizeButton:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-/* 드래그 제스처가 브라우저 스크롤/당겨서새로고침에 가로채지 않도록 */
-.titleBar {
-  touch-action: none;
-  -ms-touch-action: none;
-  user-select: none;
-  cursor: move;
-}
-
-/* 모달은 기본 absolute로 두는 전제 */
-.modal {
-  position: absolute;
-}

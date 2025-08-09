@@ -3,6 +3,7 @@ import styles from "./ModalWindow.module.css";
 
 export default function ModalWindow({
   title,
+  iconSrc,
   onClose,
   onMinimize,
   children,
@@ -11,47 +12,35 @@ export default function ModalWindow({
   isVisible = true,
 }) {
   const modalRef = useRef(null);
-  const [size, setSize] = useState(defaultSize || { width: 400, height: 300 });
+  const [size, setSize] = useState(defaultSize || { width: 560, height: 360 });
   const [isMaximized, setIsMaximized] = useState(false);
 
-  // 드래그 상태/좌표
   const dragging = useRef(false);
-  const position = useRef(defaultPosition || { x: 100, y: 100 });
+  const position = useRef(defaultPosition || { x: 80, y: 60 });
   const offset = useRef({ x: 0, y: 0 });
 
   const taskbarHeight = 40;
-
   if (!isVisible) return null;
 
-  // === 포인터 드래그 ===
   const handlePointerDown = (e) => {
     if (isMaximized) return;
-    if (e.target.closest("button")) return;
+    if (e.target.closest("button")) return; // 버튼은 드래그 제외
 
     dragging.current = true;
-
-    // 현재 포인터 기준 offset 계산
     offset.current = {
       x: e.clientX - position.current.x,
       y: e.clientY - position.current.y,
     };
-
-    // 모달이 포인터 캡처 -> 창 밖으로 나가도 move/up 받음
     if (modalRef.current && e.pointerId != null) {
-      try {
-        modalRef.current.setPointerCapture(e.pointerId);
-      } catch {}
+      try { modalRef.current.setPointerCapture(e.pointerId); } catch {}
     }
   };
 
   const handlePointerMove = (e) => {
     if (!dragging.current) return;
-
     const newX = e.clientX - offset.current.x;
     const newY = e.clientY - offset.current.y;
-
     position.current = { x: newX, y: newY };
-
     if (modalRef.current) {
       modalRef.current.style.transform = `translate(${newX}px, ${newY}px)`;
     }
@@ -60,66 +49,39 @@ export default function ModalWindow({
   const handlePointerUp = (e) => {
     dragging.current = false;
     if (modalRef.current && e.pointerId != null) {
-      try {
-        modalRef.current.releasePointerCapture(e.pointerId);
-      } catch {}
+      try { modalRef.current.releasePointerCapture(e.pointerId); } catch {}
     }
   };
 
-  // === 마우스 업(안전망) ===
-  const handleMouseUp = () => {
-    dragging.current = false;
-  };
+  const handleMouseUp = () => { dragging.current = false; };
 
-  // === 최대화/복원 ===
   const maximizeWindow = () => {
     if (!modalRef.current) return;
-
     modalRef.current.style.position = "fixed";
     modalRef.current.style.top = "0px";
     modalRef.current.style.left = "0px";
     modalRef.current.style.transform = "none";
-
-    const viewportHeight = window.innerHeight - taskbarHeight;
-    const viewportWidth = window.innerWidth;
-
-    setSize({
-      width: viewportWidth,
-      height: viewportHeight,
-    });
+    setSize({ width: window.innerWidth, height: window.innerHeight - taskbarHeight });
   };
 
   const restoreWindow = () => {
     if (!modalRef.current) return;
-
     modalRef.current.style.position = "absolute";
     modalRef.current.style.transform = `translate(${position.current.x}px, ${position.current.y}px)`;
-
-    setSize(defaultSize || { width: 400, height: 300 });
+    setSize(defaultSize || { width: 560, height: 360 });
   };
 
   const toggleMaximize = () => {
-    if (!isMaximized) {
-      maximizeWindow();
-    } else {
-      restoreWindow();
-    }
+    if (!isMaximized) maximizeWindow(); else restoreWindow();
     setIsMaximized(!isMaximized);
   };
 
-  // 리사이즈/포인터 업 글로벌 처리
   useEffect(() => {
-    const handleResize = () => {
-      if (isMaximized) {
-        maximizeWindow();
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
+    const onResize = () => { if (isMaximized) maximizeWindow(); };
+    window.addEventListener("resize", onResize);
     window.addEventListener("mouseup", handleMouseUp);
-
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", onResize);
       window.removeEventListener("mouseup", handleMouseUp);
     };
   }, [isMaximized]);
@@ -137,19 +99,21 @@ export default function ModalWindow({
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
     >
-      <div
-        className={styles.titleBar}
-        onPointerDown={handlePointerDown}
-      >
-        <span className={styles.title}>{title}</span>
+      <div className={styles.titleBar} onPointerDown={handlePointerDown}>
+        <div className={styles.titleLeft}>
+          {iconSrc && <img className={styles.windowIcon} src={iconSrc} alt="" />}
+          <span className={styles.title}>{title}</span>
+        </div>
+
         <div className={styles.buttonGroup}>
-          <button className={styles.minimizeButton} onClick={onMinimize}>🗕</button>
-          <button className={styles.maximizeButton} onClick={toggleMaximize}>
+          <button className={styles.squareBtn} onClick={onMinimize} aria-label="Minimize">▁</button>
+          <button className={styles.squareBtn} onClick={toggleMaximize} aria-label="Maximize">
             {isMaximized ? "🗗" : "🗖"}
           </button>
-          <button className={styles.closeButton} onClick={onClose}>✕</button>
+          <button className={`${styles.squareBtn} ${styles.closeBtn}`} onClick={onClose} aria-label="Close">✕</button>
         </div>
       </div>
+
       <div className={styles.content}>{children}</div>
     </div>
   );

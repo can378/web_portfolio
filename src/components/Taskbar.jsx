@@ -14,15 +14,15 @@ export default function Taskbar({ openWindows, toggleWindow }) {
 
     return (
         <div className={styles.taskbar}>
-            <div className={styles.startButton}>🟢 Start</div>
+            <div className={styles.startButton}>Start</div>
             <div className={styles.openWindows}>
                 {openWindows.map(({ id, type, title, isVisible }) => (
                     <span
                         key={id}
                         className={styles.windowItem}
-                        onClick={() => toggleWindow(id)} // ✅ 클릭 시 보이기/숨기기
+                        onClick={() => toggleWindow(id)} // 클릭 시 보이기/숨기기
                         style={{
-                            backgroundColor: isVisible ? "#404040" : "#202020",
+                            backgroundColor: isVisible ? "#b8b8b8ff" : "#ecececff",
                         }}
                     >
                         {type === "folder" && <>📁 {title}</>}

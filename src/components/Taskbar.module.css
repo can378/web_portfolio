@@ -2,8 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #202020;
-    color: white;
+    background-color: var(--main-gray-color);
     height: 40px;
     padding: 0 10px;
 
@@ -16,14 +15,14 @@
 }
 
 .startButton {
-    background-color: #0078d7;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
+    border:solid 2px #333;
 }
 
 .startButton:hover {
-    background-color: #005a9e;
+
 }
 
 .openWindows {
@@ -32,16 +31,17 @@
 }
 
 .windowItem {
-    background-color: #404040;
+    background-color: var(--main-gray-color);
     padding: 3px 8px;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .windowItem:hover {
-    background-color: #606060;
+    background-color: #919191;
 }
 
 .clock {
     font-size: 14px;
+    background-color: antiquewhite;
 }

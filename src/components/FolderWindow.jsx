@@ -4,6 +4,7 @@ import Icon from "./Icon";
 
 export default function FolderWindow({
     folderId,
+    iconSrc,
     onClose,
     onOpen, // 부모 Desktop의 openWindow를 받음
     defaultPosition,
@@ -16,6 +17,7 @@ export default function FolderWindow({
     return (
         <ModalWindow
             title={folder.name}
+            iconSrc={iconSrc}
             onClose={onClose}
             onMinimize={onMinimize}
             defaultPosition={defaultPosition}
