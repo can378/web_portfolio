@@ -6,19 +6,6 @@
 }
 
 
-/* google title----------------------- */
-/* .giggle {
-    font-family: "Product Sans", Arial, sans-serif;
-    font-size: 64px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.blue { color: #4285F4; }
-.red { color: #EA4335; }
-.yellow { color: #FBBC05; }
-.green { color: #34A853; } */
-
 /* project icons---------------------- */
 .projectGrid {
     display: flex;
@@ -44,7 +31,9 @@
     width: 64px;
     height: 64px;
     border-radius: 8px;
-    object-fit: cover;
+    object-fit: contain; /* 비율 유지, 여백 생김 */
+    /*background-color: #f9f9f9;*/ /* 여백 배경색 */
+    padding: 4px; /* 살짝 여백 */
 }
 
 .projectTitle {

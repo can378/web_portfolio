@@ -32,12 +32,7 @@ export default function Project({ title, onClose,onMinimize }) {
                 {/* Google 스타일 */}
                 {!selectedProject && (
                     <h1 className={styles.giggle}>
-                        <span className={styles.blue}>A</span>
-                        <span className={styles.red}>r</span>
-                        <span className={styles.yellow}>c</span>
-                        <span className={styles.blue}>h</span>
-                        <span className={styles.green}>i</span>
-                        <span className={styles.red}>ves</span>
+                        Archives
                     </h1>
                 )}
 
