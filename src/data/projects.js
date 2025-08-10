@@ -5,8 +5,8 @@ const projects = [
     title: "자산화",
     short_description: "사용자 편의성을 증대하고자 기능 개선",
     technologies: ["C++", "SDL2", "Team Management"],
-    icon:"/web_portfolio/assets/image/projects/test.jpg",
-    image: "/web_portfolio/assets/image/projects/test.jpg",
+    icon:"/web_portfolio/assets/image/icons/metafactory_icon.png",
+    image: "/web_portfolio/assets/image/icons/metafactory_icon.png",
     description: `
 **진행 일정: 2025.03.17 ~ 2025.04.20 (분석/설계:10일, 개발:15일)**
 
@@ -133,8 +133,8 @@ node.js cluster mode 사용
     title: "Library - Bible",
     short_description: "library web",
     technologies: ["Python", "PyTorch", "Mediapipe"],
-    icon:"/web_portfolio/assets/image/projects/test.jpg",
-    image: "/web_portfolio/assets/image/projects/test.jpg",
+    icon:"/web_portfolio/assets/image/icons/bible_icon.png",
+    image: "/web_portfolio/assets/image/icons/bible_icon.png",
     description:`
 
 # Bible - 온라인 도서 대여 서비스
@@ -241,8 +241,8 @@ Notion, Googl Drive, drow.io, git, Figma
     title: "아무개전",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
-    icon:"/web_portfolio/assets/image/projects/test.jpg",
-    image: "/web_portfolio/assets/image/projects/test.jpg",
+    icon:"/web_portfolio/assets/image/icons/spirit_icon.png",
+    image: "/web_portfolio/assets/image/icons/spirit_icon.png",
     description:`
 ### 개발 기획
 
@@ -291,24 +291,24 @@ https://github.com/can378/SpiritGameProject.git
     title: "새콤달콤 딸기공장",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
-    icon:"/web_portfolio/assets/image/projects/test.jpg",
-    image: "/web_portfolio/assets/image/projects/test.jpg",
+    icon:"/web_portfolio/assets/image/icons/strawberry_icon.png",
+    image: "/web_portfolio/assets/image/icons/strawberry_icon.png",
     description:``
   },
   {
     title: "멍냥멍냥",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
-    icon:"/web_portfolio/assets/image/projects/test.jpg",
-    image: "/web_portfolio/assets/image/projects/test.jpg",
+    icon:"/web_portfolio/assets/image/icons/dog_cat_icon.png",
+    image: "/web_portfolio/assets/image/icons/dog_cat_icon.png",
     description:``
   },
   {
     title: "ERROR",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
-    icon:"/web_portfolio/assets/image/projects/test.jpg",
-    image: "/web_portfolio/assets/image/projects/test.jpg",
+    icon:"/web_portfolio/assets/image/icons/error_icon.png",
+    image: "/web_portfolio/assets/image/icons/error_icon.png",
     description:``
   },
 
@@ -317,24 +317,24 @@ https://github.com/can378/SpiritGameProject.git
     title: "baseball info",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
-    icon:"/web_portfolio/assets/image/projects/test.jpg",
-    image: "/web_portfolio/assets/image/projects/test.jpg",
+    icon:"/web_portfolio/assets/image/icons/baseball_icon.png",
+    image: "/web_portfolio/assets/image/icons/baseball_icon.png",
     description:``
   },
   {
     title: "쭐래쭐래",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
-    icon:"/web_portfolio/assets/image/projects/test.jpg",
-    image: "/web_portfolio/assets/image/projects/test.jpg",
+    icon:"/web_portfolio/assets/image/icons/arduino_icon.png",
+    image: "/web_portfolio/assets/image/icons/arduino_icon.png",
     description:``
   },
   {
     title: "Pose Estimation",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
-    icon:"/web_portfolio/assets/image/projects/test.jpg",
-    image: "/web_portfolio/assets/image/projects/test.jpg",
+    icon:"/web_portfolio/assets/image/icons/pose_icon.png",
+    image: "/web_portfolio/assets/image/icons/pose_icon.png",
     description:`### test`
   },
 
