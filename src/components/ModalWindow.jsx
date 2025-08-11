@@ -12,7 +12,7 @@ export default function ModalWindow({
   isVisible = true,
 }) {
   const modalRef = useRef(null);
-  const [size, setSize] = useState(defaultSize || { width: 560, height: 360 });
+  const [size, setSize] = useState(defaultSize || { width: 450, height: 360 });
   const [isMaximized, setIsMaximized] = useState(false);
 
   const dragging = useRef(false);
