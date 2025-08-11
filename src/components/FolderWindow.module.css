@@ -1,0 +1,97 @@
+/* FolderWindow.module.css */
+.frame {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* 헤더 / 내용 / 푸터 */
+  height: 100%;
+  gap: 6px;
+}
+
+/* menu bar */
+.menubar {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  padding: 4px;
+  padding-left: 8px;
+  border-bottom: 1px solid #333;
+}
+
+/* toolbar */
+.toolbar {
+  border-bottom: 1px solid #333;
+}
+.toolbar img{
+    height:30px;
+}
+
+
+/* address row */
+.addressRow {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  border-bottom: 1px solid #333;
+  align-items: center;
+  gap: 3px;
+  padding:3px;
+}
+.addressLabel {
+  display: flex;
+  align-items: center;   /* 세로 중앙 */
+  /* justify-content: center;  // 글자를 가운데 정렬하고 싶으면 추가 */
+  height: 24px;
+  padding: 0 6px;
+  border: 1px solid #333;
+  background: #eee;
+  border-radius: 2px;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+.returnIcon {
+  width: 14px;           /* 아주 작게 */
+  height: 14px;
+  object-fit: contain;
+  display: block;
+  opacity: 0.85;         /* (선택) 레트로 느낌 */
+}
+
+.addressInput {
+  height: 24px;
+  border: 1px solid #999;
+  outline: none;
+  padding: 0 6px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.goBtn {
+  display: flex;           /* 가로 정렬 */
+  align-items: center;     /* 세로 중앙 */
+  gap: 4px;                /* 이미지와 텍스트 간격 */
+  height: 24px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 2px;
+  background: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* 내용 */
+.content {
+  padding: 10px;
+}
+
+/* 하단 상태바 */
+.statusbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  border-top: 1px solid #333;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.ready{
+    border-left:1px solid #b8b8b8;
+    padding-left:10px;
+}

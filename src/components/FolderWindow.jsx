@@ -1,44 +1,82 @@
 import iconMap from "../data/IconData";
 import ModalWindow from "./ModalWindow";
 import Icon from "./Icon";
+import styles from "./FolderWindow.module.css";
 
 export default function FolderWindow({
-    folderId,
-    iconSrc,
-    onClose,
-    onOpen, // 부모 Desktop의 openWindow를 받음
-    defaultPosition,
-    defaultSize,
-    onMinimize
+  folderId,
+  iconSrc,
+  onClose,
+  onOpen,
+  defaultPosition,
+  defaultSize,
+  onMinimize,
 }) {
-    const folder = iconMap.get(folderId);
-    if (!folder) return null;
+  const folder = iconMap.get(folderId);
+  if (!folder) return null;
 
-    return (
-        <ModalWindow
-            title={folder.name}
-            iconSrc={iconSrc}
-            onClose={onClose}
-            onMinimize={onMinimize}
-            defaultPosition={defaultPosition}
-            defaultSize={defaultSize}
-        >
-            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-                {folder.childIds?.map((childId) => {
-                    const child = iconMap.get(childId);
-                    if (!child) return null;
+  return (
+    <ModalWindow
+      title={folder.name}
+      iconSrc={iconSrc}
+      onClose={onClose}
+      onMinimize={onMinimize}
+      defaultPosition={defaultPosition}
+      defaultSize={defaultSize}
+    >
+      <div className={styles.frame}>
+        {/* --- 헤더 영역 --- */}
+        <div>
+          <div className={styles.menubar}>
+            <span>File</span><span>Edit</span><span>View</span>
+            <span>Favorites</span><span>Tools</span><span>Help</span>
+          </div>
 
-                    return (
-                        <Icon
-                            key={child.id}
-                            icon={child.icon}
-                            label={child.name}
-                            onClick={() => onOpen(child.id)}
-                            fixed={true}
-                        />
-                    );
-                })}
-            </div>
-        </ModalWindow>
-    );
+          <div className={styles.toolbar}>
+            <img src="/web_portfolio/assets/image/etc/toolbar.png"/>
+          </div>
+
+          <div className={styles.addressRow}>
+            <div className={styles.addressLabel}>Address</div>
+            <input className={styles.addressInput} placeholder="C:\\" />
+             
+            <button className={styles.goBtn}>
+                <img
+                    className={styles.returnIcon}
+                    src="/web_portfolio/assets/image/etc/return.png"
+                    alt="return"
+                />
+                Go
+            </button>
+
+          </div>
+        </div>
+
+        {/* --- 콘텐츠 영역 --- */}
+        <div className={styles.content}>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            {folder.childIds?.map((childId) => {
+              const child = iconMap.get(childId);
+              if (!child) return null;
+              return (
+                <Icon
+                  key={child.id}
+                  icon={child.icon}
+                  label={child.name}
+                  onClick={() => onOpen(child.id)}
+                  fixed
+                />
+              );
+            })}
+          </div>
+        </div>
+
+        {/* --- 푸터(상태바) --- */}
+        <div className={styles.statusbar}>
+          <span>{folder.childIds?.length ?? 0} objects</span>
+          <span className={styles.ready}>Ready</span>
+        </div>
+      </div>
+    </ModalWindow>
+  );
 }
