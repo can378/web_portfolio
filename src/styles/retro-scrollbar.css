@@ -1,0 +1,112 @@
+/* WebKit 계열 공통 */
+*::-webkit-scrollbar { width: 22px; height: 22px; background: #e0deda; }
+
+*::-webkit-scrollbar-track {
+  background: #efe9df;
+  border: 1px solid #6a6a6a;
+  box-shadow:
+    inset 1px 1px 0 #ffffff,
+    inset -1px -1px 0 #9a9a9a;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #e9e6e3;
+  border: 1px solid #6a6a6a;
+  border-radius: 2px;
+  box-shadow:
+    inset 1px 1px 0 #ffffff,
+    inset -1px -1px 0 #7a7a7a;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #cfcfcf);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #b3b3b3);
+  box-shadow:
+    inset 1px 1px 0 #eaeaea,
+    inset -1px -1px 0 #5a5a5a;
+}
+
+*::-webkit-scrollbar-corner { background: #efe9df; }
+
+/* 위/아래 버튼 공통 */
+*::-webkit-scrollbar-button {
+  width: 22px;
+  height: 22px;
+  background: #e0deda;
+  border: 1px solid #6a6a6a;
+  box-shadow:
+    inset 1px 1px 0 #ffffff,
+    inset -1px -1px 0 #9a9a9a;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 8px 8px;
+}
+
+/* 위쪽 버튼 (세모) */
+*::-webkit-scrollbar-button:single-button:vertical:decrement {
+  background-image: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'> <polygon points='4,1 7,5 1,5' fill='black'/> </svg>");
+}
+
+/* 아래쪽 버튼 (세모) */
+*::-webkit-scrollbar-button:single-button:vertical:increment {
+  background-image: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'> <polygon points='1,3 7,3 4,7' fill='black'/> </svg>");
+}
+
+/* hover 효과 */
+*::-webkit-scrollbar-button:hover {
+  background-color: #d6d3ce;
+}
+
+/* active 효과 */
+*::-webkit-scrollbar-button:active {
+  background-color: #b3b3b3;
+  box-shadow:
+    inset 1px 1px 0 #eaeaea,
+    inset -1px -1px 0 #5a5a5a;
+}
+
+/* ===== 가로 스크롤바 버튼 ===== */
+
+/* 왼쪽 버튼 (세모) */
+*::-webkit-scrollbar-button:single-button:horizontal:decrement {
+  width: 22px;
+  height: 22px;
+  background: #e0deda;
+  border: 1px solid #6a6a6a;
+  box-shadow:
+    inset 1px 1px 0 #ffffff,
+    inset -1px -1px 0 #9a9a9a;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 8px 8px;
+  background-image: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><polygon points='1,4 5,1 5,7' fill='black'/></svg>");
+}
+
+/* 오른쪽 버튼 (세모) */
+*::-webkit-scrollbar-button:single-button:horizontal:increment {
+  width: 22px;
+  height: 22px;
+  background: #e0deda;
+  border: 1px solid #6a6a6a;
+  box-shadow:
+    inset 1px 1px 0 #ffffff,
+    inset -1px -1px 0 #9a9a9a;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 8px 8px;
+  background-image: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><polygon points='3,1 7,4 3,7' fill='black'/></svg>");
+}
+
+/* 잘못된 쪽(중복) 버튼 숨기기 */
+*::-webkit-scrollbar-button:vertical:increment:start,
+*::-webkit-scrollbar-button:vertical:decrement:end {
+  display: none;
+}
+
+*::-webkit-scrollbar-button:horizontal:increment:start,
+*::-webkit-scrollbar-button:horizontal:decrement:end {
+  display: none;
+}
