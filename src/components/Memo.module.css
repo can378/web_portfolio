@@ -1,0 +1,94 @@
+/* ModalWindow 내부에서 전체 높이를 꽉 채우고, 스크롤은 textarea 안에서만 */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0; /* flex 자식에서 overflow 제대로 동작하도록 */
+  overflow: hidden; /* 바깥 스크롤 숨김 */
+  box-sizing: border-box;
+}
+
+/* 상단 메뉴바 */
+.menubar {
+  display: flex;
+  gap: 12px;
+  height:27px;
+  align-items: center;
+  padding: 6px;
+  border-bottom: 1px solid #333;
+  box-shadow: inset 0 1px 0 #fff;
+  user-select: none;
+  flex: 0 0 auto;
+  font-size: 13px;
+}
+
+.menuItem {
+  font: inherit;
+  padding: 2px;
+  background: transparent;
+  border: none;
+  cursor: default;
+  color: #222;
+  border-radius: 3px;
+}
+
+.menuItem:hover {
+  background: #dcdad6;
+  outline: 1px solid #a5a3a0;
+}
+
+/* 본문 래퍼: textarea가 가득 차도록 */
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto; /* 남은 공간 전부 */
+  min-height: 0;  /* 내부 스크롤 활성화를 위해 필요 */
+  padding: 0px;
+  box-sizing: border-box;
+  overflow: hidden; /* textarea 외부 스크롤 방지 */
+}
+
+/* textarea 자체만 스크롤 가능 */
+.textarea {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 8px;
+
+  border:none;
+  resize: none;
+  outline: none;
+  font: inherit;
+  line-height: 1.4;
+
+  overflow: auto; /* 스크롤은 여기서만! */
+}
+
+/* 편집 가능/불가에 따른 배경색 */
+.editable {
+  background-color: #fff;
+}
+
+.readonly {
+  background-color: #f0f0f0;
+}
+
+/* 하단 상태바 */
+.statusbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border-top: 1px solid #333;
+  background: #eceae6;
+  box-shadow: inset 0 -1px 0 #fff;
+  font-size: 12px;
+  color: #444;
+  flex: 0 0 auto;
+}
+
+.sep {
+  opacity: 0.6;
+}
