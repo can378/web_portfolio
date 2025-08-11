@@ -4,11 +4,12 @@
     right: 20px;
     width: 350px;
     background-color: #fffecb;
-    border: 1px solid #f5d000;
-    border-radius: 6px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    border:none;
     padding: 10px;
     font-family: inherit;
+    box-shadow:
+    12px 12px 0 rgba(0,0,0,0.25);       /* 외부 그림자 */
 }
 
 .titleBar {
@@ -28,9 +29,14 @@
 
 .closeButton {
     background: none;
-    border: none;
+    border: 1px solid #333;
     font-size: 16px;
+    border-radius:2px;
+    padding:2px 5px;
     cursor: pointer;
+}
+.closeButton :hover{
+    border: 1px solid #333;
 }
 
 .textarea {
@@ -42,4 +48,7 @@
     background-color: transparent;
     font-size: 14px;
     font-family: inherit;
+
+    overflow: auto;
+    scrollbar-width: none; 
 }
