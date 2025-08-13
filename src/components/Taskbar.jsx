@@ -18,18 +18,15 @@ export default function Taskbar({ openWindows, toggleWindow }) {
             <div className={styles.openWindows}>
                 {openWindows.map(({ id, type, title, isVisible }) => (
                     <span
-                        key={id}
-                        className={styles.windowItem}
-                        onClick={() => toggleWindow(id)} // 클릭 시 보이기/숨기기
-                        style={{
-                            backgroundColor: isVisible ? "#b8b8b8ff" : "#ecececff",
-                        }}
+                    key={id}
+                    className={`${styles.windowItem} ${isVisible ? styles.active : ""}`}
+                    onClick={() => toggleWindow(id)}
                     >
-                        {type === "folder" && <>📁 {title}</>}
-                        {type === "memo" && <>📝 {title}</>}
-                        {type === "sticker" && <>📌 {title}</>}
-                        {type === "image" && <>🖼 {title}</>}
-                        {!["folder", "memo", "sticker", "image"].includes(type) && <>{title}</>}
+                    {type === "folder" && <>📁 {title}</>}
+                    {type === "memo" && <>📝 {title}</>}
+                    {type === "sticker" && <>📌 {title}</>}
+                    {type === "image" && <>🖼 {title}</>}
+                    {!["folder", "memo", "sticker", "image"].includes(type) && <>{title}</>}
                     </span>
                 ))}
             </div>

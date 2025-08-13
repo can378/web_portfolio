@@ -1,47 +1,130 @@
 .taskbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--main-gray-color);
-    height: 40px;
-    padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding: 3px 6px;
 
-    position: fixed; /* 화면 아래 고정 */
-    bottom: 0;
-    left: 0;
-    right: 0;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 999;
 
-    z-index: 999; /* 항상 위에 있도록 */
+  /* 레트로 바탕 */
+  background: #c3c3c3;
+  border-top:2px solid #333;
+  font-size: 13px;
 }
 
+/* Start 버튼: 살짝 초록+양각 */
 .startButton {
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    border:solid 2px #333;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  cursor: pointer;
+  user-select: none;
+
+  color: #000;
+  background: #e4e3df;
+  border: 2px solid #333;
+  border-radius: 2px;
+  box-shadow:
+    inset 1px 1px 0 #ffffff,
+    inset -1px -1px 0 #9a9a9a;
+}
+
+.startButton::before {
+  font-size: 10px;
 }
 
 .startButton:hover {
-
+  background: #f2f1ed;
 }
 
+.startButton:active {
+  box-shadow:
+    inset -1px -1px 0 #ffffff,
+    inset 1px 1px 0 #9a9a9a;
+}
+
+/* 열려있는 창들 */
 .openWindows {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 8px;
+  flex: 1 1 auto;
+  padding: 0 8px;
+  overflow: auto;
 }
 
 .windowItem {
-    background-color: var(--main-gray-color);
-    padding: 3px 8px;
-    border-radius: 4px;
-    cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  max-width: 240px;
+
+  padding: 4px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  color: #000;
+  background: #e4e3df;
+  border: 1px solid #3b3b3b;
+  box-shadow:
+    inset 1px 1px 0 #ffffff,
+    inset -1px -1px 0 #9a9a9a;
 }
 
 .windowItem:hover {
-    background-color: #919191;
+  background: #f2f1ed;
 }
 
+/* 활성(보이는) 상태: 눌린 느낌(음각) */
+.active {
+  background: #d9d7d3;
+  box-shadow:
+    inset -1px -1px 0 #ffffff,
+    inset 1px 1px 0 #9a9a9a;
+}
+
+/* 시계: 상태바 느낌 */
+/* 시계: Win98 트레이 느낌 */
 .clock {
-    font-size: 14px;
-    background-color: antiquewhite;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 3px 8px;
+  min-width: 64px;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums; /* 숫자폭 고정 */
+  background: #d9d7d3;        /* 살짝 따뜻한 회색 */
+
+  /* 1차 베벨(외곽): 위/왼쪽 밝게, 아래/오른쪽 어둡게 */
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #6a6a6a;
+  border-bottom: 1px solid #6a6a6a;
+  border-radius: 2px;
+
+  /* 2차 베벨(안쪽 선) + 살짝 눌린 느낌 */
+  box-shadow:
+    inset 1px 1px 0 #efefef,   /* 안쪽 상/좌 밝은 선 */
+    inset -1px -1px 0 #9a9a9a, /* 안쪽 하/우 어두운 선 */
+    inset 0 0 0 2px #e9e6e3;   /* 아주 연한 내부 면 */
+}
+
+/* 레트로한 포커스 링 */
+.windowItem:focus-visible,
+.startButton:focus-visible {
+  outline: 2px dotted #000;
+  outline-offset: 1px;
+}
+
+/* 작은 화면 대응 */
+@media (max-width: 640px) {
+  .taskbar { height: 38px; }
+  .openWindows { gap: 6px; }
+  .windowItem { padding: 3px 8px; max-width: 160px; }
 }
