@@ -18,31 +18,44 @@ const AssistantDog = ({ status = "sitting", size = 100 }) => {
   const [showChat, setShowChat] = useState(false);
   const [currentStatus, setCurrentStatus] = useState(status);
   const [dogPosition, setDogPosition] = useState({ x: 200, y: 200 });
-  const mouseDownPos = useRef({ x: 0, y: 0 });
-  const mousePos = useRef({ x: 0, y: 0 });
 
-  const handleMouseDown = (e) => {
+  const mouseDownPos = useRef({ x: 0, y: 0 });
+  const pointerPos = useRef({ x: 0, y: 0 });
+
+  const chatRootRef = useRef(null); // (선택) ref로도 가능
+
+  const ignoreIfInChat = (e) => {
+    const el = e.target;
+    // .no-toggle 조상 요소가 있으면 토글 무시
+    return el.closest && el.closest(".no-toggle");
+  };
+
+  const handlePointerDown = (e) => {
+    if (!e.isPrimary) return;
+    if (ignoreIfInChat(e)) return;         // ← 채팅 클릭이면 무시
     mouseDownPos.current = { x: e.clientX, y: e.clientY };
   };
 
-  const handleMouseUp = (e) => {
+  const handlePointerUp = (e) => {
+    if (!e.isPrimary) return;
+    if (ignoreIfInChat(e)) return;         // ← 채팅 클릭이면 무시
     const dx = e.clientX - mouseDownPos.current.x;
     const dy = e.clientY - mouseDownPos.current.y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    if (distance < 5) {
+    const distance = Math.hypot(dx, dy);
+    if (distance < 5 && !isDragging) {
       setShowChat((prev) => !prev);
     }
   };
 
-  // 👉 마우스 위치 추적
+
+  // 👉 포인터(마우스/터치/펜) 위치 추적
   useEffect(() => {
-    const handleGlobalMouseMove = (e) => {
-      mousePos.current = { x: e.clientX, y: e.clientY };
+    const onPointerMove = (e) => {
+      if (!e.isPrimary) return;
+      pointerPos.current = { x: e.clientX, y: e.clientY };
     };
-    window.addEventListener("mousemove", handleGlobalMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleGlobalMouseMove);
-    };
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onPointerMove);
   }, []);
 
   // 👉 강아지 자동 이동
@@ -50,9 +63,9 @@ const AssistantDog = ({ status = "sitting", size = 100 }) => {
     const interval = setInterval(() => {
       if (isDragging || showChat) return;
 
-      const dx = mousePos.current.x - dogPosition.x;
-      const dy = mousePos.current.y - dogPosition.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
+      const dx = pointerPos.current.x - dogPosition.x;
+      const dy = pointerPos.current.y - dogPosition.y;
+      const distance = Math.hypot(dx, dy);
 
       if (distance > 200) {
         const stepSize = 5;
@@ -67,6 +80,7 @@ const AssistantDog = ({ status = "sitting", size = 100 }) => {
     }, 50);
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dogPosition, isDragging, showChat]);
 
   const dogImageFile =
@@ -77,7 +91,9 @@ const AssistantDog = ({ status = "sitting", size = 100 }) => {
     <Draggable
       nodeRef={nodeRef}
       position={dogPosition}
+      cancel=".no-drag"
       onStart={(e) => {
+        // 입력 요소 드래그 방지
         if (["BUTTON", "INPUT", "TEXTAREA"].includes(e.target.tagName)) return false;
       }}
       onDrag={(e, data) => {
@@ -93,12 +109,13 @@ const AssistantDog = ({ status = "sitting", size = 100 }) => {
         style={{
           position: "fixed",
           zIndex: 9999,
+          touchAction: "none", // ← 모바일 스크롤 제스처에 뺏기지 않게
         }}
       >
         <div
           style={{ position: "relative" }}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerUp}
         >
           <img
             ref={imgRef}
@@ -110,20 +127,28 @@ const AssistantDog = ({ status = "sitting", size = 100 }) => {
               userSelect: "none",
               pointerEvents: "auto",
               cursor: "grab",
+              touchAction: "none", // ← 이미지 자체도 터치 제스처 비활성화
             }}
             draggable={false}
           />
           {showChat && (
-            <AssistantDogChat
-              onClose={() => setShowChat(false)}
+            <div
+              className="no-drag no-toggle"                 // ← 드래그/토글 제외 마커
+              onPointerDown={(e) => e.stopPropagation()}    // ← 상위로 이벤트 안 올림
+              onPointerUp={(e) => e.stopPropagation()}
               style={{
                 position: "absolute",
                 bottom: `${size + 10}px`,
                 left: "50%",
                 transform: "translateX(-50%)",
+                zIndex: 10000,            // ← 강아지보다 위
+                touchAction: "auto",
               }}
-            />
+            >
+              <AssistantDogChat onClose={() => setShowChat(false)} />
+            </div>
           )}
+
         </div>
       </div>
     </Draggable>
