@@ -1,144 +1,271 @@
+/* 레이아웃 */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  height: 100%;
+  background: #c0c0c0; /* Win95 face */
 }
 
-
-/* project icons---------------------- */
-.projectGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+/* ===== 좌측 트리 ===== */
+.sidebar {
+  border-right: 2px solid #808080;
+  background: #ece9d8;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 
-.projectItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    max-width: 80px; /* title 길이 제한 */
+.treeHeader {
+  padding: 6px 8px;
+  font-weight: 700;
+  background: #0a246a;
+  color: #fff;
+  border-bottom: 1px solid #000;
+  font-size: 12px;
 }
 
-.projectItem:hover {
-    transform: scale(1.05);
+.tree {
+  list-style: none;
+  margin: 6px 4px;
+  padding-left: 0;
+  font-size: 13px;
 }
 
-.projectIcon {
-    width: 64px;
-    height: 64px;
-    border-radius: 8px;
-    object-fit: contain; /* 비율 유지, 여백 생김 */
-    /*background-color: #f9f9f9;*/ /* 여백 배경색 */
-    padding: 4px; /* 살짝 여백 */
+.treeItem { margin: 2px 0; }
+
+.treeChildren {
+  list-style: none;
+  margin: 2px 0 2px 18px;
+  padding-left: 0;
 }
 
-.projectTitle {
-    margin-top: 8px;
-    font-size: 12px;
-    text-align: center;
-
-    /* 긴 제목 ... 처리 */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+.treeBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 2px;
+  text-align: left;
 }
 
+.treeBtn:hover { background: #dfe6f3; }
 
-
-
-
-/* back button---------------------- */
-.backButtonFixed {
-    top: 10px;
-    left: 10px;
-    background-color: #0078d7;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-    z-index: 1000; /* 다른 요소보다 위 */
+.active {
+  color: #fff;
+  background: #0a246a;
+  border-color: #0a246a;
 }
 
-.backButtonFixed:hover {
-    background-color: #005fa3;
+.treeText { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* 폴더/파일 아이콘 (대체 아이콘: 이모지 → 필요시 이미지 경로로 교체) */
+.iconFolder::before,
+.iconFile::before {
+  display: inline-block;
+  width: 16px;
+  text-align: center;
 }
 
+.iconFolder::before { content: "📁"; }
+.iconFile::before { content: "📄"; }
 
-/* project detail ------------------ */
-.projectDetail {
-    position: relative; /* 버튼 기준 잡아줌 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
+/* ===== 우측 ===== */
+.rightPane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
-
-.detailImage {
-    width: 100%;
-    max-height: 200px;
-    object-fit: contain;
-    margin-bottom: 10px;
+.rightHeader {
+  border-bottom: 2px solid #808080;
+  background: #ece9d8;
+  padding: 6px 8px;
 }
 
+.rightHeaderTitle {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.breadcrumb {
+  margin-top: 2px;
+  font-size: 12px;
+  color: #333;
+}
+
+/* 아이콘 그리드 */
+.explorerTitle {
+  margin: 12px 12px 0;
+  font-size: 18px;
+}
+
+.grid {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+  overflow: auto;
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 6px;
+  background: #fff;
+  border: 1px solid #9a9a9a;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -1px -1px 0 #9a9a9a;
+}
+
+.gridItem:hover { outline: 2px solid #0a246a; outline-offset: -2px; }
+
+.gridIcon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.gridLabel {
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.1;
+  word-break: break-word;
+}
+
+/* 상세 화면 */
+.detailWrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;              /* ✨ 필수 */
+}
+/* 상세 바디: 내용 통짜 영역이 남은 높이 차지 */
+.detailBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;              /* ✨ 필수 */
+}
+.detailHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.detailIcon { width: 20px; height: 20px; object-fit: contain; }
+
+.detailTitle { font-size: 16px; font-weight: 700; margin-right: auto; }
+
+.backBtn {
+  border: 1px solid #333;
+  background: #e9e6e3;
+  padding: 3px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* 상세 설명: 여기서 스크롤! (고정 height 제거) */
 .detailDescription {
-    font-size: 14px;
-    line-height: 1.5;
-    overflow-y: auto;
+  flex: 1;
+  min-height: 0;              /* ✨ 필수 */
+  overflow: auto;
+  background: #fff;
+  border: 1px solid #9a9a9a;
+  border-radius: 2px;
+  padding: 10px;
+  /* height: 270px;  <-- 이 줄 삭제 */
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -1px -1px 0 #9a9a9a;
 }
 
-/* header -------------------------- */
-.fixedHeader {
-    position: sticky; /* 스크롤 시에도 고정 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: white; /* 배경 추가 */
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    z-index: 10;
+
+/* 반응형: 폭 좁을 때 상세 단일 컬럼 */
+@media (max-width: 920px) {
+  .container { grid-template-columns: 200px 1fr; }
+  .detailBody { grid-template-columns: 1fr; }
 }
 
-.detailTitle {
-    margin: 0;
-    font-size: 18px;
-    flex: 1; /* 제목이 버튼 옆에 꽉 차도록 */
+
+
+
+
+
+
+
+/* 컨테이너를 세로 플렉스: 헤더/본문/푸터 */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #c0c0c0;
 }
 
-/* search------------------------------- */
-.search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    width: 80%; /* 검색창 너비 */
-    height: 45px; /* 검색창 높이 */
-    background-color: #fff;
-    border-radius: 24px; /* 둥근 모서리 */
-    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28); /* 구글 스타일 그림자 */
-    padding: 0 14px;
-    transition: box-shadow 0.2s ease, border 0.2s ease;
+/* ===== 상단 헤더 ===== */
+.topHeader {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #808080;
+  background: #c0c0c0;
 }
 
-.search input {
-    border: none;
-    outline: none;
-    width: 100%;
-    height: 100%;
-    font-size: 16px;
-    background: transparent;
+.menuBar {
+  display: flex;
+  gap: 14px;
+  padding: 2px 8px;
+  font-size: 13px;
+  user-select: none;
 }
 
-.search:focus-within {
-    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.5);
-    border: 1px solid #dfe1e5;
+.pathBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  font-size: 12px;
+  background: #fff;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
 }
+
+.pathLabel { font-weight: 700; }
+.pathValue { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ===== 본문 그리드 ===== */
+.bodyArea {
+  flex: 1;                  /* 가운데 영역이 남은 높이 차지 */
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 0;            /* 내부 스크롤 가능 */
+}
+/* 그리드 자식이 부모 높이 안에서 스크롤 가능하도록 */
+.bodyArea > * {                /* sidebar, rightPane 모두 적용 */
+  min-height: 0;              /* ✨ 이것도 중요 */
+}
+/* ===== 하단 푸터(상태바) ===== */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-top: 2px solid #808080;
+  background: #c0c0c0;
+}
+
+.footerRight { color: #333; }
+
+/* (기존 sidebar/rightPane/rightHeader/grid/detail* 스타일은 그대로 사용) */
