@@ -1,56 +1,141 @@
-.chatContainer {
-    height: calc(100% - 60px); /* 입력창 높이 제외 */
-    overflow-y: auto;
-    padding: 10px;
-    display: flex;              /* ✅ 추가 */
-    flex-direction: column;     /* ✅ 세로로 쌓기 */
+/* 레이아웃 기본 */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(#f6f9ff, #dfe9f6);
+  font-family: Tahoma, Arial, sans-serif;
 }
 
-.message {
-    margin: 8px 0;
-    padding: 8px 12px;
-    border-radius: 16px;
-    max-width: 70%;
-    word-wrap: break-word;
+/* 상단 바들(고정) */
+.menuBar { display:flex; gap:12px; padding:4px 8px; background:#f0f0f0; border-bottom:1px solid #b0b0b0; font-size:13px; }
+
+/* 메인 영역: 가운데만 스크롤 허용 위해 min-height:0 */
+.mainArea {
+  display: flex;
+  flex: 1;
+  min-height: 0;            /* ✅ 자식 스크롤 허용 */
+  padding: 10px;
+  gap: 12px;
 }
 
-.question {
-    background-color: #f1f1f1;
-    align-self: flex-end; /* ✅ 오른쪽 정렬 */
+/* 채팅 패널 */
+.chatPanel {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #c6d0e3;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px #e8eef9;
+}
+.toField { padding: 6px 8px; border-bottom:1px solid #d6deef; background:#f7faff; font-size:13px; }
+
+/* ✅ 이 영역만 스크롤 */
+.messagesScroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 10px;
+  background: #ffffff;
 }
 
-.me {
-    background-color: #dcf8c6;
-    align-self: flex-start; /* ✅ 왼쪽 정렬 */
-}
+/* 하단 미니 툴바 + 입력영역(고정) */
+.inputToolbar { display:flex; gap:6px; padding:6px 8px; border-top:1px solid #e2e6f3; background:#f7f9fe; }
+.inputToolbar button { border:none; background:transparent; cursor:pointer; font-size:16px; }
+
+.inputContainer { display:flex; gap:8px; padding:8px; border-top:1px solid #dfe6f5; background:#fff; border-radius:0 0 10px 10px; }
+.inputBox { flex:1; min-width:0; padding:8px; border:1px solid #c6d0e3; border-radius:6px; font-size:13px; }
+.sendButton { padding:8px 12px; background:#d9ecff; border:1px solid #99c3f0; border-radius:6px; cursor:pointer; }
+.sendButton:hover { background:#bfe1ff; }
+
+/* 메시지 버블 */
+.message { margin-bottom:8px; padding:6px 10px; border-radius:12px; font-size:13px; line-height:1.35; }
+.me { background:#d9ecff; align-self:flex-end; }
+.question { background:#f1f1f1; align-self:flex-start; max-width:70%; }
 
 
-.inputContainer {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #fff;
+
+/* Profile==================================================== */
+/* 👉 오른쪽 프로필 스택: other는 항상 아래 */
+.profilesRight {
+  width: 140px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.other { margin-top: auto; }   /* ✅ 아래쪽으로 밀착 */
+
+
+.profileCard {
+  position: relative;
+  padding: 10px;                       /* 외곽 파란 프레임 여백 */
+  background: linear-gradient(180deg, #eef3ff, #d7e6ff);
+  border: 1px solid #b9c9e6;
+  border-radius: 12px;
+  box-shadow:
+    0 1px 0 #ffffff inset,             /* 윗면 하이라이트 */
+    0 0 0 1px #ffffff;                 /* 바깥 얇은 흰선 */
 }
 
-.inputBox {
-    flex: 1;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    margin-right: 8px;
-    outline: none;
+.profileInner {
+  background: #ffffff;
+  border: 1px solid #c6d0e3;
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow:
+    inset 0 1px 2px rgba(0,0,0,0.06);  /* 안쪽 살짝 음영 */
 }
 
-.sendButton {
-    padding: 8px 16px;
-    border: none;
-    background-color: #4caf50;
-    color: white;
-    border-radius: 20px;
-    cursor: not-allowed; /* 비활성화 표시 */
+.profileInner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
+
+/* 옆 돌출 탭(▶ 모양) */
+.sideTab {
+  position: absolute;
+  right: -6px;
+  top: 36px;
+  width: 12px;
+  height: 28px;
+  background: linear-gradient(180deg, #eef3ff, #d7e6ff);
+  border: 1px solid #b9c9e6;
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 0 0 1px #ffffff inset;
+}
+
+/* 아래 작은 ▼ (접기 화살표 느낌) */
+.bottomChevron {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid #6d7fa8;   /* 삼각형 색 */
+  filter: drop-shadow(0 1px 0 #fff);
+}
+
+/* 하단 footer/상태바 */
+.statusBar {
+  height: 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0 10px;
+  background: linear-gradient(#f1f6ff, #e3efff);
+  border-top: 1px solid #b9c9e6;
+  box-shadow: inset 0 1px 0 #ffffff;
+  font-size: 12px;
+  color: #3366aa;
+  border-radius: 0 0 10px 10px;
+}
+.statusRight { color:#5a7cc3; }
