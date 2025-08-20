@@ -1,194 +1,134 @@
-/* === Retro (Win95) skin — Email only (scoped by CSS Module) === */
-:root {
-  /* 로컬 변수: 이 모듈에서만 사용 */
-  --win-bg: #d3cfcc;
-  --win-face: #e6dfd4;
-  --win-dark: #6a6a6a;
-  --win-mid: #c4c4c4;
-  --win-light: #ffffff;
-  --sys: "MS Sans Serif", "Tahoma", "Segoe UI", Arial, sans-serif;
-}
-
-/* 창 프레임 느낌 */
+/* 전체 컨테이너 */
 .container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  height:100%;
-  padding: 10px; /* 기존 1.5rem → 살짝 줄임 */
-  /* background: var(--win-bg); */
-  /* border: 2px solid var(--win-dark); */
-  /* box-shadow:
-    inset -1px -1px 0 var(--win-dark),
-    inset 1px 1px 0 var(--win-light),
-    2px 2px 0 #00000022; */
-  font-family: var(--sys);
+  gap: 0;
+  height: 100%;
+  padding: 0;
+  font-family: "MS Sans Serif", "Tahoma", sans-serif;
 }
 
-/* 라벨 텍스트를 div로 넣었을 때 레트로 느낌 */
-.container > div:first-child,
-.container > div:nth-child(2),
-.container > div:nth-child(3) {
-  color: #000;
+/* 메뉴바============================ */
+.menuBar {
+  display: flex;
+  gap: 20px;
   font-size: 13px;
+  padding: 4px;
+  padding-left: 8px;
+  border-bottom: 1px solid #333;
 }
-
-/* 인풋/텍스트에어리어: 3D 베벨 */
-.input,
-.textarea {
-  width: 100%;
-  padding: 6px;
-  font-size: 14px;
-  font-family: var(--sys);
-  color: #000;
-  background: var(--win-face);
-  /* 둥근모서리 제거 (이 모듈에서만) */
-  border-radius: 0 !important;
-
-  border: 2px solid;
-  border-color: var(--win-dark) var(--win-light) var(--win-light) var(--win-dark);
-  box-shadow:
-    inset -1px -1px 0 var(--win-mid),
-    inset 1px 1px 0 var(--win-light);
-  outline: none;
-  transition: none;
-}
-
-
-.input:disabled {
-  color: #666;
-  background: #e3e3e3;
-  text-shadow: 1px 1px 0 #fff;
-}
-
-/* 텍스트 영역 크기 동일 유지 */
-.textarea {
-  height: 290px;
-  resize: vertical;
-}
-
-/* button================================= */
-.toolbar {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  align-items: center;
-  padding-top: 4px;
-}
-.toolbar .btn{
-    min-width: 150px;
-    padding: 6px 12px;
-    font-size: 13px;
-    background: var(--win-face);
-    border: 1px solid #333;
-    border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
-    border-radius: 2px;
-}
-
-.sendButton:hover:not(:disabled) {
-  filter: brightness(0.98);
-}
-
-.sendButton:active:not(:disabled) {
-  transform: translateY(1px);
-}
-
-.sendButton:disabled {
-  color: #777;
-  background: #dcdcdc;
-  cursor: not-allowed;
-  text-shadow: 1px 1px 0 #fff;
-}
-
-/* 상태 메시지: 레트로 상태바 느낌 (가운데 텍스트) */
-.statusbar{
-  padding: 6px;
-  font-size: 12px;
-  color: #000;
- 
+.menuItem {
+  padding: 0 4px;
+  background: transparent;
   border: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  /* 텍스트 중앙 */
-  text-align: center;
+  cursor: default;
 }
 
 
 
-/* header footer--------------------- */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 8px;
-  color: #fff;
 
-  /* 상단 꽉 채우기 */
-  margin: -10px -10px 10px; /* 컨테이너 padding만큼 음수 마진 */
-  border-bottom: 1px solid var(--win-dark);
-}
-
-/* 왼쪽 아이콘 + 제목 */
-.headerLeft {
-  display: flex;
+/* 필드-============================ (From/To/Subject) */
+.fieldRow {
+  display: grid;
+  grid-template-columns: 80px 1fr;
   align-items: center;
   gap: 6px;
+  padding: 6px 8px 0 8px;
+
+}
+.fieldLabel {
+  font-size: 12px;
+}
+.input {
+  height: 26px;
+  padding: 2px 4px;
+  font-size: 12px;
+  background: #ffffff;
 }
 
-.headerIcon {
-  width: 18px;
-  height: 18px;
-  image-rendering: pixelated; /* 레트로 느낌 */
+/* 음각 박스(Win95 Edit control) */
+.sunken {
+  /* border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff; */
+  border:1px solid #333;
 }
 
-.headerTitle {
-  font-weight: 700;
-  font-size: 13px;
-}
-
-/* 오른쪽 작은 버튼들 */
-.headerRight {
-  display: flex;
-  gap: 4px;
-}
-
-.headerBtn {
-  width: 22px;
-  height: 22px;
-  padding: 0;
-  font-size: 13px;
-  background: var(--win-face);
-  color: #000;
+/* 본문 영역 (큰 텍스트 박스) */
+.messageWrap {
+  margin: 8px;
+  background: #ffffff;
   border: 1px solid #333;
-  border-radius: 2px;
-  box-shadow:
-    inset -1px -1px 0 var(--win-mid),
-    inset 1px 1px 0 var(--win-light);
-  cursor: pointer;
+  height: 100%;
+  display: flex;
+}
+.textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: none;            /* 테두리는 부모 .messageWrap이 담당 */
+  padding: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  background: transparent; /* 흰 바탕은 부모가 제공 */
 }
 
-.headerBtn:hover {
-  filter: brightness(0.95);
-}
-
-.headerBtn:active {
-  border-color: var(--win-dark) var(--win-light) var(--win-light) var(--win-dark);
-}
-
-
-/* === Footer === */
+/* 하단 푸터: 버튼 + 상태바 */
 .footer {
-  margin: 10px -10px -10px; /* 하단도 꽉 차게 */
-
-  border-top: 1px solid #333;
-
+  margin-top: 8px;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 30px 10px 10px;
+  padding: 0 8px 8px 8px;
 }
 
-/* 기존 toolbar/statusbar 스타일은 그대로 사용 (가운데 정렬 유지) */
-/* .toolbar, .btn, .statusbar, .statusCell, .statusCellRight는 이전 정의 재사용 */
+/* 버튼 ================================== */
+.toolbar {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.btn {
+  min-width: 72px;
+  border-radius: 2px;
+  height: 26px;
+  font-size: 12px;
+  background: var(--main-gray-color);
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  cursor: pointer;
+}
+.btn:active {
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  background: #b8b8b8;
+}
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 상태바======================================= */
+.statusbar {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  align-items: center;
+  height: 26px;
+  padding: 2px 6px;
+  background: #d4d0c8;
+  border:1px solid #333;
+  font-size: 12px;
+}
+.statusCell {
+  justify-self: start;
+}
+.statusCellRight {
+  justify-self: end;
+}
