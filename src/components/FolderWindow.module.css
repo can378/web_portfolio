@@ -37,7 +37,7 @@
 .addressLabel {
   display: flex;
   align-items: center;   /* 세로 중앙 */
-  /* justify-content: center;  // 글자를 가운데 정렬하고 싶으면 추가 */
+  justify-content: center;  /* 글자를 가운데 정렬하고 싶으면 추가 */
   height: 24px;
   padding: 0 6px;
   border: 1px solid #333;
