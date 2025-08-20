@@ -14,7 +14,7 @@ export default function Taskbar({ openWindows, toggleWindow }) {
 
     return (
         <div className={styles.taskbar}>
-            <div className={styles.startButton}>Start</div>
+            <div className={styles.startButton}>Welcome</div>
             <div className={styles.openWindows}>
                 {openWindows.map(({ id, type, title, isVisible }) => (
                     <span

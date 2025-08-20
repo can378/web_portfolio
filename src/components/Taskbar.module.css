@@ -26,25 +26,12 @@
 
   color: #000;
   background: #e4e3df;
-  border: 2px solid #333;
+  border: 1px solid #333;
   border-radius: 2px;
-  box-shadow:
-    inset 1px 1px 0 #ffffff,
-    inset -1px -1px 0 #9a9a9a;
 }
 
 .startButton::before {
   font-size: 10px;
-}
-
-.startButton:hover {
-  background: #f2f1ed;
-}
-
-.startButton:active {
-  box-shadow:
-    inset -1px -1px 0 #ffffff,
-    inset 1px 1px 0 #9a9a9a;
 }
 
 /* 열려있는 창들 */
