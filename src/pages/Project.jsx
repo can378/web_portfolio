@@ -36,7 +36,7 @@ export default function Project({ title, onClose, onMinimize }) {
             <span>Help</span>
             </div>
             <div className={styles.pathBar}>
-            <span className={styles.pathLabel}>Address:</span>
+            <span className={styles.pathLabel}>Address</span>
             <span className={styles.pathValue}>
                 Desktop ▸ Archives{selectedProject ? ` ▸ ${selectedProject.title}` : ""}
             </span>
