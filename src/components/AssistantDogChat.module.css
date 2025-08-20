@@ -1,18 +1,62 @@
 .chatContainer {
-  background: var(--main-beige-color);
-  padding: 10px;
+  background: var(--main-gray-color);
+  border: 2px solid var(--main-border-color);
   border-radius: 2px;
   width: 250px;
-  border:2px solid var(--main-border-color);
-  box-shadow:
-    0 2px 0 #bdbdbd inset,
-    12px 12px 0 rgba(0,0,0,0.25);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 0 #00000055;
+  font-family: "MS Sans Serif", sans-serif;
 }
 
+/* header=================== */
+.header {
+  background: var(--main-gray-color);
+  color: black;
+  font-weight: bold;
+  padding: 3px 6px;
+  padding-bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+/* container==================== */
+.content{
+  margin:5px;
+  border:2px solid var(--main-border-color);  
+  background: var(--main-beige-color);
+}
+/* close button=================== */
+.closeBtn {
+  background: #CF1C1C;
+  color: #fff;
+  border: 2px solid var(--main-border-color);  
+  border-radius: 3px;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.closeBtn:hover{
+  border:2px solid #808080;
+}
+.closeBtn:active {
+  border: 2px inset #808080;
+}
+
+/* 대화 영역 ============================*/
 .messagesContainer {
   max-height: 200px;
   overflow-y: auto;
-  margin-bottom: 8px;
+  padding: 6px;
   display: flex;
   flex-direction: column;
 }
@@ -24,63 +68,57 @@
 
 .userRow {
   justify-content: flex-end;
-  text-align: right;
 }
 
 .botRow {
   justify-content: flex-start;
-  text-align: left;
 }
+
 
 .messageBubble {
   padding: 6px 10px;
-  border-radius: 3px;
+  border-radius: 2px;
   max-width: 80%;
   word-break: break-word;
+  font-size: 13px;
+  border: 1px solid #333;
+  background: #ffffff;
 }
 
 .userBubble {
-  background: rgb(182, 202, 235);
+  background: #b6caeb;
 }
 
 .botBubble {
   background: #ffffff;
 }
 
+/* 입력 영역================================= */
 .inputArea {
   display: flex;
   gap: 4px;
+  padding: 6px;
+  border-top: 1px solid var(--main-border-color);
+  background: #c0c0c0;
 }
 
 .inputArea input {
   flex: 1;
-  border:2px solid var(--main-border-color);
-}
-.chatContainer {
-  position: relative; /* 없으면 추가 */
+  border: 1px solid var(--main-border-color);
+  background: white;
+  font-size: 13px;
+  padding: 2px 4px;
 }
 
-/* CLOSE BUTTOn============================== */
-.closeBtn {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
+/* 전송 버튼 */
+.sendBtn {
+  background: #c0c0c0;
+  border: 1px solid var(--main-border-color);
   border-radius: 2px;
-  border: solid 2px var(--main-border-color);
-  color: var(--main-border-color);
-  font-size: 14px;
+  font-size: 12px;
+  padding: 6px;
   cursor: pointer;
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
 }
-
-/* 호버 살짝 강조 (선택) */
-.closeBtn:hover {
-  background: rgba(88, 88, 88, 0.75);
+.sendBtn:active {
+  border: 2px inset #808080;
 }

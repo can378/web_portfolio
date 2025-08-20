@@ -43,6 +43,15 @@ const AssistantDogChat = ({ onClose, style }) => {
       onMouseDown={(e) => e.stopPropagation()}
       onMouseUp={(e) => e.stopPropagation()}
     >
+      {/* 윈도우95 헤더 */}
+      <div className={styles.header}>
+        <span>Assistant Dog</span>
+        <button className={styles.closeBtn} onClick={onClose}>✕</button>
+      </div>
+
+      <div className={styles.content}>
+
+      
       <div className={styles.messagesContainer}>
         {messages.map((m, i) => (
           <div
@@ -69,10 +78,11 @@ const AssistantDogChat = ({ onClose, style }) => {
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
           disabled={loading}
         />
-        <button onClick={handleSend} disabled={loading}>
-          {loading ? "..." : "전송"}
+        <button className={styles.sendBtn} onClick={handleSend} disabled={loading}>
+          {loading ? "..." : "send"}
         </button>
-        <button className={styles.closeBtn} onClick={onClose}>✕</button>
+      </div>
+
       </div>
     </div>
   );
