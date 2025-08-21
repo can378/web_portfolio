@@ -115,9 +115,9 @@ export default function Introduction({ title, onClose, onMinimize }) {
           </aside>
         </div>
 
-        {/* ✅ 하단 footer/상태바 */}
+        {/* footer/상태바 */}
         <footer className={styles.statusBar}>
-          <span>Click for new Emoticons and Theme Packs…</span>
+          <span>This is Introduction of myself…</span>
           <span className={styles.statusRight}>✔</span>
         </footer>
 
