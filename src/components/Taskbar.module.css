@@ -1,117 +1,178 @@
-.taskbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px;
-  padding: 3px 6px;
-
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  z-index: 999;
-
-  /* 레트로 바탕 */
-  background: #c3c3c3;
-  border-top:2px solid #333;
-  font-size: 13px;
+/* ===== 공통 색/테마 (Win95) ===== */
+:root {
+  --win-bg: #c0c0c0;        /* 기본 바탕 */
+  --win-face: #d4d0c8;      /* 컨트롤 면 */
+  --win-edge-dark: #404040; /* 바깥 어두운 선 */
+  --win-edge-mid: #808080;
+  --win-edge-light: #ffffff;/* 바깥 밝은 선 */
+  --win-text: #000;
+  --btn-height: 26px;
+  --gap: 6px;
 }
 
-/* Start 버튼: 살짝 초록+양각 */
+/* ===== 전체 바 ===== */
+.taskbar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 36px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: var(--gap);
+
+  padding: 3px 6px;
+  background: var(--win-bg);
+  border-top: 2px solid var(--win-edge-dark);
+  z-index: 9999;
+  font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+  font-size: 13px;
+  color: var(--win-text);
+}
+
+/* ===== Start 버튼 ===== */
 .startButton {
+  height: var(--btn-height);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 12px;
+  padding: 0 10px;
   cursor: pointer;
+  background: var(--win-face);
+  color: var(--win-text);
+  border: 1px solid var(--win-edge-dark);
+  box-shadow:
+    inset 1px 1px 0 var(--win-edge-light),
+    inset -1px -1px 0 var(--win-edge-mid);
+  border-radius: 2px;
   user-select: none;
-
-  color: #000;
-  background: #e4e3df;
-  border: 1px solid #333;
-  border-radius: 2px;
 }
 
-.startButton::before {
-  font-size: 10px;
+.winLogo {
+  width: 12px;
+  height: 12px;
+  display: block;
 }
 
-/* 열려있는 창들 */
-.openWindows {
+.startText {
+  letter-spacing: 0.2px;
+}
+
+/* ===== 창 버튼 영역 ===== */
+.taskButtons {
   display: flex;
-  gap: 8px;
-  flex: 1 1 auto;
-  padding: 0 8px;
-  overflow: auto;
-}
-
-.windowItem {
-  display: inline-flex;
   align-items: center;
-  max-width: 240px;
-
-  padding: 4px 10px;
-  border-radius: 2px;
-  cursor: pointer;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
-
-  color: #000;
-  background: #e4e3df;
-  border: 1px solid #3b3b3b;
-  box-shadow:
-    inset 1px 1px 0 #ffffff,
-    inset -1px -1px 0 #9a9a9a;
+  gap: 4px;
+  min-width: 0;
 }
 
-.windowItem:hover {
-  background: #f2f1ed;
-}
-
-/* 활성(보이는) 상태: 눌린 느낌(음각) */
-.active {
-  background: #d9d7d3;
-  box-shadow:
-    inset -1px -1px 0 #ffffff,
-    inset 1px 1px 0 #9a9a9a;
-}
-
-/* 시계: 상태바 느낌 */
-/* 시계: Win98 트레이 느낌 */
-.clock {
+/* Win95 스타일 버튼: 기본은 양각(raised), active는 pressed */
+.taskButton {
+  height: var(--btn-height);
+  max-width: 260px;
   display: inline-flex;
   align-items: center;
-  justify-content: flex-end;
-
-  padding: 3px 8px;
-  min-width: 64px;
-  font-size: 13px;
-  font-variant-numeric: tabular-nums; /* 숫자폭 고정 */
-  background: #d9d7d3;        /* 살짝 따뜻한 회색 */
-
-  /* 1차 베벨(외곽): 위/왼쪽 밝게, 아래/오른쪽 어둡게 */
-  border-top: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  border-right: 1px solid #6a6a6a;
-  border-bottom: 1px solid #6a6a6a;
+  gap: 6px;
+  padding: 0 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background: var(--win-face);
+  border: 1px solid var(--win-edge-dark);
   border-radius: 2px;
-
-  /* 2차 베벨(안쪽 선) + 살짝 눌린 느낌 */
-  box-shadow:
-    inset 1px 1px 0 #efefef,   /* 안쪽 상/좌 밝은 선 */
-    inset -1px -1px 0 #9a9a9a, /* 안쪽 하/우 어두운 선 */
-    inset 0 0 0 2px #e9e6e3;   /* 아주 연한 내부 면 */
+  user-select: none;
+  cursor: pointer;
 }
 
-/* 레트로한 포커스 링 */
-.windowItem:focus-visible,
+.raised {
+  box-shadow:
+    inset 1px 1px 0 var(--win-edge-light),
+    inset -1px -1px 0 var(--win-edge-mid);
+}
+
+.pressed {
+  background: #e2ded8;
+  box-shadow:
+    inset -1px -1px 0 var(--win-edge-light),
+    inset 1px 1px 0 var(--win-edge-mid);
+}
+
+.taskButton:focus-visible,
 .startButton:focus-visible {
-  outline: 2px dotted #000;
+  outline: 1px dotted #000;
   outline-offset: 1px;
 }
 
-/* 작은 화면 대응 */
+.btnIcon {
+  width: 1.1em;
+  text-align: center;
+}
+
+.btnLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+/* ===== 트레이 & 시계 ============================================ */
+.traySeparator {
+  height: 60%;
+  width: 6px;
+  margin: 0 2px;
+  background:
+    linear-gradient(
+      to right,
+      var(--win-edge-light) 0,
+      var(--win-edge-light) 1px,
+      var(--win-edge-mid) 1px,
+      var(--win-edge-mid) 2px,
+      transparent 2px
+    );
+}
+
+.tray {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.trayIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  min-width: 24px;
+  padding: 0 4px;
+  background: var(--win-face);
+  border: 1px solid var(--win-edge-dark);
+  box-shadow:
+    inset 1px 1px 0 var(--win-edge-light),
+    inset -1px -1px 0 var(--win-edge-mid);
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.clock {
+  min-width: 64px;
+  height: var(--btn-height);
+  padding: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--win-face);
+  border: 1px solid var(--win-edge-dark);
+  box-shadow:
+    inset 1px 1px 0 var(--win-edge-light),
+    inset -1px -1px 0 var(--win-edge-mid);
+  border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== 반응형 살짝 축소 ============================================= */
 @media (max-width: 640px) {
-  .taskbar { height: 38px; }
-  .openWindows { gap: 6px; }
-  .windowItem { padding: 3px 8px; max-width: 160px; }
+  .taskbar { height: 34px; }
+  :root { --btn-height: 24px; }
+  .btnLabel { max-width: 120px; }
 }
