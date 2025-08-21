@@ -3,7 +3,7 @@
   background: #CFCFCF;                  /* 베이지 톤(이미지 내부 배경) */
   border: 2px solid var(--main-border-color);            /* 회색 프레임 */
   border-radius: 4px;
-  /* 이미지처럼 깊게 보이는 그림자(본체 그림자 + 바닥판 느낌) */
+
   box-shadow:
     0 2px 0 #bdbdbd inset,              /* 내부 살짝 눌린 라인 */
     12px 12px 0 rgba(0,0,0,0.25);       /* 외부 그림자 */
@@ -12,7 +12,7 @@
   z-index: 1000;
 }
 
-/* 타이틀바 */
+/* 타이틀=============================================== */
 .titleBar {
   height: 28px;
   background: #CFCFCF;                  /* 이미지의 연한 회색 */
@@ -43,7 +43,7 @@
   color: #111;
 }
 
-/* 우측 버튼(작은 정사각형) */
+/* button============================================= */
 .buttonGroup {
   display: flex;
   gap: 4px;
@@ -68,7 +68,7 @@
 }
 .closeBtn:hover { background: #a71b1b; }
 
-/* 콘텐츠 영역 (타이틀바 높이 제외) */
+/* 콘텐츠 영역 (타이틀바 높이 제외)=========================== */
 .content {
   height: calc(100% - 36px);     /* 타이틀바 제외 + 여유 */
   margin: 4px;                   /* 바깥 프레임 여유 */

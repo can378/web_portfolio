@@ -19,7 +19,7 @@ export default function ModalWindow({
   const position = useRef(defaultPosition || { x: 80, y: 60 });
   const offset = useRef({ x: 0, y: 0 });
 
-  const taskbarHeight = 40;
+  const taskbarHeight = 30;
   if (!isVisible) return null;
 
   const handlePointerDown = (e) => {
