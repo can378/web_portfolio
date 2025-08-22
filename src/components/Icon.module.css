@@ -1,12 +1,15 @@
 .iconContainer {
-  width: 70px; /* 아이콘 컨테이너 고정 크기 */
+  width: 80px;         /* 전체 카드 고정 */
   height: 90px;
   display: flex;
+  padding-top:5px;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 6px;
   cursor: pointer;
   user-select: none;
+  box-sizing: border-box;
 }
 
 .iconContainer:hover {
@@ -14,17 +17,31 @@
   border-radius: 8px;
 }
 
-.iconImage {
-  width: 100%; /* 컨테이너에 맞춤 */
-  height: 70%; /* 높이 비율로 채움 */
-  object-fit: contain; /* 비율 유지하며 꽉 채움 */
-  pointer-events: none; /* 이미지 클릭 시 드래그 방해 방지 */
+/* 썸네일 박스: 고정 크기 */
+.thumb {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* 이미지: 항상 다 보여주되, 박스 안에 비율 유지 */
+.thumb > img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;   /* 잘리지 않고 항상 전부 표시 */
+  display: block;
+  pointer-events: none;
+}
+
+/* 라벨 */
 .iconLabel {
-  margin-top: 4px;
+  margin: 0;
   font-size: 12px;
-  color: rgb(0, 0, 0);
+  color: #000;
   text-align: center;
+  line-height: 1.2;
+  max-width: 100%;
   word-break: keep-all;
 }
