@@ -1,0 +1,41 @@
+.wrapper {
+  position: fixed;
+  z-index: 9990;         /* 강아지(9999)보다 살짝 아래 */
+  pointer-events: auto;  /* 클릭 가능 */
+}
+
+.house {
+  width: 80px;
+  height: "auto";
+  display: block;
+  user-select: none;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.2));
+  position: relative;
+}
+
+/* 눈======================================== */
+.eyes {
+  position: absolute;
+  left: 20%;
+  top: 55%;
+  /* 개집 이미지 안에서 대략 입구 위치로 보이게 약간 왼/아래로 이동하고 싶다면 eyesOffset으로 조정 */
+  transform: translate(-10px, 5px);
+  display: flex;
+  gap: 10px;
+}
+
+.eye {
+  width: 4px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: blink 2.5s infinite;
+}
+.eye:nth-child(2) {
+  animation-delay: .2s;
+}
+
+@keyframes blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}

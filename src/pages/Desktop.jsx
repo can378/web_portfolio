@@ -3,11 +3,25 @@ import Icon from "../components/Icon";
 import Taskbar from "../components/Taskbar";
 import styles from "./Desktop.module.css";
 import AssistantDog from "../components/AssistantDog";
-import { useState } from "react";
+import DogHouse from "../components/DogHouse";
+import { useRef,useState } from "react";
 
 export default function Desktop() {
     const [openWindows, setOpenWindows] = useState([]);
     const [zCounter, setZCounter] = useState(1); // ✅ zIndex 카운터
+    const [dogInHouse, setDogInHouse] = useState(false);
+    const houseRef = useRef(null);
+    const dogRef = useRef(null);
+
+    const handleHouseClick = () => {
+        // ✅ 집에 있을 때만 “나와!”
+        if (dogInHouse && houseRef.current && dogRef.current?.comeOutAt) {
+        const anchor = houseRef.current.getAnchor();
+        // 살짝 집 앞에 보이게 y를 더 올리거나 x를 옆으로 빼도 좋음
+        dogRef.current.comeOutAt({ x: anchor.x, y: anchor.y - 10 });
+        setDogInHouse(false);
+        }
+    };
 
     const openWindow = (id) => {
         const icon = iconMap.get(id);
@@ -128,9 +142,22 @@ export default function Desktop() {
                 })}
             </div>
             
-            {/* Assistant AI Agent Dog */}
-            <AssistantDog status="sitting" />
+            {/* 개집 (오른쪽 하단에서 살짝 위쪽) + 눈 깜빡임 */}
+            <DogHouse
+                ref={houseRef}
+                src="/web_portfolio/assets/dog_house.png"
+                occupied={dogInHouse}
+                onClick={handleHouseClick}
+            />
 
+
+            {/* Assistant AI Agent Dog */}
+            <AssistantDog
+                ref={dogRef}
+                status="sitting"
+                houseRef={houseRef}
+                onEnterHouse={() => setDogInHouse(true)}
+            />
 
             {/* 작업표시줄 */}
             <Taskbar
