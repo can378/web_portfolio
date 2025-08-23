@@ -2,7 +2,8 @@ import styles from "./Taskbar.module.css";
 import { useState, useEffect, useMemo } from "react";
 
 function WinLogo() {
-  // 작은 Win95 로고 (SVG) — 12px 높이 기준
+  
+  // Win95 logo---------------------------------------
   return (
     <svg
       className={styles.winLogo}
@@ -18,7 +19,12 @@ function WinLogo() {
   );
 }
 
+
+
 export default function Taskbar({ openWindows, toggleWindow }) {
+
+
+  // TIME--------------------------------------------------
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -34,16 +40,18 @@ export default function Taskbar({ openWindows, toggleWindow }) {
     [time]
   );
 
+  // taskbar-----------------------------------------------
   return (
     <div className={styles.taskbar}>
-      {/* Start 버튼 */}
+
+      {/* Start 버튼--------------------------------------- */}
       <button className={styles.startButton}>
         <WinLogo />
         <span className={styles.startText}>Welcome ▾</span>
       </button>
 
       
-      {/* 열린 창 버튼 영역 */}
+      {/* 열린 창------------------------------------------- */}
       <div className={styles.taskButtons} role="tablist" aria-label="Open windows">
         
         {openWindows.map(({ id, title, type, isVisible }) => (
@@ -55,12 +63,12 @@ export default function Taskbar({ openWindows, toggleWindow }) {
             onClick={() => toggleWindow(id)}
             title={title}
           >
-            <span className={styles.btnIcon}>
+            {/* <span className={styles.btnIcon}>
               {type === "folder" && "📁"}
               {type === "memo" && "📝"}
               {type === "sticker" && "📌"}
               {type === "image" && "🖼"}
-            </span>
+            </span> */}
             <span className={styles.btnLabel}>{title}</span>
           </button>
         ))}
@@ -69,7 +77,7 @@ export default function Taskbar({ openWindows, toggleWindow }) {
       {/* 트레이 구분선 */}
       <div className={styles.traySeparator} aria-hidden />
 
-      {/* 시스템 트레이 + 시계 */}
+      {/* icon + clock-------------------------------------- */}
       <div className={styles.tray}>
         <span className={styles.trayIcon} title="Locale">
           💻
