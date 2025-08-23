@@ -27,7 +27,7 @@ const projects = [
 Redis 캐싱 사용 등으로 성능을 개선하였습니다.
 
 ### **As-Is/To-Be**
-
+![As-Is](/web_portfolio/assets/image/icons/folder_icon.png)
 
 
 ### 프로젝트 분석/설계
