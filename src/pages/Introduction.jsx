@@ -1,13 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ModalWindow from "../components/ModalWindow";
 import styles from "./Introduction.module.css";
 import chatData from "../data/chatData";
+import ReactMarkdown from "react-markdown";
 
 export default function Introduction({ title, onClose, onMinimize }) {
   const [visibleChats, setVisibleChats] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [typingChat, setTypingChat] = useState(null);
 
+  // ⬇︎ 채팅 영역 auto-scroll용(선택)
+  /*
+  const scrollRef = useRef(null);
+  useEffect(() => {
+    if (!scrollRef.current) return;
+    scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  }, [visibleChats, typingChat]);
+  */
   useEffect(() => {
     if (currentIndex >= chatData.length) return;
     const currentChat = chatData[currentIndex];
@@ -22,15 +31,34 @@ export default function Introduction({ title, onClose, onMinimize }) {
       } else {
         clearInterval(typingInterval);
         setTimeout(() => {
+          // ⬇︎ 방금 채팅을 확정 목록으로 옮김
           setVisibleChats((prev) => [...prev, currentChat]);
           setTypingChat(null);
           setCurrentIndex((prev) => prev + 1);
-        }, 200);
+        }, 50);
       }
     }, 40);
 
     return () => clearInterval(typingInterval);
   }, [currentIndex]);
+
+  // ⬇︎ component만 렌더 (함수형/JSX 직접값 둘 다 지원)
+  const renderAttachment = (chat) => {
+    if (!chat?.component) return null;
+
+    // 함수형: () => <SomeComponent />
+    if (typeof chat.component === "function") {
+      const Comp = chat.component;
+      return (
+        <div style={{ marginTop: 8 }}>
+          <Comp />
+        </div>
+      );
+    }
+
+    // JSX 직접값: component: <SomeComponent />
+    return <div style={{ marginTop: 8 }}>{chat.component}</div>;
+  };
 
   return (
     <ModalWindow
@@ -41,22 +69,10 @@ export default function Introduction({ title, onClose, onMinimize }) {
       defaultSize={{ width: 700, height: 600 }}
     >
       <div className={styles.container}>
-        {/* 상단 메뉴바 (고정) */}
         <div className={styles.menuBar}>
           <span>File</span><span>Edit</span><span>Actions</span><span>Tools</span><span>Help</span>
         </div>
 
-        {/* 아이콘 툴바 (고정) */}
-        {/* <div className={styles.toolBar}>
-          <button>👥 Invite</button>
-          <button>📁 Send Files</button>
-          <button>🎥 Video</button>
-          <button>🎤 Voice</button>
-          <button>🎲 Activities</button>
-          <button>🃏 Games</button>
-        </div> */}
-
-        {/* 본문: 가운데 채팅 + 오른쪽 프로필 (높이 가변) */}
         <div className={styles.mainArea}>
           <div className={styles.chatPanel}>
             <div className={styles.toField}>To: Yunji Heo</div>
@@ -68,34 +84,31 @@ export default function Introduction({ title, onClose, onMinimize }) {
                   key={i}
                   className={`${styles.message} ${chat.sender === "me" ? styles.me : styles.question}`}
                 >
-                  <p>{chat.text}</p>
+                  <div className={styles.md}>
+                    <ReactMarkdown>{chat.text}</ReactMarkdown>
+                  </div>
+                  {/* ⬇︎ 메시지 뒤에 component 렌더 */}
+                  {renderAttachment(chat)}
                 </div>
               ))}
+
               {typingChat && (
                 <div
                   className={`${styles.message} ${typingChat.sender === "me" ? styles.me : styles.question}`}
                 >
-                  <p>{typingChat.text}</p>
+                  <div className={styles.md}>
+                    <ReactMarkdown>{typingChat.text}</ReactMarkdown>
+                  </div>
                 </div>
               )}
             </div>
 
-            {/* 하단 툴바(고정) */}
-            {/* <div className={styles.inputToolbar}>
-              <button>😀</button>
-              <button>🎤</button>
-              <button>🖼️</button>
-              <button>🎁</button>
-            </div> */}
-
-            {/* 입력창 + 전송(고정) */}
             <div className={styles.inputContainer}>
               <input type="text" placeholder="메시지를 입력하세요..." className={styles.inputBox} />
               <button className={styles.sendButton}>Send</button>
             </div>
           </div>
 
-          {/* 👉 오른쪽 프로필: 상단(나), 하단(상대) */}
           <aside className={styles.profilesRight}>
             <div className={styles.profileCard}>
               <div className={styles.profileInner}>
@@ -115,14 +128,10 @@ export default function Introduction({ title, onClose, onMinimize }) {
           </aside>
         </div>
 
-        {/* footer/상태바 */}
         <footer className={styles.statusBar}>
           <span>This is Introduction of myself…</span>
           <span className={styles.statusRight}>✔</span>
         </footer>
-
-        {/* 하단 상태바 (원하면 넣기) */}
-        {/* <div className={styles.statusBar}>Click for new Emoticons and Theme Packs…</div> */}
       </div>
     </ModalWindow>
   );

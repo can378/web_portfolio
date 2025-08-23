@@ -53,12 +53,12 @@ export default function Email({ title, onClose, onMinimize }) {
       <form className={styles.container} onSubmit={handleSubmit} aria-busy={loading}>
         {/* 메뉴바 */}
         <nav className={styles.menuBar} role="menubar" aria-label="Mail menu">
-          <button type="button" className={styles.menuItem}>File</button>
-          <button type="button" className={styles.menuItem}>Edit</button>
-          <button type="button" className={styles.menuItem}>View</button>
-          <button type="button" className={styles.menuItem}>Insert</button>
-          <button type="button" className={styles.menuItem}>Format</button>
-          <button type="button" className={styles.menuItem}>Tools</button>
+          <span className={styles.menuItem}>File</span>
+          <span className={styles.menuItem}>Edit</span>
+          <span className={styles.menuItem}>View</span>
+          <span className={styles.menuItem}>Insert</span>
+          <span className={styles.menuItem}>Format</span>
+          <span className={styles.menuItem}>Tools</span>
         </nav>
 
         
