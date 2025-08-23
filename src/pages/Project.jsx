@@ -131,7 +131,9 @@ export default function Project({ title, onClose, onMinimize }) {
 
                 <div className={styles.detailBody}>
                     <div className={styles.detailDescription}>
-                    <ReactMarkdown>{selectedProject.description || ""}</ReactMarkdown>
+                        <div className={styles.markdown}>
+                            <ReactMarkdown>{selectedProject.description || ""}</ReactMarkdown>
+                        </div>
                     </div>
                 </div>
                 </div>
