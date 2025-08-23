@@ -1,0 +1,13 @@
+.dog-walk-sprite {
+  background-repeat: no-repeat;
+  image-rendering: pixelated; /* 깔끔한 선 유지(취향) */
+  animation-name: dog-walk-steps;
+  animation-timing-function: steps(8); /* 프레임 수와 맞추기 */
+  animation-iteration-count: infinite;
+}
+
+/* 배경 위치를 첫 프레임->마지막 프레임으로 이동 */
+@keyframes dog-walk-steps {
+  from { background-position:    0%   0%; }
+  to   { background-position: 100% 100%; } /* 4x2 전체를 훑도록 */
+}

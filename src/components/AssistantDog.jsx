@@ -6,10 +6,8 @@ import AssistantDogChat from "./AssistantDogChat";
 const dogImgBaseUrl = "/web_portfolio/assets/image/dog/";
 
 const dogImages = {
-  walking: "walk.png",
-  sitting: "sit.png",
-  hanging: "hanging.png",
-  cute: "cute.png",
+  sitting: "dog_idle.png",   // 기본(서 있는 포즈)
+  hanging: "dog_dangle.png", // 매달린 포즈
 };
 
 const AssistantDog = forwardRef(function AssistantDog(
@@ -33,6 +31,10 @@ const AssistantDog = forwardRef(function AssistantDog(
   const [showChat, setShowChat] = useState(false);
   const [currentStatus, setCurrentStatus] = useState(status);
   const [dogPosition, setDogPosition] = useState({ x: 200, y: 200 });
+  const [lastFacing, setLastFacing] = useState("right"); // 'left' | 'right'
+
+  const flipScale = lastFacing === "left" ? 1 : -1;
+
   const [inHouse, setInHouse] = useState(false); // ✅ 집 안 상태
 
   const mouseDownPos = useRef({ x: 0, y: 0 });
@@ -81,11 +83,18 @@ const AssistantDog = forwardRef(function AssistantDog(
       const dy = pointerPos.current.y - dogPosition.y;
       const distance = Math.hypot(dx, dy);
 
-      if (distance > 200) {
+      if (distance > 50) {
         const stepSize = 5;
         const angle = Math.atan2(dy, dx);
         const nextX = dogPosition.x + Math.cos(angle) * stepSize;
         const nextY = dogPosition.y + Math.sin(angle) * stepSize;
+
+        // ★ 방향 갱신: 수평 변화량만 기준, 너무 작으면(=수직이동) 갱신 안 함
+        const deltaX = nextX - dogPosition.x;
+        if (Math.abs(deltaX) > 0.5) {
+          setLastFacing(deltaX > 0 ? "right" : "left");
+        }
+
         const clamped = clampPosition(nextX, nextY, size);
         setDogPosition(clamped);
         setCurrentStatus("walking");
@@ -96,6 +105,7 @@ const AssistantDog = forwardRef(function AssistantDog(
 
     return () => clearInterval(interval);
   }, [dogPosition, isDragging, showChat, inHouse, currentStatus, status, size]);
+
 
   // 👉 창 크기 변화 대응 + bounds 계산
   useEffect(() => {
@@ -162,7 +172,44 @@ const AssistantDog = forwardRef(function AssistantDog(
   };
 
 
+  // 스프라이트 정보(걷기)
+  const WALK_DIR = "walk/";
+  const WALK_FRAMES = 8;// 프레임 개수와 파일명 자릿수
+  const WALK_PAD = 2; // 2 → 01.png 형식
+  const WALK_FPS = 12; // 1초에 12프레임 (원하면 조정)
+  function num(n, pad) {
+    return String(n).padStart(pad, "0");
+  }
+  const [walkFrameIndex, setWalkFrameIndex] = useState(0);
+  const walkImagesRef = useRef([]);
 
+  // 걷기 프레임 프리로드 (마운트 시 1회)
+  useEffect(() => {
+    const imgs = [];
+    for (let i = 1; i <= WALK_FRAMES; i++) {
+      const img = new Image();
+      img.src = `${dogImgBaseUrl}${WALK_DIR}${num(i, WALK_PAD)}.png`;
+      imgs.push(img);
+    }
+    walkImagesRef.current = imgs;
+  }, []);
+
+  useEffect(() => {
+    // 조건: 걷는 중이고, 드래그/채팅/집 안 아님
+    const walkingNow = currentStatus === "walking" && !isDragging && !showChat && !inHouse;
+    if (!walkingNow) return;
+
+    const interval = setInterval(() => {
+      setWalkFrameIndex((i) => (i + 1) % WALK_FRAMES);
+    }, 1000 / WALK_FPS);
+
+    return () => clearInterval(interval);
+  }, [currentStatus, isDragging, showChat, inHouse]);
+
+
+  useEffect(() => {
+    if (currentStatus !== "walking") setWalkFrameIndex(0);
+  }, [currentStatus]);
 
 
 
@@ -173,7 +220,6 @@ const AssistantDog = forwardRef(function AssistantDog(
       bounds={bounds}
       cancel=".no-drag"
       onStart={(e) => {
-        // 입력 요소 드래그 방지
         if (["BUTTON", "INPUT", "TEXTAREA"].includes(e.target.tagName)) return false;
       }}
       onDrag={(e, data) => {
@@ -183,50 +229,69 @@ const AssistantDog = forwardRef(function AssistantDog(
           setIsDragging(true);
         }
       }}
-      onStop={handleDragStop} // ✅ 드롭 처리 연결
+      onStop={handleDragStop}
     >
-      <div
-        ref={nodeRef}
-        style={{
-          position: "fixed",
-          zIndex: 9999,
-          touchAction: "none", // 모바일 스크롤 제스처에 뺏기지 않게
-        }}
-      >
+      <div ref={nodeRef} style={{ position: "fixed", zIndex: 9999, touchAction: "none" }}>
         <div
           style={{ position: "relative" }}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
         >
-          {/* ✅ 집 안이면 강아지 이미지는 숨김(개집 눈만 보이게) */}
           {!inHouse && (
-            <img
-              ref={imgRef}
-              src={imageSrc}
-              alt={`Assistant Dog - ${isDragging ? "hanging" : currentStatus}`}
-              style={{
-                width: `${size}px`,
-                height: "auto",
-                userSelect: "none",
-                pointerEvents: "auto",
-                cursor: "grab",
-                touchAction: "none", // 이미지 자체도 터치 제스처 비활성화
-              }}
-              draggable={false}
-            />
+            <>
+              {(!isDragging && currentStatus === "walking") ? (
+                <img
+                  src={
+                    walkImagesRef.current[walkFrameIndex]?.src
+                    ?? `${dogImgBaseUrl}${WALK_DIR}${num((walkFrameIndex % WALK_FRAMES) + 1, WALK_PAD)}.png`
+                  }
+                  alt="Assistant Dog - walking"
+                  style={{
+                    width: `${size}px`,
+                    height: "auto",
+                    userSelect: "none",
+                    pointerEvents: "auto",
+                    cursor: "grab",
+                    touchAction: "none",
+                    transform: `scaleX(${flipScale})`, // ★ 좌우 반전
+                    transformOrigin: "center",
+                  }}
+                  draggable={false}
+                />
+              ) : (
+                <img
+                  ref={imgRef}
+                  src={imageSrc} // idle/dangle
+                  alt={`Assistant Dog - ${isDragging ? "hanging" : currentStatus}`}
+                  style={{
+                    width: `${size}px`,
+                    height: "auto",
+                    userSelect: "none",
+                    pointerEvents: "auto",
+                    cursor: "grab",
+                    touchAction: "none",
+                    transform: `scaleX(${flipScale})`, // ★ 최근 방향 유지
+                    transformOrigin: "center",
+                  }}
+                  draggable={false}
+                />
+              )}
+
+            </>
           )}
+
 
           {showChat && (
             <div
-              className="no-drag no-toggle" // 드래그/토글 제외 마커
-              onPointerDown={(e) => e.stopPropagation()} // 상위로 이벤트 안 올림
+              className="no-drag no-toggle"
+              onPointerDown={(e) => e.stopPropagation()}
               onPointerUp={(e) => e.stopPropagation()}
               style={{
                 position: "absolute",
-                bottom: `${size + 10}px`,
+                bottom: `${size + 30}px`,
                 left: "50%",
                 transform: "translateX(-50%)",
-                zIndex: 10000, // 강아지보다 위
+                zIndex: 10000,
                 touchAction: "auto",
               }}
             >

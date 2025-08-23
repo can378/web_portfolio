@@ -1,6 +1,6 @@
 .wrapper {
   position: fixed;
-  z-index: 9990;         /* 강아지(9999)보다 살짝 아래 */
+  z-index: 1;         /* 강아지(9999)보다 살짝 아래 */
   pointer-events: auto;  /* 클릭 가능 */
 }
 
