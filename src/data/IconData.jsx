@@ -41,7 +41,7 @@ const iconArray = [
         component: FolderWindow,
         props: { 
             folderId: 102,
-            defaultPosition:{ x: 150, y: 200 },
+            defaultPosition:{ x: 70, y: 260 },
             defaultSize:{ width: 500, height: 300 },
         },
         childIds: [300,301,302,601,1001],

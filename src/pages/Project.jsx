@@ -21,7 +21,7 @@ export default function Project({ title, onClose, onMinimize }) {
     <ModalWindow
       title={title}
       onClose={onClose}
-      defaultPosition={{ x: 150, y: 200 }}
+      defaultPosition={{ x: 400, y: 200 }}
       defaultSize={{ width: 800, height: 520 }}
       onMinimize={onMinimize}
     >

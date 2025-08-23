@@ -169,10 +169,3 @@
   border-radius: 2px;
   font-variant-numeric: tabular-nums;
 }
-
-/* ===== 반응형 살짝 축소 ============================================= */
-@media (max-width: 640px) {
-  .taskbar { height: 34px; }
-  :root { --btn-height: 24px; }
-  .btnLabel { max-width: 120px; }
-}

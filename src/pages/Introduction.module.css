@@ -171,3 +171,17 @@
   border-radius: 0 0 10px 10px;
 }
 .statusRight { color:#2e2e2e; }
+
+
+
+
+/* 모바일에서 오른쪽 프로필 숨기기 */
+@media (max-width: 640px) {
+  .profilesRight { display: none; }
+
+  /* 메인 영역이 2열 그리드라면 한 열로 변경(필요할 때만) */
+  .mainArea { grid-template-columns: 1fr; }
+  /* 만약 flex 레이아웃이면 대신 아래를 사용
+  .mainArea { flex-direction: column; }
+  */
+}

@@ -59,8 +59,6 @@ export default function Email({ title, onClose, onMinimize }) {
           <button type="button" className={styles.menuItem}>Insert</button>
           <button type="button" className={styles.menuItem}>Format</button>
           <button type="button" className={styles.menuItem}>Tools</button>
-          <button type="button" className={styles.menuItem}>Compose</button>
-          <button type="button" className={styles.menuItem}>Help</button>
         </nav>
 
         

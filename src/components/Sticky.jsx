@@ -3,7 +3,7 @@ import styles from "./Sticky.module.css";
 
 export default function Sticky({ title, initialText, editable, onClose }) {
   const [content, setContent] = useState(initialText);
-  const [position, setPosition] = useState({ x: 200, y: 300 });
+  const [position, setPosition] = useState({ x: 10, y: 20 });
   const [dragging, setDragging] = useState(false);
   const offset = useRef({ x: 0, y: 0 });
   const stickyRef = useRef(null);

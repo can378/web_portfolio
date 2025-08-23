@@ -82,3 +82,19 @@
   /*box-shadow: inset 0 0 0 2px #fff;*/ /* 레트로 느낌의 안쪽 라인 */
 }
 
+/* [========================= */
+/* 모바일에서 버튼 터치가 편하도록 약간 키우기 */
+/* @media (max-width: 640px) {
+  .titleBar {
+    min-height: 36px;
+  }
+  .squareBtn {
+    min-width: 32px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+  }
+  .content {
+    overflow: auto;
+  }
+} */

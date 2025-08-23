@@ -297,3 +297,17 @@
 .footerRight { color: #333; }
 
 
+/* 모바일에서 좌측 트리 숨기기 */
+@media (max-width: 640px) {
+  .sidebar { display: none; }
+
+  /* 레이아웃이 그리드라면 한 열로 */
+  .bodyArea { grid-template-columns: 1fr; }
+
+  /* 레이아웃이 flex라면 아래 한 줄을 대신 사용
+  .bodyArea { flex-direction: column; }
+  */
+
+  /* 우측 패널이 전체 너비 사용 */
+  .rightPane { width: 100%; }
+}

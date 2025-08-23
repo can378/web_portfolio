@@ -14,8 +14,8 @@ export default function Welcome({ title, onClose, onMinimize }) {
     <ModalWindow
       title="Welcome"
       onClose={onClose}
-      defaultPosition={{ x: 50, y: 80 }}
-      defaultSize={{ width: 700, height: 420 }}
+      defaultPosition={{ x: 30, y: 30 }}
+      defaultSize={{ width: 600, height: 300 }}
       onMinimize={onMinimize}
     >
       <div className={`${styles.container} ${showContent ? styles.fadeIn : ""}`}>
