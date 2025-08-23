@@ -42,6 +42,8 @@ export default function Desktop() {
       const anchor = houseRef.current.getAnchor();
       dogRef.current.comeOutAt({ x: anchor.x, y: anchor.y - 10 });
       setDogInHouse(false);
+    }else if(!dogInHouse&& houseRef.current&& dogRef.current?.goHome){
+      dogRef.current.goHome();
     }
   };
 

@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import styles from "./DogHouse.module.css";
 
 const DogHouse = forwardRef(function DogHouse(

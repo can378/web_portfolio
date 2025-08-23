@@ -1,5 +1,5 @@
 // components/AssistantDog.jsx
-import { useRef, useState, useEffect, forwardRef, useImperativeHandle } from "react";
+import { useCallback, useRef, useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import Draggable from "react-draggable";
 import AssistantDogChat from "./AssistantDogChat";
 
@@ -126,19 +126,46 @@ const AssistantDog = forwardRef(function AssistantDog(
     return () => window.removeEventListener("resize", computeBounds);
   }, [size]);
 
-  // ✅ 외부에서 “집 앞에 나와!” 호출용 API
+
+  const DogGoHome = useCallback(() => {
+    if (!houseRef?.current?.getAnchor) return false; // 안전장치
+    setShowChat(false);
+    setInHouse(true);
+    const anchor = houseRef.current.getAnchor();
+    setDogPosition((_) => clampPosition(anchor.x, anchor.y, size)); // ✅ 클램프
+    setCurrentStatus("sitting");
+    onEnterHouse && onEnterHouse(true);
+    return true;
+  }, [houseRef, onEnterHouse, size, clampPosition]);
+  
   useImperativeHandle(
     ref,
     () => ({
+      // 집 앞으로 나오기
       comeOutAt: (pos) => {
         setInHouse(false);
         setDogPosition(clampPosition(pos.x, pos.y, size));
         setCurrentStatus("sitting");
       },
+
+      // 지금 집 안인지?
       isInHouse: () => inHouse,
+
+      // 집으로 바로 들어가기
+      goHome: () => {
+        return DogGoHome(); // ✅ 반환값 그대로 전달
+      },
+
+      // 상태 강제 전환
+      setStatus: (s) => setCurrentStatus(s),
+
+      // 채팅 토글
+      toggleChat: () => setShowChat((v) => !v),
     }),
-    [inHouse, size]
+    [inHouse, size, DogGoHome] // ✅ 함수 참조 넣기
   );
+
+  
 
   const dogImageFile =
     isDragging ? dogImages.hanging : dogImages[currentStatus] || dogImages.sitting;
@@ -162,15 +189,11 @@ const AssistantDog = forwardRef(function AssistantDog(
     const intersects = !(dx2 < zx1 || dx1 > zx2 || dy2 < zy1 || dy1 > zy2);
 
     if (intersects) {
-      setShowChat(false);
-      setInHouse(true);
-      const anchor = houseRef.current.getAnchor();
-      setDogPosition(anchor);
-      setCurrentStatus("sitting");
-      onEnterHouse && onEnterHouse(true);
+      DogGoHome()
     }
   };
 
+  
 
   // 스프라이트 정보(걷기)
   const WALK_DIR = "walk/";
