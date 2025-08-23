@@ -79,12 +79,12 @@ export default function Taskbar({ openWindows, toggleWindow }) {
 
       {/* icon + clock-------------------------------------- */}
       <div className={styles.tray}>
-        <span className={styles.trayIcon} title="Locale">
+        {/* <span className={styles.trayIcon} title="Locale">
           💻
         </span>
         <span className={styles.trayIcon} title="Printer">
           🔔
-        </span>
+        </span> */}
 
         <div className={styles.clock} aria-label="Clock">
           {hhmm}
