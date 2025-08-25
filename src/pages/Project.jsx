@@ -3,6 +3,7 @@ import ModalWindow from "../components/ModalWindow";
 import styles from "./Project.module.css";
 import projects from "../data/projects";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 export default function Project({ title, onClose, onMinimize }) {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -132,7 +133,9 @@ export default function Project({ title, onClose, onMinimize }) {
                 <div className={styles.detailBody}>
                     <div className={styles.detailDescription}>
                         <div className={styles.markdown}>
-                            <ReactMarkdown>{selectedProject.description || ""}</ReactMarkdown>
+                            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                                {selectedProject.description || ""}
+                            </ReactMarkdown>
                         </div>
                     </div>
                 </div>
