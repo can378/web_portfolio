@@ -44,7 +44,7 @@ const iconArray = [
             defaultPosition:{ x: 70, y: 260 },
             defaultSize:{ width: 500, height: 300 },
         },
-        childIds: [300,301,302,601,1001],
+        childIds: [300,302,601,1001],
 
     },
 
@@ -115,10 +115,11 @@ const iconArray = [
         id: 300,
         type: "link",
         name: "GitHub",
-        url: "https://github.com/",
+        url: "https://github.com/can378",
         path: "desktop",
         icon: "/web_portfolio/assets/image/icons/github_icon.png",
     },
+    /*
     {
         id: 301,
         type: "link",
@@ -127,6 +128,7 @@ const iconArray = [
         path: "desktop",
         icon: "/web_portfolio/assets/image/icons/linkedin_icon.png",
     },
+    */
     {
         id: 302,
         type: "link",
