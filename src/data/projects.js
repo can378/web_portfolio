@@ -2,131 +2,220 @@ const projects = [
 
   //웹개발============================================================================
   {
+    title: "web portfolio",
+    short_description: "이 포트폴리오 개발",
+    technologies: ["React", "fastApi", ""],
+    icon:"/web_portfolio/assets/image/icons/star_icon.png",
+    image: "/web_portfolio/assets/image/icons/star_icon.png",
+    description: `
+<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
+  "윈도우 XP 스타일의 레트로 UI 웹 포트폴리오입니다."
+</div>
+
+---
+
+**진행 일정**: 2025.07.09 ~ 2025.08.31  
+**참여 인원**: 개인
+
+실제 Windows 환경처럼 아이콘을 클릭하고 창을 관리할 수 있는 인터페이스와 함께 
+
+AI 기술을 활용하여 사용자가 자연어로 포트폴리오 정보를 탐색할 수 있도록 설계하였습니다.
+
+### ■ 기술 스택
+
+#### 백엔드
+- FastAPI — Python 웹 프레임워크  
+- LangChain + Groq LLM (Llama3-70b-8192) — AI 에이전트 시스템  
+- MCP (Model Context Protocol) — AI 도구  
+- Gmail API — 이메일 전송 서비스  
+- Docker — Oracle Cloud 서버 CI/CD 배포 구현
+
+#### 프론트엔드
+- React 19.1.0 + Vite  
+- react-draggable  
+- CSS Modules  
+- GitHub Pages — 프론트 배포  
+
+### ■ 주요 기능
+- AI 에이전트 서비스: 자연어 질의로 포트폴리오 정보 탐색  
+- 이메일 서비스: Gmail API 연동으로 메시지 전송  
+- MCP 도구 시스템: 포트폴리오 데이터 조회/관리  
+- 보안/운영: Rate Limiting, CORS 설정, 로깅  
+
+### ■ 디자인 특징
+- 레트로 스타일: Windows 95/98 클래식 UI  
+- 반응형 디자인: 모바일 · 데스크톱 모두 지원  
+  `
+  },
+  {
     title: "자산화",
     short_description: "사용자 편의성을 증대하고자 기능 개선",
     technologies: ["C++", "SDL2", "Team Management"],
     icon:"/web_portfolio/assets/image/icons/metafactory_icon.png",
     image: "/web_portfolio/assets/image/icons/metafactory_icon.png",
     description: `
-**진행 일정: 2025.03.17 ~ 2025.04.20 (분석/설계:10일, 개발:15일)**
+<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
+  "시연용 프로젝트 웹사이트 기능 추가 및 코드 리팩토링, 성능 개선"
+</div>
+
+---
+
+**진행 일정:** 2025.03.17 ~ 2025.04.20 (분석/설계:10일, 개발:15일)
 
 **참여 인원:** 개인
 
-**사용 툴:** Vue 3 + Nuxt 3  (Vuetify 3 + Pinia...)  /  Node.js + Express  서버
-
-**프로젝트 진행 관리**: Jira
-
-사내 내재화 프로젝트의 웹사이트에 기능 추가 및 코드 리팩토링, 성능 개선을 진행했습니다. 
-
-학습을 위해 분석/설계 부터 개발을 진행했으며
+학습을 위해 분석/설계/기획 부터 개발을 진행했으며
 
 기존 코드를 MVC 패턴으로 구조화하고, 하드코딩 된 부분들을 데이터베이스 기반으로 변경했으며 
 
 고립성과 확장성을 고려하여 데이터베이스 테이블을 재설계 했습니다. 
 
-Redis 캐싱 사용 등으로 성능을 개선하였습니다.
+Redis 캐싱 사용 등으로 성능 또한 개선하였습니다.
 
-### **As-Is/To-Be**
-![As-Is](/web_portfolio/assets/image/icons/folder_icon.png)
+---
 
+### ■ 기술 스택
+- Vue 3 + Nuxt 3  (Vuetify 3 + Pinia...)
+- Node.js + Express  서버
+- aws + github actions ㅡ CI/CD 구현
+- 프로젝트 진행 관리: Jira
 
-### 프로젝트 분석/설계
+---
+
+### ■ 웹페이지 화면
+### **metafactory-v1**
+
+=모든 기능이 들어간 웹사이트입니다.
+
+![metafactory-v1](/web_portfolio/assets/image/projects/metafactory/metafactoryV1.png)
+
+### **metafactory-v2**
+
+= 사용 빈도가 적은 기능을 제외한 최종 웹사이트 스크린샷 입니다.
+
+![metafactory-v2](/web_portfolio/assets/image/projects/metafactory/metafactoryV2.png)
+
+---
+
+### ■ 프로젝트 분석/설계
+
+**🔷 As-Is/To-Be**
+<img src="/web_portfolio/assets/image/projects/metafactory/asistobe.png" width="300" />
 
 **🔷 요구사항 명세서**
+<img src="/web_portfolio/assets/image/projects/metafactory/요구사항명세서.png" width="400" />
 
 **🔷 개발 WBS 문서**
+<img src="/web_portfolio/assets/image/projects/metafactory/wbs.png" width="400" />
 
 **🔷 ERD 설계**
 
-데이터베이스 재설계, 정규화 - 3NF를 목표
+= 데이터베이스 재설계, 정규화 - 3NF를 목표
 
-● 확장성 고려
-ex) 공장, 창고 테이블이 2개 존재하던 것에서 기업, 캠퍼스, 빌딩, 층, 라인… 계층적 구조로 설계
+- 확장성 고려
 
-● 고립성과 재사용성 고려
-primary key를 AUTO_INCREMENT와 FOREIGN KEY로 설계.
-단일 테이블에 모든 정보를 다 넣지 않고 고립성과 재사용성을 고려
+  ex) 공장, 창고 테이블이 2개 존재하던 것에서 기업, 캠퍼스, 빌딩, 층, 라인… 계층적 구조로 설계
 
-● 인덱스
-캠퍼스 테이블에 대해 위치id, 유저 세팅 테이블에 유저id
+- 고립성과 재사용성 고려
 
-→ 조회 성능 향상
+  primary key를 AUTO_INCREMENT와 FOREIGN KEY로 설계.
 
-● 고려한 개선점
-varchar로 되어있는 PK를 FK/조인용으로 INT surrogate key로 변경
-ENUM, Lookup 테이블 사용
+  단일 테이블에 모든 정보를 다 넣지 않고 고립성과 재사용성을 고려
 
-### 기능 개발
+- 인덱스
 
-1. 웹 디자인 = 전면 변경
+  캠퍼스 테이블에 대해 위치id, 유저 세팅 테이블에 유저id → 조회 성능 향상
 
-2. 지도 확대 = 국가 선택 시 해당 국가 맵으로 이동. 
-통일감을 위해 python으로 도트 맵 생성.
-이미지 파일을 canvas에 그린 후 픽셀 색상 정보를 가져온다. 그것을 일정 간격으로 자르고 해당 영역에 어두운 픽셀 있으면 을 넣어서 도트 맵 생성.
+- 추후 개선 포인트
 
-+) html2canvas 라이브러리로 특정 요소를 캡쳐하고 Canvas 객체로 바꾸어 그 데이터를 Data Url로 바꾸어 이미지 다운
+  varchar로 되어있는 PK를 FK/조인용으로 INT surrogate key로 변경
 
+  ENUM, Lookup 테이블 사용
 
-1. 캠퍼스 정보 = hover, click 시 캠퍼스 정보 확인. 
-캠퍼스 명, 현지 시간, 환율, 날씨, 캠퍼스 위치 표시. 
-캠퍼스 즐겨찾기 추가 및 삭제 가능. 
-레이아웃 업데이트 시 알림. 각 campus가 위치한 도시 표기. 
-즐겨찾기 한 캠퍼스는 목록으로 메인 페이지에서 확인 가능
+---
 
+### ■ 기능 개발
 
+1. 웹 디자인 
+    = 전면 변경
 
-1. 캠퍼스 스케줄 = 캠퍼스 스케줄 관리 가능. 
-일정 현황 확인, 달력에 해당 국가의 공휴일 표시. 엑셀로 일괄 업로드, 다운로드
+2. 지도 확대 
+    = 국가 선택 시 해당 국가 맵으로 이동. 
 
+    통일감을 위해 python으로 도트 맵 생성.
 
+    html2canvas 라이브러리로 특정 요소를 캡쳐하고 Canvas 객체로 바꾸어 그 데이터를 Data Url로 바꾸어 이미지 다운
 
-1. 공지 = 공지 관리, 파일 업로드, 이미지 미리 보기, 
-공지 기한 설정, 공지 노출 허용 유저 설정, 공지 상단 고정
+3. 캠퍼스 정보 = hover, click 시 캠퍼스 정보 확인. 
 
-+) AWS S3 서명 URL
-= S3를 비공개로 설정하고 특정 객체에 일정 시간 동안 접근 가능한 임시 링크를 제공하여 안전하게 조회할 수 있게 함
+    캠퍼스 명, 현지 시간, 환율, 날씨, 캠퍼스 위치 표시. 
+    
+    캠퍼스 즐겨찾기 추가 및 삭제 가능. 
 
-2. 레이아웃 업데이트 = 업데이트 시 알림. 알림 기간 설정 가능
+    레이아웃 업데이트 시 알림. 각 campus가 위치한 도시 표기. 
 
-3. 사용자 개별로 자주 사용하는 UI 즐겨 찾기, 순서 변경 기능
+    즐겨찾기 한 캠퍼스는 목록으로 메인 페이지에서 확인 가능
 
+4. 캠퍼스 스케줄 
+    = 캠퍼스 스케줄 관리 가능. 
+    
+    일정 현황 확인, 달력에 해당 국가의 공휴일 표시. 
+    
+    엑셀로 일괄 업로드, 다운로드
 
+5. 공지 
+    = 공지 관리, 파일 업로드, 이미지 미리 보기, 
+    
+    공지 기한 설정, 공지 노출 허용 유저 설정, 공지 상단 고정
 
-1. 한/영 국제화. 사용자 별 기본 언어 설정 가능
+    AWS S3 서명 URL로 s3를 비공개로 설정하고 특정 객체에 일정 시간 동안 접근 가능한 임시 링크를 제공하여 
+    
+    파일을 안전하게 조회할 수 있게 함
 
-2. 뉴스 = 유저 정보 기반 키워드로 뉴스 웹 크롤링 후 목록 제공
-+) Cheerio 활용 = 네이버에서 지정 키워드를 기반으로 검색했고, HTML을 jquery로 조작할 수 있게 하는 라이브러리를 활용하여 원하는 검색 결과 HTML 속에서 원하는 정보를 가져왔다. 
+6. 레이아웃 업데이트 
+    = 업데이트 시 알림. 알림 기간 설정 가능
 
-### Refactoring
+7. 사용자별 자주 사용하는 UI 즐겨 찾기 기능
 
-1. MVC 패턴 
+8. 한/영 국제화. 
+    사용자 별 기본 언어 설정 가능
+
+9. 뉴스 
+    = 키워드로 뉴스 웹 크롤링 후 목록 제공
+    
+    Cheerio로 네이버에서 지정 키워드를 기반으로 검색 후
+    
+    HTML을 jquery로 조작할 수 있게 하는 라이브러리를 활용하여 원하는 검색 결과 HTML 속에서 원하는 정보를 가져왔다. 
+
+---
+
+### ■ Refactoring
+
+🔷 MVC 패턴
+
 = 백엔드를 Model, Controller, Service, Routes로 분리
-  
-  + 공통 함수를 Utils폴더 내로 분리. Scheduler 따로 분리
+
++) 공통 함수를 Utils폴더 내로 분리. Scheduler 따로 분리
   
   - 코드 유지 보수성 향상
   - 각 모듈 역할 명확히 분리
   - 반복 작업과 함수 재 사용성 향상
-2. 데이터 베이스 기반 = 하드 코딩 된 부분을 데이터 베이스 기반으로 변경.
+
+🔷 데이터 베이스 기반
+
+= 하드 코딩 된 부분을 데이터 베이스 기반으로 변경.
   - 유연성 확보
   - 동적 관리 가능
 
-### 기능 개선
+---
+  
+### ■ 기능 개선
 
-Redis 적용 = 변경이 빈번하지 않은 데이터 redis 캐싱 적용 → 조회 성능 향상
+변경이 빈번하지 않은 데이터 redis 캐싱 적용으로 조회 성능 향상
 
-+) 이미지 압축, vuedraggable(용량 많이 차지하는 라이브러리) 코드 직접 구현 등…
+vuedraggable(용량 많이 차지하는 라이브러리) 코드 직접 구현 등… 
 
-⇒ Lighthouse통해 성능 개선 확인
-
-
-## 고려한 추가 성능 향상 방안
-
-배포 시 정적 파일은 캐싱, compression (gzip)
-
-FCP,LCP점수 개선
-
-node.js cluster mode 사용  
+Lighthouse통해 성능 개선 확인 
   `
   },
   {
