@@ -133,7 +133,44 @@ export default function Project({ title, onClose, onMinimize }) {
                 <div className={styles.detailBody}>
                     <div className={styles.detailDescription}>
                         <div className={styles.markdown}>
-                            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                            <ReactMarkdown
+                                rehypePlugins={[rehypeRaw]}
+                                components={{
+                                    a: ({ href, children, ...props }) => (
+                                    <a
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        // PDF/문서 파일이면 다운로드 속성 부여
+                                        download={/\.(pdf|docx?|xlsx?|pptx?)($|\?)/i.test(href || "") ? true : undefined}
+                                        {...props}
+                                    >
+                                        {children}
+                                    </a>
+                                    ),
+                                    img: ({ ...props }) => (
+                                    <img
+                                        {...props}
+                                        style={{
+                                        maxWidth: "100%",
+                                        height: "auto",
+                                        display: "block",
+                                        margin: "12px 0",
+                                        }}
+                                    />
+                                    ),
+                                    iframe: ({ ...props }) => (
+                                    <div className={styles.iframeWrap}>
+                                        <iframe
+                                        {...props}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                        style={{ border: 0 }}
+                                        />
+                                    </div>
+                                    ),
+                                }}
+                                >
                                 {selectedProject.description || ""}
                             </ReactMarkdown>
                         </div>

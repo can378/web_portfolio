@@ -3,8 +3,8 @@ const projects = [
   //웹개발============================================================================
   {
     title: "web portfolio",
-    short_description: "이 포트폴리오 개발",
-    technologies: ["React", "fastApi", ""],
+    short_description: "윈도우 XP 스타일의 레트로 UI 웹 포트폴리오입니다.",
+    technologies: ["React", "fastApi", "MCP", "AI agent"],
     icon:"/web_portfolio/assets/image/icons/star_icon.png",
     image: "/web_portfolio/assets/image/icons/star_icon.png",
     description: `
@@ -60,8 +60,8 @@ https://github.com/can378/web_portfolio.git
   },
   {
     title: "자산화",
-    short_description: "사용자 편의성을 증대하고자 기능 개선",
-    technologies: ["C++", "SDL2", "Team Management"],
+    short_description: "시연용 프로젝트 웹사이트 기능 추가 및 코드 리팩토링, 성능 개선",
+    technologies: ["Vue3+Nuxt3 ", "Node.js+Express"],
     icon:"/web_portfolio/assets/image/icons/metafactory_icon.png",
     image: "/web_portfolio/assets/image/icons/metafactory_icon.png",
     description: `
@@ -231,9 +231,9 @@ Lighthouse통해 성능 개선 확인
   `
   },
   {
-    title: "Library - Bible",
-    short_description: "library web",
-    technologies: ["Python", "PyTorch", "Mediapipe"],
+    title: "Library Website - Bible",
+    short_description: "온라인 도서 대여 서비스",
+    technologies: ["Vue2", "Spring Boot", "Docker", "Azure"],
     icon:"/web_portfolio/assets/image/icons/bible_icon.png",
     image: "/web_portfolio/assets/image/icons/bible_icon.png",
     description:`
@@ -315,18 +315,22 @@ Notion, Googl Drive, drow.io, git+github, Figma, erd cloud
 ---
 
 ### ■ 시연 영상
-
-![video](/web_portfolio/assets/image/projects/bible/video.mp4)
+<video
+  src="/web_portfolio/assets/image/projects/bible/video.mp4"
+  controls
+  playsinline
+  style="width:100%; height:auto;"
+>
+  브라우저가 video 태그를 지원하지 않습니다.
+</video>
 
 
 `
-
-
   },
   {
     title: "아무개전",
-    short_description: "Classifies walking, running, and standing from webcam data.",
-    technologies: ["Python", "PyTorch", "Mediapipe"],
+    short_description: "Unity 2D 조선풍 로그라이크 PC게임 개발",
+    technologies: ["C#", "Unity"],
     icon:"/web_portfolio/assets/image/icons/spirit_icon.png",
     image: "/web_portfolio/assets/image/icons/spirit_icon.png",
     description:`
@@ -357,7 +361,7 @@ https://github.com/can378/SpiritGameProject.git
 ---
 
 ### ■ 기술 스택
-- Unity 2D
+- Unity 2D, C#
 
 ---
 
@@ -435,26 +439,30 @@ Android
   {
     title: "멍냥멍냥",
     short_description: "Classifies walking, running, and standing from webcam data.",
-    technologies: ["Python", "PyTorch", "Mediapipe"],
+    technologies:  ["C++", "SDL2", "OpenGL", "Team Management"],
     icon:"/web_portfolio/assets/image/icons/dog_cat_icon.png",
     image: "/web_portfolio/assets/image/icons/dog_cat_icon.png",
     description:`
-OpenGL, SDL2를 사용한 2D 2인 협동 퍼즐 게임
+<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
+  "OpenGL, SDL2로 개발한 2D 2인 협동 퍼즐 게임"
+</div>
 
-4명이 개발한 게임으로 
+---
+
+**진행 일정**: 
+
+2024.04.01 - 2024.06.12
+
+2024.11.15 - 2024.11.24 (업데이트)
+
+**참여 인원**: 4명
+
+![berry5](/web_portfolio/assets/image/projects/dogCat/dogcat.png)
+
+OpenGL, SDL2로 개발한 2D 2인 협동 퍼즐 게임
 
 기획/개발을 맡으며 팀장으로써 팀을 이끌었습니다.
 
-### 제작 기간
-
-2024.04.01 - 2024.06.12
-+ 2024.11.15 - 2024.11.24 (업데이트)
-
-https://youtu.be/SdC8TNcZ2sU?si=pcIDDEzaBsRHx351
-
-### 소개
-![berry5](/web_portfolio/assets/image/projects/dogCat/dogcat.png)
-![berry5](/web_portfolio/assets/image/projects/dogCat/dogcat2.jpg)
 두 명의 플레이어가 한 대의 PC로 플레이하는 2인 협동 게임입니다.
 
 오지 않는 주인을 마중 나가기 위해 집안 곳곳을 헤쳐나간다는 스토리를 기반으로
@@ -463,7 +471,30 @@ https://youtu.be/SdC8TNcZ2sU?si=pcIDDEzaBsRHx351
 
 고양이와 강아지는 각자 가지고 있는 패널티와 한계, 능력이 다르기 때문에 서로가 서로를 꼭 필요로 합니다
 
-### 제작 동기
+
+---
+
+### ■ Github
+https://github.com/can378/SDLGame.git
+
+---
+
+### ■ 기술 스택
+- C++
+- SDL2
+- OpenGL
+
+---
+
+### ■ 영상
+<iframe
+  src="https://youtu.be/SdC8TNcZ2sU?si=pcIDDEzaBsRHx351"
+  title="YouTube video player">
+</iframe>
+
+---
+
+### ■ 제작 동기
 
 컴퓨터로 할 수 있는 놀이가 바로 게임이라고 생각합니다.
 예로부터 놀이는 혼자서 하는 것이 아닌 여러명이서 즐기는 문화였습니다.
@@ -471,32 +502,33 @@ https://youtu.be/SdC8TNcZ2sU?si=pcIDDEzaBsRHx351
 
 기술의 덕택으로 혼자서 게임을 즐길 수도 있고, 혹은 익명의 누군가와 별다른 인사 없이 게임을 시작할 수도 있죠. 과거와는 달라진 놀이의 양상 속에서 플레이어들은 혼자 게임을 즐기며 타인과의 연결을 차단하기도 하고 익명성 뒤에서 타인에게 상처가 되는 말을 내뱉기도 합니다.
 
-저희 개발진은 이러한 문제 상황을 해결하고 놀이의 또 다른 본질인 ‘유대’의 가치를 회복하고자 멍냥 멍냥을 만들었습니다. 사랑스러운 강아지, 고양이 캐릭터와 함께, 사람과 직접 마주하여 게임을 플레이하는 과정에서, 함께 해냈다는 따뜻하고 뭉클한 성취감이 플레이어 분들께 전달될 수 있길 진심으로 바랍니다
+저희 팀은 이러한 문제 상황을 해결하고 놀이의 또 다른 본질인 ‘유대’의 가치를 회복하고자 멍냥 멍냥을 만들었습니다. 사랑스러운 강아지, 고양이 캐릭터와 함께, 사람과 직접 마주하여 게임을 플레이하는 과정에서, 함께 해냈다는 따뜻하고 뭉클한 성취감이 플레이어 분들께 전달될 수 있길 진심으로 바랍니다
 
-### 개발 파트
+---
 
-게임 인트로, 매뉴얼, 게임 스테이지 등등 게임 phase interface 설계
-물체들 간의 충돌 감지(위치, 크기, 물체 간 거리 기반)
+### ■ 개발 파트
 
-게임 캐릭터가 딛고 서있는 발판 구현 - 점프+중력 구현 후 모든 terrain에 접촉하면 이동하지 못하도록 막게 구현
-게임 캐릭터 이동 조작 구현
-게임 캐릭터 스킬 구현 
-- “강아지가 냄새 맡기”로 occlusion 투명도 조절로 가려진 것을 확인하는 스킬
-- “고양이 액체화”로 좁은 틈 이동. 특정 캐릭터에만 충돌하도록 구현. 해당 상태일 때 애니메이션 변경으로 상태 확인 가능
+- 게임 인트로, 매뉴얼, 게임 스테이지 등등 게임 phase interface 설계
+- 물체들 간의 충돌 감지(위치, 크기, 물체 간 거리 기반)
 
-버튼을 누르면 이동하는 발판 구현. 여러 버튼과 여러 발판이 연결되도록 연결. 발판의 위치는 단지 직선이 아닌 방향 벡터와 이동 거리 계산으로 특정 어느 방향으로도 일정한 속도로 이동할 수 있게 구현
+- 게임 캐릭터가 딛고 서있는 발판 구현 - 점프+중력 구현 후 모든 terrain에 접촉하면 이동하지 못하도록 막게 구현
+- 게임 캐릭터 이동 조작 구현
+- 게임 캐릭터 스킬 구현 
+    “강아지가 냄새 맡기”로 occlusion 투명도 조절로 가려진 것을 확인하는 스킬
+    “고양이 액체화”로 좁은 틈 이동. 특정 캐릭터에만 충돌하도록 구현. 해당 상태일 때 애니메이션 변경으로 상태 확인 가능
 
-특정 오브젝트(쿠션) 닿으면 점프력 증가
-특정 캐릭터(강아지)만 박스를 밀 수 있도록 구현
-접촉하면 투명도 낮아진 끝에 사라지는 발판
-열쇠와 자물쇠 구현. 열쇠를 얻은 캐릭터만 자물쇠 해제 가능
-맵 별 구조 배치
-게임 스테이지별 시작, 엔딩 구현 - 스테이지 시작시 특정 위치에서 시작. 특정 오브젝트에 두 캐릭터가 모두 접촉하면 게임 클리어
+- 버튼을 누르면 이동하는 발판 구현. 여러 버튼과 여러 발판이 연결되도록 연결. 발판의 위치는 단지 직선이 아닌 방향 벡터와 이동 거리 계산으로 특정 어느 방향으로도 일정한 속도로 이동할 수 있게 구현
 
-### 깃허브
-https://github.com/can378/SDLGame.git
+- 특정 오브젝트(쿠션) 닿으면 점프력 증가
+- 특정 캐릭터(강아지)만 박스를 밀 수 있도록 구현
+- 접촉하면 투명도 낮아진 끝에 사라지는 발판
+- 열쇠와 자물쇠 구현. 열쇠를 얻은 캐릭터만 자물쇠 해제 가능
+- 맵 별 구조 배치
+- 게임 스테이지별 시작, 엔딩 구현 - 스테이지 시작시 특정 위치에서 시작. 특정 오브젝트에 두 캐릭터가 모두 접촉하면 게임 클리어
 
-### 업데이트
+---
+
+### ■ 업데이트
 
 맵 2개 추가
 
@@ -504,23 +536,36 @@ https://github.com/can378/SDLGame.git
 
 (램프, 흔들 발판, 텔레포트, 로봇청소기)
 
-### 게임 설명서
+---
+
+### ■ 게임 설명서
+<a href="/web_portfolio/assets/projects/dogCat/멍냥 최종.pdf" download>설명서 직접 다운로드</a>
+
+![berry5](/web_portfolio/assets/image/projects/dogCat/dogcat2.jpg)
     `
   },
   {
     title: "ERROR",
-    short_description: "Classifies walking, running, and standing from webcam data.",
-    technologies: ["Python", "PyTorch", "Mediapipe"],
+    short_description: "Unreal short film",
+    technologies: ["Urnreal", "C++"],
     icon:"/web_portfolio/assets/image/icons/error_icon.png",
     image: "/web_portfolio/assets/image/icons/error_icon.png",
     description:`
-  Unreal short film
+<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
+  "Unreal short film"
+</div>
 
-### Production Period
+---
+
+**진행 일정**: 2024.04 one week  
+
+**참여 인원**: 개인
+
 ![berry5](/web_portfolio/assets/image/projects/error/image.png)
-2024.04 one week
 
-### Description
+---
+
+### ■ Description
 
 This is a one-person production video.
 
@@ -528,13 +573,17 @@ Except for the initial subway scene, all backgrounds were created by me.
 
 In the scene with the white monitors, I had intended to include videos on each monitor, but due to insufficient computer specifications, they were ultimately removed from the final version.
 
-### Final Video
+---
 
-I recommend watching it at 2x speed.
+### ■ Final Video
+
++) I recommend watching it at 2x speed.
 
 https://youtu.be/HBr-nuXH8xA?si=cn3ZKZRcgBWvvWza
 
-### Plot Summary
+---
+
+### ■ Plot Summary
 
 While taking the subway, Megan suddenly finds herself transported to an unknown place. In this new space, she encounters a monster and begins to run in fear, not understanding what's happening.
 
@@ -551,45 +600,49 @@ At the end, the word "error" appears reversed on the screen, signifying that our
 
   //기타============================================================================
   {
-    title: "Pose Estimation",
-    short_description: "Classifies walking, running, and standing from webcam data.",
+    title: "Human Pose Estimation",
+    short_description: "Human pose estimation + action recognition",
     technologies: ["Python", "PyTorch", "Mediapipe"],
     icon:"/web_portfolio/assets/image/icons/pose_icon.png",
     image: "/web_portfolio/assets/image/icons/pose_icon.png",
     description:`
-  # HPE - Pytorch
+<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
+  "MediaPipe를 활용한 human pose estimation + action recognition"
+</div>
 
-<aside>
-🤸🏻
+---
 
- Human pose estimation + action recognition
+**진행 일정**: 2024.08 1주일  
+**참여 인원**: 개인
 
-</aside>
+---
 
-MediaPipe를 활용한 human pose estimation + action recognition
+### ■ 코드
 
-### 개발 기간
+---
 
-2024.08 1주일
+### ■ 개발 환경
 
-### 코드
+- jupyter notebook
+- numpy, pandas, metaplotlib …
+- python
 
-### 관절 각도 기준 판별 → Ensemble(Random Forest) →  LSTM
+---
+
+### ■ 판정 기준
+
+관절 각도 기준 판별 → Ensemble(Random Forest) →  LSTM
 
 accuracy : 85%
 
-### 프로젝트 설명서
+---
+
+### ■ 프로젝트 설명서
 
 
-### 개발 환경
+---
 
-jupyter notebook
-
-numpy, pandas, metaplotlib …
-
-python
-
-### 추후 기획
+### ■ 추후 기획
 
 제자리에서 **Running, Walking, Crouching, Crouching and Walking**을 구분하기 위해
 
@@ -597,7 +650,9 @@ python
 
 추후에 완벽하게 classification이 가능해지면 Unreal혹은 Unity 3D와 연결하여 사람의 모션 캡쳐로 상호 작용하는 게임을 제작할 계획입니다.
 
-### 프로젝트 응용
+---
+
+### ■ 프로젝트 응용
 
 운동 자세 보정, 의료 분야에서 환자의 재활을 위해 움직임 분석, 
 스포츠 선수의 자세 분석, 노인 확인 용 Cctv, 애완동물 Cctv 등…
