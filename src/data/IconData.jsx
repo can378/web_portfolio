@@ -20,7 +20,7 @@ const iconArray = [
         path: "desktop",
         component: FolderWindow,
         props: { folderId: 100 },
-        childIds: [200, 201],
+        childIds: [200],
     },
     {
         id: 101,
@@ -52,20 +52,18 @@ const iconArray = [
     {
         id: 200,
         type: "memo",
-        name: "메모 1",
-        text: "메모 1의 기본 텍스트입니다.",
+        name: "Metanet",
         editable: true,
         path: "work",
         icon: "/web_portfolio/assets/image/icons/memo_icon.png",
         fixed: true,
         component: Memo,
-        props: { title: "메모 1", initialText: "메모 1의 기본 텍스트입니다.", editable: true }
+        props: { title: "메모 1", initialText: "Metanet 에서 근무하였습니다.", editable: true }
     },
     {
         id: 201,
         type: "memo",
         name: "메모 2",
-        text: "메모 2의 기본 텍스트입니다.",
         editable: false,
         path: "projects",
         icon: "/web_portfolio/assets/image/icons/memo_icon.png",
@@ -77,7 +75,6 @@ const iconArray = [
         id: 202,
         type: "memo",
         name: "메모 3",
-        text: "메모 3의 기본 텍스트입니다.",
         editable: true,
         path: "documents",
         icon: "/web_portfolio/assets/image/icons/memo_icon.png",
@@ -89,25 +86,48 @@ const iconArray = [
         id: 203,
         type: "memo",
         name: "Hobby",
-        text: "1. 식물 키우기 2. 피겨스케이트",
         editable: true,
         path: "user",
         icon: "/web_portfolio/assets/image/icons/memo_icon.png",
         fixed: true,
         component: Memo,
-        props: { title: "Hobby", initialText: "1. 식물 키우기 2. 피겨스케이트", editable: true }
+        props: 
+        { 
+            title: "Hobby", 
+            initialText: "1. 식물 키우기 \n2. 피겨 스케이트\n3. 배드민턴\n4. 여행\n5. 그림 그리기\n6. 개발\n7. 안 먹어본 음식 먹어보기", 
+            editable: true 
+        }
     },
     {
         id: 204,
         type: "memo",
         name: "Bucket List",
-        text: "bucket list 1 2 3 4",
         editable: true,
         path: "user",
         icon: "/web_portfolio/assets/image/icons/memo_icon.png",
         fixed: true,
         component: Memo,
-        props: { title: "Bucket List", initialText: "bucket list 1 2 3 4", editable: true }
+        props: 
+        { 
+            title: "Bucket List", 
+            initialText: `1. 스카이 다이빙
+2. 비행기 직접 조종하기
+3. F1 차를 몰아보기
+4. 수천 만 명을 도울 수 있는 프로그램을 개발하기
+5. 엄마의 핸드폰 사용을 돕는 프로그램 개발하기
+6. 영어를 원어민 수준으로 하기
+7. 백준 플레1 달성
+8. 미국, 호주, 뉴질랜드, 멕시코, 러시아, 발트해3국, 남극, 태국, 코타키나발루, 케냐, 몽골, 캐나다는 꼭 방문해보기
+9. 엑스트라 알바 해보기
+10. 독일어 b1 취득
+11. 백발이 되어보기
+12. 친구와 가족에게 항상 밥을 사줄 수 있는 사람이 되기
+13. 엄마 아빠 과천에 집 사주기
+14. 지프차 몰기
+15. 작은 온실을 가지기
+`,
+            editable: true 
+        }
     },
 
     // 🌐 링크
@@ -160,37 +180,19 @@ const iconArray = [
         props: { title: "favorite", imageUrl: "/web_portfolio/assets/image/henri_rousseau.jpg" }
     },
 
+    
     // 📌 스티커
     {
         id: 500,
         type: "sticker",
-        name: "스티커 1",
-        text: `
-Goal 
-
-1. 기본적인 AI지식을 바탕으로 실제 백엔드 서비스에 통합할 수 있는 개발자
-
-2. 프로젝트 참여시 불필요한 세팅 시간을 감축하기 위해 해당 과정을 잘 정리하고 전달하는 개발자
-
-3. 5년 뒤 PL으로서 작업을 지시할 때 필요한 일을 정확하고 상세히 정리하여 전달하는 개발자
-
-4. 고객사의 요청 사항을 잘 뽑아낼 수 있는 개발자
-
-5. 담당한 도메인에 대해 잘 알고 있는 개발자
-
-6. 지독한 개발자
-
-7. 끝까지 최적화
-`,
+        name: "Goal",
         editable: true,
         path: "desktop",
         icon: "/web_portfolio/assets/image/icons/sticky_icon.png",
         component: Sticky,
         props: {
-            title: "스티커 1",
+            title: "Goal",
             initialText: `
-Goal 
-
 1. 기본적인 AI지식을 바탕으로 실제 백엔드 서비스에 통합할 수 있는 개발자
 
 2. 프로젝트 참여시 불필요한 세팅 시간을 감축하기 위해 해당 과정을 잘 정리하고 전달하는 개발자
@@ -212,7 +214,6 @@ Goal
         id: 501,
         type: "sticker",
         name: "스티커 2",
-        text: "스티커 2 기본 텍스트입니다.",
         editable: false,
         path: "documents",
         icon: "/web_portfolio/assets/image/icons/sticky_icon.png",

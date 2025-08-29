@@ -45,10 +45,10 @@ export default function Taskbar({ openWindows, toggleWindow }) {
     <div className={styles.taskbar}>
 
       {/* Start 버튼--------------------------------------- */}
-      <button className={styles.startButton}>
+      <div className={styles.startButton}>
         <WinLogo />
         <span className={styles.startText}>Welcome ▾</span>
-      </button>
+      </div>
 
       
       {/* 열린 창------------------------------------------- */}
