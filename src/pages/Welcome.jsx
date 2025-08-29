@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import ModalWindow from "../components/ModalWindow";
 import styles from "./Welcome.module.css";
-
-export default function Welcome({ title, onClose, onMinimize }) {
+const OPEN = {
+  about: 1003,
+  projects: 1001,
+  contact: 1005,
+};
+export default function Welcome({ title, onClose, onMinimize, onOpen }) {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
@@ -10,6 +14,11 @@ export default function Welcome({ title, onClose, onMinimize }) {
     return () => clearTimeout(timer);
   }, []);
 
+  const safeOpen = (id) => {
+    if (typeof onOpen === "function") onOpen(id);
+    // onOpen이 안 넘어온 경우를 대비한 안전장치(선택)
+  };
+  
   return (
     <ModalWindow
       title="Welcome"
@@ -25,9 +34,24 @@ export default function Welcome({ title, onClose, onMinimize }) {
             <span className={styles.headerTitle}>Hello, Welcome!</span>
           </div>
           <nav className={styles.headerRight} aria-label="quick actions">
-            <button className={styles.headBtn} onClick={() => alert("About me!")}>About</button>
-            <button className={styles.headBtn} onClick={() => alert("Open projects!")}>Projects</button>
-            <button className={styles.headBtn} onClick={() => alert("Say hi!")}>Contact</button>
+            <button
+              className={styles.headBtn}
+              onClick={() => safeOpen(OPEN.about)}
+            >
+              About
+            </button>
+            <button
+              className={styles.headBtn}
+              onClick={() => safeOpen(OPEN.projects)}
+            >
+              Projects
+            </button>
+            <button
+              className={styles.headBtn}
+              onClick={() => safeOpen(OPEN.contact)}
+            >
+              Contact
+            </button>
           </nav>
         </header>
 

@@ -104,8 +104,8 @@ export default function Introduction({ title, onClose, onMinimize }) {
             </div>
 
             <div className={styles.inputContainer}>
-              <input type="text" placeholder="메시지를 입력하세요..." className={styles.inputBox} />
-              <button className={styles.sendButton}>Send</button>
+              <input type="text" placeholder="This is just decoration..." className={styles.inputBox} />
+              <button className={styles.sendButton}>Send X</button>
             </div>
           </div>
 
