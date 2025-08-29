@@ -686,9 +686,7 @@ ${h.description}`,children:h.title},m)),S.jsx("div",{"aria-hidden":!0,style:{hei
 10. 독일어 b1 취득
 11. 백발이 되어보기
 12. 친구와 가족에게 항상 밥을 사줄 수 있는 사람이 되기
-13. 엄마 아빠 과천에 집 사주기
-14. 지프차 몰기
-15. 작은 온실을 가지기
+13. 작은 온실을 가지기
 `,editable:!0}},{id:300,type:"link",name:"GitHub",url:"https://github.com/can378",path:"desktop",icon:"/web_portfolio/assets/image/icons/github_icon.png"},{id:302,type:"link",name:"Blog",url:"https://yun000.tistory.com/",path:"desktop",icon:"/web_portfolio/assets/image/icons/blog_icon.png"},{id:400,type:"image",name:"Childhood",imageUrl:"/web_portfolio/assets/image/childhood.jpg",path:"user",icon:"/web_portfolio/assets/image/childhood.jpg",component:yp,props:{title:"Childhood",imageUrl:"/web_portfolio/assets/image/childhood.jpg"}},{id:401,type:"image",name:"favorite",imageUrl:"/web_portfolio/assets/image/henri_rousseau.jpg",path:"user",icon:"/web_portfolio/assets/image/henri_rousseau.jpg",component:yp,props:{title:"favorite",imageUrl:"/web_portfolio/assets/image/henri_rousseau.jpg"}},{id:500,type:"sticker",name:"Goal",editable:!0,path:"desktop",icon:"/web_portfolio/assets/image/icons/sticky_icon.png",component:_p,props:{title:"Goal",initialText:`
 1. 기본적인 AI지식을 바탕으로 실제 백엔드 서비스에 통합할 수 있는 개발자
 
