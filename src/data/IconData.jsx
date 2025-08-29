@@ -30,7 +30,7 @@ const iconArray = [
         path: "desktop",
         component: FolderWindow,
         props: { folderId: 101 },
-        childIds: [203,204,401,1000],
+        childIds: [203,401,1000],
     },
     {
         id: 102,
@@ -274,7 +274,7 @@ const iconArray = [
     {
         id:1003,
         type:"website",
-        name:"Messanger",
+        name:"Messenger",
         path:"desktop",
         icon:"/web_portfolio/assets/image/icons/messanger_icon.png",
         fixed:false,
