@@ -22,7 +22,7 @@ export default function Project({ title, onClose, onMinimize }) {
     <ModalWindow
       title={title}
       onClose={onClose}
-      defaultPosition={{ x: 400, y: 200 }}
+      defaultPosition={{ x: 150, y: 600 }}
       defaultSize={{ width: 800, height: 520 }}
       onMinimize={onMinimize}
     >
@@ -136,18 +136,6 @@ export default function Project({ title, onClose, onMinimize }) {
                             <ReactMarkdown
                                 rehypePlugins={[rehypeRaw]}
                                 components={{
-                                    a: ({ href, children, ...props }) => (
-                                    <a
-                                        href={href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        // PDF/문서 파일이면 다운로드 속성 부여
-                                        download={/\.(pdf|docx?|xlsx?|pptx?)($|\?)/i.test(href || "") ? true : undefined}
-                                        {...props}
-                                    >
-                                        {children}
-                                    </a>
-                                    ),
                                     img: ({ ...props }) => (
                                     <img
                                         {...props}

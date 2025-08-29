@@ -24,7 +24,9 @@ AI 기술을 활용하여 사용자가 자연어로 포트폴리오 정보를 �
 ---
 
 ### ■ Github
+<a href="https://github.com/can378/web_portfolio.git" target="_blank" rel="noopener noreferrer">
 https://github.com/can378/web_portfolio.git
+</a>
 
 ---
 
@@ -257,7 +259,9 @@ Lighthouse통해 성능 개선 확인
 ---
 
 ### ■ Github
+<a href="https://github.com/hyeran0920/Bible.git" target="_blank" rel="noopener noreferrer">
 https://github.com/hyeran0920/Bible.git
+</a>
 
 ---
 
@@ -296,6 +300,12 @@ Notion, Googl Drive, drow.io, git+github, Figma, erd cloud
 
 ---
 
+### ■ 시스템 구성도
+
+![screen2](/web_portfolio/assets/image/projects/bible/시스템구성도.png)
+
+---
+
 ### ■ ERD
 
 ![ERD](/web_portfolio/assets/image/projects/bible/erd.png)
@@ -305,24 +315,7 @@ Notion, Googl Drive, drow.io, git+github, Figma, erd cloud
 ### ■ 화면 설계
 
 ![screen1](/web_portfolio/assets/image/projects/bible/화면설계1.png)
-
----
-
-### ■ 시스템 구성도
-
 ![screen2](/web_portfolio/assets/image/projects/bible/화면설계2.png)
-
----
-
-### ■ 시연 영상
-<video
-  src="/web_portfolio/assets/image/projects/bible/video.mp4"
-  controls
-  playsinline
-  style="width:100%; height:auto;"
->
-  브라우저가 video 태그를 지원하지 않습니다.
-</video>
 
 
 `
@@ -356,7 +349,16 @@ Notion, Googl Drive, drow.io, git+github, Figma, erd cloud
 ---
 
 ### ■ Github
+<a href="https://github.com/can378/SpiritGameProject.git" target="_blank" rel="noopener noreferrer">
 https://github.com/can378/SpiritGameProject.git
+</a>
+
+---
+
+### ■ 기획
+<a href="https://brazen-artichoke-628.notion.site/9703d0b12d374601b6857d143bb52cfa?source=copy_link" target="_blank" rel="noopener noreferrer">
+아무개전 기획
+</a>
 
 ---
 
@@ -406,7 +408,9 @@ https://github.com/can378/SpiritGameProject.git
 ---
 
 ### ■ Github
+<a href="https://github.com/Team-Farmer/Strawberry" target="_blank" rel="noopener noreferrer">
 https://github.com/Team-Farmer/Strawberry
+</a>
 
 ---
 
@@ -475,7 +479,9 @@ OpenGL, SDL2로 개발한 2D 2인 협동 퍼즐 게임
 ---
 
 ### ■ Github
-https://github.com/can378/SDLGame.git
+<a href="https://github.com/can378/SDLGame.git" target="_blank" rel="noopener noreferrer">
+  https://github.com/can378/SDLGame.git
+</a>
 
 ---
 
@@ -487,10 +493,10 @@ https://github.com/can378/SDLGame.git
 ---
 
 ### ■ 영상
-<iframe
-  src="https://youtu.be/SdC8TNcZ2sU?si=pcIDDEzaBsRHx351"
-  title="YouTube video player">
-</iframe>
+<a href="https://youtu.be/SdC8TNcZ2sU?si=pcIDDEzaBsRHx351" target="_blank" rel="noopener noreferrer">
+  유튜브 플레이 영상 보러가기
+</a>
+
 
 ---
 
@@ -539,7 +545,7 @@ https://github.com/can378/SDLGame.git
 ---
 
 ### ■ 게임 설명서
-<a href="/web_portfolio/assets/projects/dogCat/멍냥 최종.pdf" download>설명서 직접 다운로드</a>
+<a href="/web_portfolio/assets/pdf/dogCat.pdf" download>명냥 게임 설명서 다운로드</a>
 
 ![berry5](/web_portfolio/assets/image/projects/dogCat/dogcat2.jpg)
     `
@@ -579,7 +585,10 @@ In the scene with the white monitors, I had intended to include videos on each m
 
 +) I recommend watching it at 2x speed.
 
-https://youtu.be/HBr-nuXH8xA?si=cn3ZKZRcgBWvvWza
+<a href="https://youtu.be/HBr-nuXH8xA?si=cn3ZKZRcgBWvvWza" target="_blank" rel="noopener noreferrer">
+  ERROR 최종 완성본 확인
+</a>
+
 
 ---
 
@@ -638,7 +647,7 @@ accuracy : 85%
 ---
 
 ### ■ 프로젝트 설명서
-
+<a href="/web_portfolio/assets/pdf/humanPoseEstimation+ActionRecognition.pdf" download>구현 설명서 다운로드</a>
 
 ---
 
