@@ -98,35 +98,6 @@ const iconArray = [
             editable: true 
         }
     },
-    {
-        id: 204,
-        type: "memo",
-        name: "Bucket List",
-        editable: true,
-        path: "user",
-        icon: "/web_portfolio/assets/image/icons/memo_icon.png",
-        fixed: true,
-        component: Memo,
-        props: 
-        { 
-            title: "Bucket List", 
-            initialText: `1. 스카이 다이빙
-2. 비행기 직접 조종하기
-3. F1 차를 몰아보기
-4. 수천 만 명을 도울 수 있는 프로그램을 개발하기
-5. 엄마의 핸드폰 사용을 돕는 프로그램 개발하기
-6. 영어를 원어민 수준으로 하기
-7. 백준 플레1 달성
-8. 미국, 호주, 뉴질랜드, 멕시코, 러시아, 발트해3국, 남극, 태국, 코타키나발루, 케냐, 몽골, 캐나다는 꼭 방문해보기
-9. 엑스트라 알바 해보기
-10. 독일어 b1 취득
-11. 백발이 되어보기
-12. 친구와 가족에게 항상 밥을 사줄 수 있는 사람이 되기
-13. 작은 온실을 가지기
-`,
-            editable: true 
-        }
-    },
 
     // 🌐 링크
     {
@@ -137,16 +108,6 @@ const iconArray = [
         path: "desktop",
         icon: "/web_portfolio/assets/image/icons/github_icon.png",
     },
-    /*
-    {
-        id: 301,
-        type: "link",
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/feed/",
-        path: "desktop",
-        icon: "/web_portfolio/assets/image/icons/linkedin_icon.png",
-    },
-    */
     {
         id: 302,
         type: "link",
