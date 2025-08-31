@@ -20,7 +20,7 @@ export default function GameLibrary({ title, onClose, onMinimize }) {
   useEffect(() => { inputRef.current?.focus(); }, []);
   useEffect(() => { scrollRef.current?.scrollTo(0, scrollRef.current.scrollHeight); }, [lines]);
 
-  const cwd = () => (path.length ? `/${path.join("/")}` : "/");
+  const cwd = () => (path.length ? `/${path.join("/")}` : "");
   const isRoot = path.length === 0;
 
   // 경로 해석기 (상대/절대, .. 지원)
@@ -55,7 +55,7 @@ export default function GameLibrary({ title, onClose, onMinimize }) {
         print([
           "Commands:",
           "  ls                - list directory",
-          "  cd <dir|..|/>     - change directory (favorite|yet|default)",
+          "  cd <dir|..|/>     - change directory (favoriteGames|backlog|defaultGames)",
           "  pwd               - show current path",
           "  clear             - clear screen",
           "  help              - show help",
@@ -63,7 +63,7 @@ export default function GameLibrary({ title, onClose, onMinimize }) {
         break;
 
       case "pwd":
-        print(cwd());
+        print(`/game-library${cwd()}`);
         break;
 
       case "clear":
