@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Skill.module.css";
 import skillset from "../data/skillset.js";
 
@@ -14,7 +13,7 @@ function Meter({ level = 0, max = 5 }) {
   );
 }
 
-export default function Skillset({ title = "Skillset" }) {
+export default function Skillset() {
   const { skillsetData } = skillset;
   if (!skillsetData) return null;
 

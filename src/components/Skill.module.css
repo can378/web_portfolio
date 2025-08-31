@@ -1,14 +1,13 @@
 .window {
-  border: 1px solid #333;
+  border: 1px solid #939393;
   font-family: "Tahoma", "MS Sans Serif", sans-serif;
   width: 100%;
   padding: 0;
-  background: var(--main-gray-color, #ddd);
 }
 
 .body {
   padding: 12px;
-  background: var(--main-gray-color, #ddd);
+  background-color: var(--main-gray-color);
 }
 
 .header {

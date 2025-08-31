@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./Certification.module.css";
 import certData from "../data/certifications.js";
 
-export default function Certification({ title = "자격증 / 어학" }) {
+export default function Certification() {
   const { certificationData } = certData;
 
   return (

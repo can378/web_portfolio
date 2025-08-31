@@ -32,11 +32,15 @@
   text-align: center;      /* 여러 줄일 때 가운데 정렬 */
 
   background-color: var(--main-gray-color);
+  background-color: rgb(218, 232, 244);
+  border:1px solid rgb(146, 167, 197);
+  /*
   border-top: 2px solid #fff;
   border-left: 2px solid #fff;
   border-right: 2px solid #808080;
   border-bottom: 2px solid #808080;
-  cursor: help;
+  */
+  
 
   white-space: normal;     /* 줄바꿈 허용 */
   word-break: break-word;  /* 긴 단어 강제 줄바꿈 */
