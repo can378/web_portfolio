@@ -75,15 +75,31 @@ export default function Introduction({ title, onClose, onMinimize }) {
 
         <div className={styles.mainArea}>
           <div className={styles.chatPanel}>
-            <div className={styles.toField}>To: Yunji Heo</div>
+            <div className={styles.toField}>
+              <div className={styles.toName}>
+                To: Yunji Heo
+              </div>
+              <div className={styles.toFieldDeco}>
+                <img src="/web_portfolio/assets/image/etc/Group 71.png"></img>
+              </div>
+            </div>
 
             {/* ✅ 이 영역만 스크롤 */}
             <div className={styles.messagesScroll}>
+
               {visibleChats.map((chat, i) => (
                 <div
                   key={i}
                   className={`${styles.message} ${chat.sender === "me" ? styles.me : styles.question}`}
                 >
+                  <div>
+                    {chat.sender === "me" ? (
+                      <div>yunji:</div>
+                    ) : (
+                      <div>you:</div>
+                    )}
+                  </div>
+
                   <div className={styles.md}>
                     <ReactMarkdown>{chat.text}</ReactMarkdown>
                   </div>
@@ -95,18 +111,30 @@ export default function Introduction({ title, onClose, onMinimize }) {
               {typingChat && (
                 <div
                   className={`${styles.message} ${typingChat.sender === "me" ? styles.me : styles.question}`}
-                >
+                > 
+                  <div>
+                    {typingChat.sender === "me" ? (
+                      <div>yunji:</div>
+                    ) : (
+                      <div>you:</div>
+                    )}
+                  </div>
                   <div className={styles.md}>
                     <ReactMarkdown>{typingChat.text}</ReactMarkdown>
                   </div>
                 </div>
               )}
             </div>
-
-            <div className={styles.inputContainer}>
-              <input type="text" placeholder="This is just decoration..." className={styles.inputBox} />
-              <button className={styles.sendButton}>Send X</button>
+            <div className={styles.bottomDeco}>
+              <div className={styles.bottomDecoIcons}>
+                <img src="/web_portfolio/assets/image/etc/Group 69.png"></img>
+              </div>
+              <div className={styles.inputContainer}>
+                <input type="text" placeholder="This is just decoration..." className={styles.inputBox} />
+                <button className={styles.sendButton}>Send X</button>
+              </div>
             </div>
+            
           </div>
 
           <aside className={styles.profilesRight}>
