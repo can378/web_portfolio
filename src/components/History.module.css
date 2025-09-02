@@ -32,8 +32,8 @@
   text-align: center;      /* 여러 줄일 때 가운데 정렬 */
 
   background-color: var(--main-gray-color);
-  background-color: rgb(218, 232, 244);
-  border:1px solid rgb(146, 167, 197);
+  background-color: rgb(255, 255, 255);
+  border:1px solid rgb(202, 202, 202);
   /*
   border-top: 2px solid #fff;
   border-left: 2px solid #fff;
