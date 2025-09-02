@@ -123,10 +123,41 @@ Redis 캐싱 사용 등으로 성능 또한 개선하였습니다.
 ---
 
 ### ■ 기술 스택
-- Vue 3 + Nuxt 3  (Vuetify 3 + Pinia...)
-- Node.js + Express  서버
-- aws + github actions ㅡ CI/CD 구현
-- 프로젝트 진행 관리: Jira
+
+Frontend
+
+- Framework: Vue3 (with Composition API), Nuxt3
+- UI Library: Vuetify3 (with Material Design Icons)
+- State Management: Pinia
+- HTTP Client: Axios
+- Bundler: Vite
+- Other: Integration with Unity WebGL builds
+
+
+Backend
+
+- Runtime: Node.js
+- Web Framework: Express
+- Database: MariaDB (mariadb package)
+- HTTP Client: Axios
+- Web Scraping: Cheerio (for news)
+- Task Scheduling: node-schedule
+- API Documentation: Swagger (swagger-jsdoc, swagger-ui-express)
+- Authentication: jsonwebtoken
+- Other: CORS, dotenv
+
+
+프로젝트 진행 관리: jira
+
+---
+
+### ■ CI/CD
+
+github actions이 특정 코드 변경을 감지하여
+
+Docker iamge를 build하고 ECR에 push.
+
+이후 EC2 인스턴스에 새 container를 띄운다.
 
 ---
 
@@ -606,10 +637,6 @@ At the end, the word "error" appears reversed on the screen, signifying that our
 
 **진행 일정**: 2024.08 1주일  
 **참여 인원**: 개인
-
----
-
-### ■ 코드
 
 ---
 
