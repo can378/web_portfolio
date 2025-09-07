@@ -16,7 +16,7 @@ const iconArray = [
         id: 100,
         type: "folder",
         name: "Work",
-        icon: "/web_portfolio/assets/image/icons/folder_icon.png",
+        icon: "/web_portfolio/assets/image/icons/folder_icon.svg",
         path: "desktop",
         component: FolderWindow,
         props: { folderId: 100 },
@@ -26,7 +26,7 @@ const iconArray = [
         id: 101,
         type: "folder",
         name: "user",
-        icon: "/web_portfolio/assets/image/icons/user_icon.png",
+        icon: "/web_portfolio/assets/image/icons/user_icon.svg",
         path: "desktop",
         component: FolderWindow,
         props: { folderId: 101 },
@@ -36,7 +36,7 @@ const iconArray = [
         id: 102,
         type: "folder",
         name: "Favorite",
-        icon: "/web_portfolio/assets/image/icons/favorite_icon.png",
+        icon: "/web_portfolio/assets/image/icons/favorite_icon.svg",
         path: "desktop",
         component: FolderWindow,
         props: { 
@@ -55,7 +55,7 @@ const iconArray = [
         name: "Metanet",
         editable: true,
         path: "work",
-        icon: "/web_portfolio/assets/image/icons/memo_icon.png",
+        icon: "/web_portfolio/assets/image/icons/memo_icon.svg",
         fixed: true,
         component: Memo,
         props: { title: "메모 1", initialText: `
@@ -102,7 +102,7 @@ AI Navigation을 활용한 AGV 구현
         name: "메모 2",
         editable: false,
         path: "projects",
-        icon: "/web_portfolio/assets/image/icons/memo_icon.png",
+        icon: "/web_portfolio/assets/image/icons/memo_icon.svg",
         fixed: true,
         component: Memo,
         props: { title: "메모 2", initialText: "메모 2의 기본 텍스트입니다.", editable: false }
@@ -113,7 +113,7 @@ AI Navigation을 활용한 AGV 구현
         name: "메모 3",
         editable: true,
         path: "documents",
-        icon: "/web_portfolio/assets/image/icons/memo_icon.png",
+        icon: "/web_portfolio/assets/image/icons/memo_icon.svg",
         fixed: true,
         component: Memo,
         props: { title: "메모 3", initialText: "메모 3의 기본 텍스트입니다.", editable: true }
@@ -124,7 +124,7 @@ AI Navigation을 활용한 AGV 구현
         name: "Hobby",
         editable: true,
         path: "user",
-        icon: "/web_portfolio/assets/image/icons/memo_icon.png",
+        icon: "/web_portfolio/assets/image/icons/memo_icon.svg",
         fixed: true,
         component: Memo,
         props: 
@@ -142,7 +142,7 @@ AI Navigation을 활용한 AGV 구현
         name: "GitHub",
         url: "https://github.com/can378",
         path: "desktop",
-        icon: "/web_portfolio/assets/image/icons/github_icon.png",
+        icon: "/web_portfolio/assets/image/icons/github_icon.svg",
     },
     {
         id: 302,
@@ -150,7 +150,7 @@ AI Navigation을 활용한 AGV 구현
         name: "Blog",
         url: "https://yun000.tistory.com/",
         path: "desktop",
-        icon: "/web_portfolio/assets/image/icons/blog_icon.png",
+        icon: "/web_portfolio/assets/image/icons/blog_icon.svg",
     },
 
     // 🖼️ 이미지
@@ -183,7 +183,7 @@ AI Navigation을 활용한 AGV 구현
         name: "Goal",
         editable: true,
         path: "desktop",
-        icon: "/web_portfolio/assets/image/icons/sticky_icon.png",
+        icon: "/web_portfolio/assets/image/icons/sticky_icon.svg",
         component: Sticky,
         props: {
             title: "Goal",
@@ -211,7 +211,7 @@ AI Navigation을 활용한 AGV 구현
         name: "스티커 2",
         editable: false,
         path: "documents",
-        icon: "/web_portfolio/assets/image/icons/sticky_icon.png",
+        icon: "/web_portfolio/assets/image/icons/sticky_icon.svg",
         fixed: true,
         component: Sticky,
         props: {
@@ -225,7 +225,7 @@ AI Navigation을 활용한 AGV 구현
         type: "pdf",
         name: "resume",
         path: "desktop",
-        icon: "/web_portfolio/assets/image/icons/resume_icon.png",
+        icon: "/web_portfolio/assets/image/icons/resume_icon.svg",
         fixed: false,
         filepath:"/web_portfolio/assets/pdf/cv.pdf",
     },
@@ -235,7 +235,7 @@ AI Navigation을 활용한 AGV 구현
         type:"website",
         name:"Games",
         path:"tashbin",
-        icon:"/web_portfolio/assets/image/icons/steam_icon.png",
+        icon:"/web_portfolio/assets/image/icons/steam_icon.svg",
         fixed:true,
         component:GameLibrary,
         props: { 
@@ -252,7 +252,7 @@ AI Navigation을 활용한 AGV 구현
         type:"website",
         name:"Projects",
         path:"desktop",
-        icon:"/web_portfolio/assets/image/icons/projects_icon.png",
+        icon:"/web_portfolio/assets/image/icons/projects_icon.svg",
         fixed:false,
         component:Project,
         props: { 
@@ -264,7 +264,7 @@ AI Navigation을 활용한 AGV 구현
         type:"website",
         name:"Welcome",
         path:"desktop",
-        icon:"/web_portfolio/assets/image/icons/welcome_icon.png",
+        icon:"/web_portfolio/assets/image/icons/welcome_icon.svg",
         fixed:false,
         component:Welcome,
     },
@@ -273,7 +273,7 @@ AI Navigation을 활용한 AGV 구현
         type:"website",
         name:"Messenger",
         path:"desktop",
-        icon:"/web_portfolio/assets/image/icons/messanger_icon.png",
+        icon:"/web_portfolio/assets/image/icons/messanger_icon.svg",
         fixed:false,
         component:Introduction,
     },
@@ -282,7 +282,7 @@ AI Navigation을 활용한 AGV 구현
         type:"website",
         name:"Email",
         path:"desktop",
-        icon:"/web_portfolio/assets/image/icons/email_icon.png",
+        icon:"/web_portfolio/assets/image/icons/email_icon.svg",
         fixed:false,
         component:Email,
     }

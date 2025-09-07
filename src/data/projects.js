@@ -5,8 +5,8 @@ const projects = [
     title: "web portfolio",
     short_description: "윈도우 XP 스타일의 레트로 UI 웹 포트폴리오입니다.",
     technologies: ["React", "fastApi", "MCP", "AI agent"],
-    icon:"/web_portfolio/assets/image/icons/star_icon.png",
-    image: "/web_portfolio/assets/image/icons/star_icon.png",
+    icon:"/web_portfolio/assets/image/icons/star_icon.svg",
+    image: "/web_portfolio/assets/image/icons/star_icon.svg",
     type:"web",
     description: `
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
@@ -65,8 +65,8 @@ https://github.com/can378/web_portfolio.git
     title: "자산화",
     short_description: "시연용 프로젝트 웹사이트 기능 추가 및 코드 리팩토링, 성능 개선",
     technologies: ["Vue3+Nuxt3 ", "Node.js+Express"],
-    icon:"/web_portfolio/assets/image/icons/metafactory_icon.png",
-    image: "/web_portfolio/assets/image/icons/metafactory_icon.png",
+    icon:"/web_portfolio/assets/image/icons/metafactory_icon.svg",
+    image: "/web_portfolio/assets/image/icons/metafactory_icon.svg",
     type:"web",
     description: `
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
@@ -269,8 +269,8 @@ Lighthouse통해 성능 개선 확인
     title: "Library Website - Bible",
     short_description: "온라인 도서 대여 서비스",
     technologies: ["Vue2", "Spring Boot", "Docker", "Azure"],
-    icon:"/web_portfolio/assets/image/icons/bible_icon.png",
-    image: "/web_portfolio/assets/image/icons/bible_icon.png",
+    icon:"/web_portfolio/assets/image/icons/bible_icon.svg",
+    image: "/web_portfolio/assets/image/icons/bible_icon.svg",
     type:"web",
     description:`
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
@@ -358,8 +358,8 @@ Notion, Googl Drive, drow.io, git+github, Figma, erd cloud
     title: "아무개전",
     short_description: "Unity 2D 조선풍 로그라이크 PC게임 개발",
     technologies: ["C#", "Unity"],
-    icon:"/web_portfolio/assets/image/icons/spirit_icon.png",
-    image: "/web_portfolio/assets/image/icons/spirit_icon.png",
+    icon:"/web_portfolio/assets/image/icons/spirit_icon.svg",
+    image: "/web_portfolio/assets/image/icons/spirit_icon.svg",
     type:"game",
     description:`
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
@@ -427,8 +427,8 @@ https://github.com/can378/SpiritGameProject.git
     title: "새콤달콤 딸기공장",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies: ["Python", "PyTorch", "Mediapipe"],
-    icon:"/web_portfolio/assets/image/icons/strawberry_icon.png",
-    image: "/web_portfolio/assets/image/icons/strawberry_icon.png",
+    icon:"/web_portfolio/assets/image/icons/strawberry_icon.svg",
+    image: "/web_portfolio/assets/image/icons/strawberry_icon.svg",
     type:"game",
     description:`
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
@@ -480,8 +480,8 @@ Android
     title: "멍냥멍냥",
     short_description: "Classifies walking, running, and standing from webcam data.",
     technologies:  ["C++", "SDL2", "OpenGL", "Team Management"],
-    icon:"/web_portfolio/assets/image/icons/dog_cat_icon.png",
-    image: "/web_portfolio/assets/image/icons/dog_cat_icon.png",
+    icon:"/web_portfolio/assets/image/icons/dog_cat_icon.svg",
+    image: "/web_portfolio/assets/image/icons/dog_cat_icon.svg",
     type:"game",
     description:`
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
@@ -591,8 +591,8 @@ OpenGL, SDL2로 개발한 2D 2인 협동 퍼즐 게임
     title: "ERROR",
     short_description: "Unreal short film",
     technologies: ["Urnreal Engine", "C++"],
-    icon:"/web_portfolio/assets/image/icons/error_icon.png",
-    image: "/web_portfolio/assets/image/icons/error_icon.png",
+    icon:"/web_portfolio/assets/image/icons/error_icon.svg",
+    image: "/web_portfolio/assets/image/icons/error_icon.svg",
     type:"media",
     description:`
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
@@ -655,8 +655,8 @@ At the end, the word "error" appears reversed on the screen, signifying that our
     title: "Human Pose Estimation",
     short_description: "Human pose estimation + action recognition",
     technologies: ["Python", "PyTorch", "Mediapipe"],
-    icon:"/web_portfolio/assets/image/icons/pose_icon.png",
-    image: "/web_portfolio/assets/image/icons/pose_icon.png",
+    icon:"/web_portfolio/assets/image/icons/pose_icon.svg",
+    image: "/web_portfolio/assets/image/icons/pose_icon.svg",
     type:"AI",
     description:`
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">

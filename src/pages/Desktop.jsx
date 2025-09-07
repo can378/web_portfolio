@@ -173,7 +173,7 @@ export default function Desktop() {
       {/* 개집 */}
       <DogHouse
         ref={houseRef}
-        src="/web_portfolio/assets/dog_house.png"
+        src="/web_portfolio/assets/dog_house.svg"
         occupied={dogInHouse}
         onClick={handleHouseClick}
       />

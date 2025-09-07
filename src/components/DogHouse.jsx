@@ -3,7 +3,7 @@ import styles from "./DogHouse.module.css";
 
 const DogHouse = forwardRef(function DogHouse(
   {
-    src = "/web_portfolio/assets/dog_house.png",
+    src = "/web_portfolio/assets/dog_house.svg",
     margin = 10,
     offsetY = 40, // ← 위로 띄우기
     occupied = false,  // 개가 집에 있으면 눈 표시

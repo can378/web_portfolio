@@ -40,7 +40,7 @@ export default function Project({ title, onClose, onMinimize }) {
         _isTypeFolder: true,
         type,
         count: arr.length,
-        icon: "/web_portfolio/assets/image/icons/folder_icon_mini.png",
+        icon: "/web_portfolio/assets/image/icons/folder_icon_mini.svg",
         title: type,
     }));
   }, [selectedType, selectedProject, groupedByType]);
