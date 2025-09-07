@@ -14,7 +14,7 @@ export default function Certification() {
         {Object.entries(certificationData).map(([category, items]) => (
           <div key={category} className={styles.section}>
             <h3 className={styles.sectionTitle}>
-              {category === "computer" ? "컴퓨터 관련" : "어학"}
+              {category === "computer" ? "컴퓨터 관련" : "어학-영어"}
             </h3>
             <div className={styles.list}>
               {items.map((item, idx) => (
@@ -22,6 +22,9 @@ export default function Certification() {
                   <div className={styles.itemName}>{item.name}</div>
                   {item.score && (
                     <div className={styles.itemScore}>점수: {item.score}</div>
+                  )}
+                  {item.issuing_authority&&(
+                    <div className={styles.itemIssuingAuthority}>발급기관: {item.issuing_authority}</div>
                   )}
                   <div className={styles.itemDate}>{item.date}</div>
                 </div>

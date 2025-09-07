@@ -642,7 +642,12 @@ The story reveals that Megan was in a virtual space within a computer, and it en
 
 At the end, the word "error" appears reversed on the screen, signifying that our world is also a virtual one. It represents the idea that we have uncovered this secret through the video, resulting in the display of the "error" message.
 
-    `
+    `,
+    summary:`4인 팀 프로젝트로 기획 및 개발을 맡아 팀을 이끌며 PC 기반 2인 협동 퍼즐 게임을 제작. 
+강아지·고양이 캐릭터의 상호 보완적 능력을 활용해 스테이지를 클리어하는 구조로 설계. 
+게임 인트로·매뉴얼·스테이지 인터페이스, 캐릭터 이동/점프/스킬, 충돌 감지, 발판·열쇠·자물쇠 등 다양한 오브젝트 동작을 구현. 
+업데이트로 신규 맵과 오브젝트(램프·발판·텔레포트 등) 추가. 
+직접 마주 보며 협력하는 놀이의 유대 가치 회복을 목표로 개발.`
   },
 
   //기타============================================================================
@@ -681,8 +686,82 @@ accuracy : 85%
 
 ---
 
-### ■ 프로젝트 설명서
-<a href="/web_portfolio/assets/pdf/humanPoseEstimation+ActionRecognition.pdf" download>구현 설명서 다운로드</a>
+### ■ 프로젝트 설명
+
+
+**데이터 수집**
+
+Mediapipe Holistic을 활용해 신체의 joint position (관절 좌표) 추출.
+
+실시간 웹캠 입력을 기반으로 pose keypoints 데이터를 txt / csv 파일로 저장.
+
+이후 모델 학습을 위한 입력 데이터로 활용.
+
+
+**시도한 접근 방법**
+
+**1. 관절 각도 기반 분류 (Rule-based)**
+
+Mediapipe로 계산한 관절 각도를 기준으로 임계값 기반 단순 분류 시도.
+
+(예: 무릎 각도(오금)가 90°인 경우 → sitting으로 판별.)
+
+✨정적이고 단순한 자세(요가 포즈 등) 분류에는 유효.
+
+🗝️하지만 동적인 동작(걷기, 달리기 등)에서는 정확도가 낮음 → 시계열적 변화를 반영하기 어려움.
+
+
+**2. Ensemble 기반 분류 (전통 ML 접근)**
+
+수집된 pose data를 CSV 파일로 저장 후 학습.
+
+Pipeline: StandardScaler (정규화), RandomForestClassifier (앙상블 기법)
+
+✨전통 ML 모델을 활용한 분류 가능성 확인.
+
+🗝️복잡한 연속 동작 구분에는 성능 한계.
+
+
+**3. LSTM 기반 시계열 분류 (딥러닝 접근)**
+
+Sequential Model (LSTM) 구조를 사용하여 동작 시계열 패턴 학습.
+
+데이터셋: pose data (CSV) 기반 시퀀스화.
+
+모델 구조:
+
+- LSTM 레이어
+
+- Dropout
+
+- Dense(units=5, activation="softmax") → 5가지 label(neutral, walking, running, crouch, crouchWalk) 출력
+
+하이퍼파라미터:
+
+- Optimizer: Adam
+
+- Loss: sparse_categorical_crossentropy
+
+- Epochs: 100
+
+- Batch Size: 32
+
+- Train/Test split: 80% / 20%
+
+✨ 가장 효과적인 방법으로 확인됨. 동적 동작 구분에서 좋은 성능을 보임.
+
+
+
+**결론**
+
+🔹Rule-based (관절 각도) → 단순 포즈 구분에는 유효하지만 동작 분류에는 부적합.
+
+🔹Random Forest (Ensemble) → 기본적인 분류 가능하나 시계열 패턴 반영 한계.
+
+🔹LSTM (Sequential Model) → 동작의 시간적 연속성을 반영하여 가장 높은 정확도를 달성.
+
+<a href="/web_portfolio/assets/pdf/humanPoseEstimation+ActionRecognition.pdf" download>자세한 구현 설명서 다운로드</a>
+
 
 ---
 
@@ -700,7 +779,12 @@ accuracy : 85%
 
 운동 자세 보정, 의료 분야에서 환자의 재활을 위해 움직임 분석, 
 스포츠 선수의 자세 분석, 노인 확인 용 Cctv, 애완동물 Cctv 등…
-    `
+    `,
+    summary:`Mediapipe로 웹캠에서 추출한 관절 좌표 데이터를 활용해
+5가지 동작(neutral, walking, running, crouch, crouchWalk)을 분류하는 프로젝트를 진행(2024.08, 개인, 1주일).
+관절 각도 기반 Rule-based → Ensemble(Random Forest) → LSTM 모델을 순차적으로 시도했으며
+LSTM 기반 시계열 분류가 가장 효과적이었으므로 최종 선정하여 구현(정확도 약 85%).
+데이터는 txt/csv로 저장 후 학습에 활용했으며 향후 속도 feature를 추가해 성능을 높이고 Unreal/Unity와 연계한 모션 캡쳐 응용을 계회입니다.`
   },
 
 
