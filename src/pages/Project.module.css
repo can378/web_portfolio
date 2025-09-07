@@ -50,11 +50,25 @@
 }
 
 .treeBtn:hover { background: #1037a1; color:white; }
+/* Ensure text stays white when hovered/active/selected despite global text color */
+.treeBtn:hover,
+.treeBtn:active,
+.treeBtn:focus {
+  color: #ffffff !important;
+}
 
 .active {
-  color: #fff;
+  color: #ffffff !important;
   background: #0a246a;
   border-color: #0a246a;
+}
+
+/* Also force inner label to white for better specificity */
+.treeBtn:hover .treeText,
+.treeBtn:active .treeText,
+.treeBtn:focus .treeText,
+.active .treeText {
+  color: #ffffff !important;
 }
 
 .treeText { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

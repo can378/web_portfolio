@@ -12,14 +12,14 @@
   border-radius: 2px;
   overflow: hidden;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-  color: #d1d1d1;
+  color: #d1d1d1 !important;
 }
 
 .titleBar {
   padding: 6px 10px;
   background: #111;
   border-bottom: 1px solid #222;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255) !important;
   font-weight: 600;
   letter-spacing: .3px;
 }
@@ -29,11 +29,13 @@
   padding: 10px;
   overflow: auto;
   line-height: 1.5;
+  color: #d1d1d1 !important;
 }
 
 .line {
   white-space: pre-wrap;
   word-break: break-word;
+  color: inherit !important;
 }
 
 .inputRow {
@@ -41,14 +43,15 @@
   align-items: center;
   gap: 6px;
   margin-top: 6px;
+  color: #d1d1d1 !important;
 }
 
 .prompt {
-  color: #3aff6b; /* 초록색 경로 */
+  color: #3aff6b !important; /* 초록색 경로 */
 }
 
 .command {
-  color: #3aff6b; /* 파란색 명령어 */
+  color: #3aff6b !important; /* 파란색 명령어 */
 }
 
 
@@ -57,6 +60,6 @@
   background: transparent;
   border: none;
   outline: none;
-  color: #e7e7e7;
+  color: #e7e7e7 !important;
   font: inherit;
 }

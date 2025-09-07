@@ -122,3 +122,29 @@
 .sendBtn:active {
   border: 2px inset #808080;
 }
+
+/* Force light mode appearance regardless of system preference */
+.chatContainer {
+  color-scheme: light !important;
+}
+
+.chatContainer * {
+  color-scheme: light !important;
+}
+
+/* Ensure text colors are always visible in light mode */
+.messageBubble {
+  color: #000000 !important;
+}
+
+.inputArea input {
+  color: #000000 !important;
+}
+
+.sendBtn {
+  color: #000000 !important;
+}
+
+.header {
+  color: #000000 !important;
+}
