@@ -33,8 +33,16 @@ export default function FolderWindow({
           </div>
 
           <div className={styles.toolbar}>
-            <img src="/web_portfolio/assets/image/etc/toolbar.png"/>
+            <img
+              className={styles.toolbarDesktop}
+              src="/web_portfolio/assets/image/etc/toolbar.svg"
+            />
+            <img
+              className={styles.toolbarMobile}
+              src="/web_portfolio/assets/image/etc/toolbar_mobile.svg"
+            />
           </div>
+
 
           <div className={styles.addressRow}>
             <div className={styles.addressLabel}>Address</div>

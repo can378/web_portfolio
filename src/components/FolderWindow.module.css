@@ -16,13 +16,30 @@
   border-bottom: 1px solid #333;
 }
 
-/* toolbar */
+/* toolbar========================================== */
 .toolbar {
   border-bottom: 1px solid #333;
 }
 .toolbar img{
     height:30px;
 }
+/* styles.module.css */
+.toolbarDesktop {
+  display: block;
+}
+.toolbarMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .toolbarDesktop {
+    display: none;
+  }
+  .toolbarMobile {
+    display: block;
+  }
+}
+
 
 
 /* address row */
