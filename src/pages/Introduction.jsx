@@ -80,7 +80,7 @@ export default function Introduction({ title, onClose, onMinimize }) {
                 To: Yunji Heo
               </div>
               <div className={styles.toFieldDeco}>
-                <img src="/web_portfolio/assets/image/etc/Group 71.png"></img>
+                <img src="/web_portfolio/assets/image/etc/Group 71.svg"></img>
               </div>
             </div>
 
@@ -127,7 +127,7 @@ export default function Introduction({ title, onClose, onMinimize }) {
             </div>
             <div className={styles.bottomDeco}>
               <div className={styles.bottomDecoIcons}>
-                <img src="/web_portfolio/assets/image/etc/Group 69.png"></img>
+                <img src="/web_portfolio/assets/image/etc/Group 69.svg"></img>
               </div>
               <div className={styles.inputContainer}>
                 <input type="text" placeholder="This is just decoration..." className={styles.inputBox} />
