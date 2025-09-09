@@ -113,9 +113,9 @@ useEffect(() => {
             <span>Help</span>
             </div>
             <div className={styles.pathBar}>
-+              <span className={styles.pathLabel}>Address</span>
-+              <span className={styles.pathValue}>{breadcrumb}</span>
-+            </div>
+              <span className={styles.pathLabel}>Address</span>
+              <span className={styles.pathValue}>{breadcrumb}</span>
+            </div>
         </div>
 
         {/* ===== 본문 (좌측 트리 / 우측 콘텐츠) ===== */}
