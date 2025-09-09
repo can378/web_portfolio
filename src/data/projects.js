@@ -462,7 +462,7 @@ Android
 
 ### ■ 담당 개발
 
-연구, 알바, 도전 과제 시스템, 미니 게임, 오디오 등..개발
+연구, 아르바이트, 도전 과제 시스템, 미니 게임, 오디오 등..개발
 
 ![berry1](/web_portfolio/assets/image/projects/berry/berry1.png)
 
@@ -706,9 +706,9 @@ Mediapipe로 계산한 관절 각도를 기준으로 임계값 기반 단순 분
 
 (예: 무릎 각도(오금)가 90°인 경우 → sitting으로 판별.)
 
-✨정적이고 단순한 자세(요가 포즈 등) 분류에는 유효.
+▶ 정적이고 단순한 자세(요가 포즈 등) 분류에는 유효.
 
-🗝️하지만 동적인 동작(걷기, 달리기 등)에서는 정확도가 낮음 → 시계열적 변화를 반영하기 어려움.
+▷ 하지만 동적인 동작(걷기, 달리기 등)에서는 정확도가 낮음 → 시계열적 변화를 반영하기 어려움.
 
 
 **2. Ensemble 기반 분류 (전통 ML 접근)**
@@ -717,9 +717,9 @@ Mediapipe로 계산한 관절 각도를 기준으로 임계값 기반 단순 분
 
 Pipeline: StandardScaler (정규화), RandomForestClassifier (앙상블 기법)
 
-✨전통 ML 모델을 활용한 분류 가능성 확인.
+▶ 전통 ML 모델을 활용한 분류 가능성 확인.
 
-🗝️복잡한 연속 동작 구분에는 성능 한계.
+▷ 복잡한 연속 동작 구분에는 성능 한계.
 
 
 **3. LSTM 기반 시계열 분류 (딥러닝 접근)**
@@ -748,17 +748,17 @@ Sequential Model (LSTM) 구조를 사용하여 동작 시계열 패턴 학습.
 
 - Train/Test split: 80% / 20%
 
-✨ 가장 효과적인 방법으로 확인됨. 동적 동작 구분에서 좋은 성능을 보임.
+▶ 가장 효과적인 방법으로 확인됨. 동적 동작 구분에서 좋은 성능을 보임.
 
 
 
 **결론**
 
-🔹Rule-based (관절 각도) → 단순 포즈 구분에는 유효하지만 동작 분류에는 부적합.
+- Rule-based (관절 각도) → 단순 포즈 구분에는 유효하지만 동작 분류에는 부적합.
 
-🔹Random Forest (Ensemble) → 기본적인 분류 가능하나 시계열 패턴 반영 한계.
+- Random Forest (Ensemble) → 기본적인 분류 가능하나 시계열 패턴 반영 한계.
 
-🔹LSTM (Sequential Model) → 동작의 시간적 연속성을 반영하여 가장 높은 정확도를 달성.
+- LSTM (Sequential Model) → 동작의 시간적 연속성을 반영하여 가장 높은 정확도를 달성.
 
 <a href="/web_portfolio/assets/pdf/humanPoseEstimation+ActionRecognition.pdf" download>자세한 구현 설명서 다운로드</a>
 

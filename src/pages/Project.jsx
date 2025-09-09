@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import ModalWindow from "../components/ModalWindow";
 import styles from "./Project.module.css";
 import projects from "../data/projects";
@@ -16,6 +16,19 @@ export default function Project({ title, onClose, onMinimize }) {
   }, [selectedProject]);
 
   
+  const descRef = useRef(null);
+
+// 프로젝트가 바뀔 때 description 스크롤을 맨 위로
+useEffect(() => {
+  if (descRef.current) {
+    // 즉시 초기화
+    descRef.current.scrollTop = 0;
+    // 또는 부드럽게
+    // descRef.current.scrollTo({ top: 0, behavior: "auto" });
+  }
+}, [selectedProject]);
+
+
 
   //type별 groupy화
   const groupedByType = useMemo(() => {
@@ -201,9 +214,10 @@ export default function Project({ title, onClose, onMinimize }) {
                 </div>
                 {/* project description */}
                 <div className={styles.detailBody}>
-                    <div className={styles.detailDescription}>
+                    <div className={styles.detailDescription} ref={descRef}>
                         <div className={styles.markdown}>
                             <ReactMarkdown
+                                key={selectedProject?.title}
                                 rehypePlugins={[rehypeRaw]}
                                 components={{
                                     img: ({ ...props }) => (

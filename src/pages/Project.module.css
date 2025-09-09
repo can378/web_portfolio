@@ -339,6 +339,12 @@
   width: 100%;
   height: auto;
 }
+.markdown a {
+  color: blue;
+  text-decoration: underline;
+}
+
+
 /* 유튜브 등 iframe 반응형 래퍼 */
 .iframeWrap {
   position: relative;
