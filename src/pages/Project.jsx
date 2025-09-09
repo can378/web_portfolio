@@ -9,11 +9,21 @@ export default function Project({ title, onClose, onMinimize }) {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
 
-  // 오른쪽 영역 제목
-  const rightTitle = useMemo(() => {
-    if (!selectedProject) return `Contents of 'Archives'`;
-    return `Contents of '${selectedProject.title}'`;
-  }, [selectedProject]);
+    // 오른쪽 영역 제목
+    const rightTitle = useMemo(() => {
+        if (!selectedType && !selectedProject) return `Contents of 'Archives'`;
+        if (selectedType && !selectedProject) return `Contents of '${selectedType}'`;
+        return `Contents of '${selectedProject.title}'`;
+    }, [selectedType, selectedProject]);
+
+    // Breadcrumb (경로) 통일
+    const breadcrumb = useMemo(() => {
+        const parts = ["Desktop", "Archives"];
+        if (selectedType) parts.push(selectedType);
+        if (selectedProject) parts.push(selectedProject.title);
+        return parts.join(" ▸ ");
+    }, [selectedType, selectedProject]);
+
 
   
   const descRef = useRef(null);
@@ -72,6 +82,17 @@ useEffect(() => {
     setSelectedProject(p);
   };
 
+  // 한 단계 위로 이동
+  const goUp = () => {
+    if (selectedProject) {
+        // 프로젝트 상세 → 타입 폴더
+        setSelectedProject(null);
+    } else if (selectedType) {
+        // 타입 폴더 → 전체(Archives)
+        setSelectedType(null);
+    }
+  };
+
 
   return (
     <ModalWindow
@@ -92,11 +113,9 @@ useEffect(() => {
             <span>Help</span>
             </div>
             <div className={styles.pathBar}>
-            <span className={styles.pathLabel}>Address</span>
-            <span className={styles.pathValue}>
-                Desktop ▸ Archives{selectedProject ? ` ▸ ${selectedProject.title}` : ""}
-            </span>
-            </div>
++              <span className={styles.pathLabel}>Address</span>
++              <span className={styles.pathValue}>{breadcrumb}</span>
++            </div>
         </div>
 
         {/* ===== 본문 (좌측 트리 / 우측 콘텐츠) ===== */}
@@ -158,13 +177,17 @@ useEffect(() => {
             {/* 우측 콘텐츠 */}
             <section className={styles.rightPane}>
             <div className={styles.rightHeader}>
-                <div className={styles.rightHeaderTitle}>
-                {selectedProject ? `Contents of '${selectedProject.title}'` : `Contents of 'Archives'`}
+                <div className={styles.leftBlock}>
+                    <div className={styles.rightHeaderTitle}>{rightTitle}</div>
+                    <div className={styles.breadcrumb}>{breadcrumb}</div>
                 </div>
-                <div className={styles.breadcrumb}>
-                Desktop ▸ Archives{selectedProject ? ` ▸ ${selectedProject.title}` : ""}
-                </div>
+                {(selectedType || selectedProject) && (
+                    <button className={styles.backBtn} onClick={goUp}>
+                        ◀ {selectedProject ? "List" : "All"}
+                    </button>
+                )}
             </div>
+
 
             {/* 총 목록 화면 */}
             {!selectedProject && (
@@ -208,9 +231,7 @@ useEffect(() => {
                     className={styles.detailIcon}
                     />
                     <h2 className={styles.detailTitle}>{selectedProject.title}</h2>
-                    <button className={styles.backBtn} onClick={selectNone}>
-                    ◀ List
-                    </button>
+
                 </div>
                 {/* project description */}
                 <div className={styles.detailBody}>

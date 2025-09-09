@@ -112,16 +112,25 @@
 }
 
 .rightHeader {
+  height:60px;
   border-bottom: 1px solid #333;
   padding: 6px 8px;
+  display: flex;
+  align-items: center;   /* 세로 가운데 정렬 */
+  gap: 12px;             /* 제목-경로 간격 */
+  position: relative;
 }
-
 .rightHeaderTitle {
   font-weight: 700;
   font-size: 13px;
 }
 
+.leftBlock {
+  display: flex;
+  flex-direction: column; /* 제목 위 / 경로 아래 */
+}
 .breadcrumb {
+  flex: 1;               /* 남는 공간 차지해서 버튼을 오른쪽으로 밀어냄 */
   margin-top: 2px;
   font-size: 12px;
   color: #333;
@@ -205,6 +214,8 @@
   padding: 3px 8px;
   border-radius: 2px;
   cursor: pointer;
+  margin-left: auto;     /* 버튼을 오른쪽 끝으로 */
+  align-self: center;    /* 혹시나 높이가 달라도 세로 중앙 */
 }
 
 /* 상세 설명: 여기서 스크롤====================== */
