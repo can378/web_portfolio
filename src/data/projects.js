@@ -128,32 +128,10 @@ Docker iamge를 build하고 ECR에 push.
 
 ---
 
-### ■ 웹페이지 화면
-
-### **metafactory-v1**
-
-=모든 기능이 들어간 웹사이트입니다.
-
-![metafactory-v1](/web_portfolio/assets/image/projects/metafactory/metafactoryV1.png)
-
-### **metafactory-v2**
-
-= 사용 빈도가 적은 기능을 제외한 최종 웹사이트 스크린샷 입니다.
-
-![metafactory-v2](/web_portfolio/assets/image/projects/metafactory/metafactoryV2.png)
-
----
-
 ### ■ 프로젝트 분석/설계
 
 **🔷 As-Is/To-Be**
 <img src="/web_portfolio/assets/image/projects/metafactory/asistobe.png" width="300" />
-
-**🔷 요구사항 명세서**
-<img src="/web_portfolio/assets/image/projects/metafactory/요구사항명세서.png" width="400" />
-
-**🔷 개발 WBS 문서**
-<img src="/web_portfolio/assets/image/projects/metafactory/wbs.png" width="400" />
 
 **🔷 ERD 설계**
 
