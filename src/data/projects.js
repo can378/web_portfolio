@@ -20,7 +20,7 @@ const projects = [
     description: `
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
   "윈도우 XP 스타일의 레트로 UI 웹 포트폴리오입니다."
-</div>
+</div> 
 
 ---
 
