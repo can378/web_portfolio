@@ -33,13 +33,6 @@ AI 기술을 활용하여 사용자가 자연어로 포트폴리오 정보를 �
 
 ---
 
-### ■ Github
-<a href="https://github.com/can378/web_portfolio.git" target="_blank" rel="noopener noreferrer">
-https://github.com/can378/web_portfolio.git
-</a>
-
----
-
 ### ■ 기술 스택
 
 #### 백엔드
