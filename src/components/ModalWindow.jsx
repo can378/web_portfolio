@@ -15,11 +15,11 @@ export default function ModalWindow({
 
 
 
-  const TASKBAR_H = 30;
-  const SAFE_MARGIN = 8;
+  const TASKBAR_H = 36;
+  const SAFE_MARGIN = 10;
   const MOBILE_MAX_W = 640;     // 이보다 좁으면 '모바일'로 간주해 자동 최대화
   const TITLEBAR_H = 32;
-
+  const SAFE_MARGIN_MIN=-10;
 
   // ===========================
 
@@ -48,8 +48,8 @@ export default function ModalWindow({
     const maxX = window.innerWidth - w - SAFE_MARGIN;
     const maxY = window.innerHeight - TASKBAR_H - h - SAFE_MARGIN;
     return {
-      x: Math.min(Math.max(SAFE_MARGIN, x), Math.max(SAFE_MARGIN, maxX)),
-      y: Math.min(Math.max(SAFE_MARGIN, y), Math.max(SAFE_MARGIN, maxY)),
+      x: Math.min(Math.max(SAFE_MARGIN_MIN, x), Math.max(SAFE_MARGIN, maxX)),
+      y: Math.min(Math.max(SAFE_MARGIN_MIN, y), Math.max(SAFE_MARGIN, maxY)),
     };
   };
 
