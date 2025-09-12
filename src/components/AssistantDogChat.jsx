@@ -4,7 +4,7 @@ import styles from "./AssistantDogChat.module.css";
 
 const AssistantDogChat = ({ onClose, style }) => {
   const [messages, setMessages] = useState([
-    { role: "bot", content: "안녕! 이 포트폴리오에 궁금한 게 있으면 물어봐!" },
+    { role: "bot", content: "안녕! 이 포트폴리오에 대해 질문해주세요! (하지만 지금은 아직 동작하지 않아요)" },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
