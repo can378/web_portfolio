@@ -48,14 +48,14 @@ export default function FolderWindow({
             <div className={styles.addressLabel}>Address</div>
             <input className={styles.addressInput} placeholder="C:\\" />
              
-            <button className={styles.goBtn}>
+            <div className={styles.goBtn}>
                 <img
                     className={styles.returnIcon}
                     src="/web_portfolio/assets/image/etc/return.png"
                     alt="return"
                 />
                 Go
-            </button>
+            </div>
 
           </div>
         </div>
