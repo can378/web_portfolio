@@ -82,7 +82,7 @@
 
 /* 하단 푸터: 버튼 + 상태바 */
 .footer {
-  margin-top: 8px;
+
   display: flex;
   flex-direction: column;
   padding: 0 8px 8px 8px;

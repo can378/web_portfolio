@@ -29,7 +29,10 @@ const iconArray = [
         icon: "/web_portfolio/assets/image/icons/user_icon.svg",
         path: "desktop",
         component: FolderWindow,
-        props: { folderId: 101 },
+        props: { 
+            folderId: 101, 
+            defaultSize:{ width: 400, height: 200 }, 
+        },
         childIds: [203,401,1000],
     },
     {
@@ -42,7 +45,7 @@ const iconArray = [
         props: { 
             folderId: 102,
             defaultPosition:{ x: 70, y: 260 },
-            defaultSize:{ width: 500, height: 300 },
+            defaultSize:{ width: 400, height: 200 },
         },
         childIds: [300,302,601,1001],
 

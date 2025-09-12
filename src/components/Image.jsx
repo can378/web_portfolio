@@ -103,8 +103,8 @@ const [displayScale, setDisplayScale] = useState(1);
 
         {/* 푸터 상태바 */}
         <div className={styles.statusbar}>
-            <span className={styles.sep}>|</span>
-<span>disp×{displayScale.toFixed(2)}</span>
+
+          <span>disp×{displayScale.toFixed(2)}</span>
           <span className={styles.mono}>{natural.w}×{natural.h}px</span>
           <span className={styles.sep}>|</span>
           <span>{zoomPct}%</span>

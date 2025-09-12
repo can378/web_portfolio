@@ -32,10 +32,6 @@
   border-radius: 3px;
 }
 
-.menuItem:hover {
-  background: #dcdad6;
-  outline: 1px solid #a5a3a0;
-}
 
 /* 본문 래퍼: textarea가 가득 차도록 */
 .body {
