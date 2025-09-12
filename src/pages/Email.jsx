@@ -130,7 +130,11 @@ export default function Email({ title, onClose, onMinimize }) {
             </button>
           </div>
 
-          <div className={styles.statusbar}>
+          
+        </footer>
+
+
+        <div className={styles.statusbar}>
             <div className={styles.statusCell}>
               {status ? status : (loading ? "Working..." : "Ready")}
             </div>
@@ -138,7 +142,6 @@ export default function Email({ title, onClose, onMinimize }) {
               {loading ? "..." : "✓"}
             </div>
           </div>
-        </footer>
       </form>
     </ModalWindow>
   );

@@ -4,10 +4,10 @@
   flex-direction: column;
   gap: 0;
   height: 100%;
+  min-height: 0;           /* 자식에서 overflow가 제대로 동작하도록 */
   padding: 0;
   font-family: "MS Sans Serif", "Tahoma", sans-serif;
 }
-
 /* 메뉴바============================ */
 .menuBar {
   display: flex;
@@ -60,9 +60,13 @@
   margin: 8px;
   background: #ffffff;
   border: 1px solid #333;
-  height: 100%;
+  /* height: 100%;  ← 삭제 */
   display: flex;
+  flex: 1 1 auto;          /* 남는 공간을 모두 차지 */
+  min-height: 0;           /* 내부 스크롤 허용을 위해 필요 */
+  overflow: auto;          /* 내용이 길어지면 스크롤 */
 }
+
 .textarea {
   width: 100%;
   height: 100%;
@@ -80,26 +84,30 @@
   margin-top: 8px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
   padding: 0 8px 8px 8px;
+  flex: 0 0 auto;
 }
-
 /* 버튼 ================================== */
 .toolbar {
   display: flex;
-  gap: 8px;
+  gap: 5px;
   justify-content: flex-end;
 }
+
+
+
 .btn {
   min-width: 72px;
   border-radius: 2px;
   height: 26px;
+  padding: 2px 8px;
   font-size: 12px;
-  background: var(--main-gray-color);
-  border-top: 2px solid #fff;
-  border-left: 2px solid #fff;
-  border-right: 2px solid #808080;
-  border-bottom: 2px solid #808080;
+  background: #e4e3df;
+  border: 1px solid #3b3b3b;
+  border-radius: 2px;
+  box-shadow:
+    inset 1px 1px 0 #ffffff,
+    inset -1px -1px 0 #9a9a9a;
   cursor: pointer;
 }
 .btn:active {
@@ -117,13 +125,15 @@
 
 /* 상태바======================================= */
 .statusbar {
+  /* 기존 스타일 유지 + 아래 추가/수정 */
+  height: 28px;            /* 요청한 고정 높이 */
+  flex: 0 0 28px;          /* flex 아이템으로 28px 확정 */
+  margin-top: auto;        /* 남는 공간을 위로 밀어내 맨 아래로 */
   display: grid;
   grid-template-columns: 1fr 100px;
   align-items: center;
-  height: 26px;
   padding: 2px 6px;
-  background: #d4d0c8;
-  border:1px solid #333;
+  border-top: 1px solid #333;
   font-size: 12px;
 }
 .statusCell {
