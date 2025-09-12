@@ -52,7 +52,7 @@ export default function Email({ title, onClose, onMinimize }) {
     >
       <form className={styles.container} onSubmit={handleSubmit} aria-busy={loading}>
         {/* 메뉴바 */}
-        {/* */}
+        {/*
         <nav className={styles.menuBar} role="menubar" aria-label="Mail menu">
           <span className={styles.menuItem}>File</span>
           <span className={styles.menuItem}>Edit</span>
@@ -61,7 +61,7 @@ export default function Email({ title, onClose, onMinimize }) {
           <span className={styles.menuItem}>Format</span>
           <span className={styles.menuItem}>Tools</span>
         </nav>
-
+           */}
         
 
         {/* 주소/제목 필드 (음각 입력) */}

@@ -10,13 +10,14 @@ export default function Memo({ title, initialText, editable, onClose, onMinimize
     <ModalWindow title={title} onClose={onClose} onMinimize={onMinimize} defaultSize={{ width: 300, height: 400 }}>
       <div className={styles.container}>
         {/* 헤더 메뉴바 */}
+        {/* 
         <div className={styles.menubar} role="menubar" aria-label="Memo menu">
           <span className={styles.menuItem} role="menuitem">File</span>
           <span className={styles.menuItem} role="menuitem">Edit</span>
           <span className={styles.menuItem} role="menuitem">Search</span>
           <span className={styles.menuItem} role="menuitem">Help</span>
         </div>
-
+          */}
         {/* 본문: textarea가 가득 차도록 */}
         <div className={styles.body}>
           <textarea

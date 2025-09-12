@@ -103,7 +103,9 @@ useEffect(() => {
       onMinimize={onMinimize}
     >
         <div className={styles.container}>
+             
         {/* ===== 상단 header ===== */}
+        {/*
         <div className={styles.topHeader}>
             <div className={styles.menuBar}>
             <span>File</span>
@@ -117,7 +119,7 @@ useEffect(() => {
               <span className={styles.pathValue}>{breadcrumb}</span>
             </div>
         </div>
-
+            */}
         {/* ===== 본문 (좌측 트리 / 우측 콘텐츠) ===== */}
         <div className={styles.bodyArea}>
             {/* 좌측 트리 */}
@@ -278,7 +280,7 @@ useEffect(() => {
         <div className={styles.footer}>
             <span>{selectedProject ? `${selectedProject.title} opened` : "Ready"}</span>
             <span className={styles.footerRight}>
-            {selectedProject ? "Details" : `${projects.length} items`}
+            {selectedProject ? "Details" : `${projects.length} projects`}
             </span>
         </div>
         </div>

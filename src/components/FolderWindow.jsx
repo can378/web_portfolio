@@ -25,9 +25,12 @@ export default function FolderWindow({
       defaultSize={defaultSize}
     >
       <div className={styles.frame}>
+
         {/* --- 헤더 영역 --- */}
+        
         <div>
-          <div className={styles.menubar} style={{ color: 'red'}}>
+          {/* 
+          <div className={styles.menubar}>
             <span>File</span><span>Edit</span><span>View</span>
             <span>Favorites</span><span>Tools</span><span>Help</span>
           </div>
@@ -56,8 +59,9 @@ export default function FolderWindow({
                 />
                 Go
             </div>
-
+            
           </div>
+          */}
         </div>
 
         {/* --- 콘텐츠 영역 --- */}

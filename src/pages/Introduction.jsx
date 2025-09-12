@@ -69,9 +69,10 @@ export default function Introduction({ title, onClose, onMinimize }) {
       defaultSize={{ width: 700, height: 600 }}
     >
       <div className={styles.container}>
+        {/*
         <div className={styles.menuBar}>
           <span>File</span><span>Edit</span><span>Actions</span><span>Tools</span><span>Help</span>
-        </div>
+        </div> */}
 
         <div className={styles.mainArea}>
           <div className={styles.chatPanel}>
