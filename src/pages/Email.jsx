@@ -52,6 +52,7 @@ export default function Email({ title, onClose, onMinimize }) {
     >
       <form className={styles.container} onSubmit={handleSubmit} aria-busy={loading}>
         {/* 메뉴바 */}
+        {/* */}
         <nav className={styles.menuBar} role="menubar" aria-label="Mail menu">
           <span className={styles.menuItem}>File</span>
           <span className={styles.menuItem}>Edit</span>

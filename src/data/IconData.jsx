@@ -286,6 +286,9 @@ AI Navigation을 활용한 AGV 구현
         icon:"/web_portfolio/assets/image/icons/email_icon.svg",
         fixed:false,
         component:Email,
+        props: { 
+            title: "Email",
+        }
     }
 ];
 

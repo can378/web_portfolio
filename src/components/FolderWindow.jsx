@@ -27,7 +27,7 @@ export default function FolderWindow({
       <div className={styles.frame}>
         {/* --- 헤더 영역 --- */}
         <div>
-          <div className={styles.menubar}>
+          <div className={styles.menubar} style={{ color: 'red'}}>
             <span>File</span><span>Edit</span><span>View</span>
             <span>Favorites</span><span>Tools</span><span>Help</span>
           </div>
@@ -46,7 +46,7 @@ export default function FolderWindow({
 
           <div className={styles.addressRow}>
             <div className={styles.addressLabel}>Address</div>
-            <input className={styles.addressInput} placeholder="C:\\" />
+            <input className={styles.addressInput} disabled placeholder="C:\\" />
              
             <div className={styles.goBtn}>
                 <img

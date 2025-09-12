@@ -6,10 +6,11 @@
   height: 100%;
   min-height: 0;           /* 자식에서 overflow가 제대로 동작하도록 */
   padding: 0;
-  font-family: "MS Sans Serif", "Tahoma", sans-serif;
+
 }
 /* 메뉴바============================ */
 .menuBar {
+  height: 28px;
   display: flex;
   gap: 20px;
   font-size: 13px;
