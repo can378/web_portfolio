@@ -2,7 +2,16 @@ const projects = [
 
   //웹개발============================================================================
   {
-    title: "web portfolio",
+    title: "Metafactory Pluto Hub",
+    short_description: "MCP Server, agent를 등록하는 사이트입니다.",
+    technologies: ["React", "fastApi", "MCP", "AI agent"],
+    icon:"/web_portfolio/assets/image/icons/star_icon.svg",
+    image: "/web_portfolio/assets/image/icons/star_icon.svg",
+    type:"web",
+    description: `프루토`
+  },
+  {
+    title: "Web Portfolio",
     short_description: "윈도우 XP 스타일의 레트로 UI 웹 포트폴리오입니다.",
     technologies: ["React", "fastApi", "MCP", "AI agent"],
     icon:"/web_portfolio/assets/image/icons/star_icon.svg",
@@ -81,7 +90,7 @@ https://github.com/can378/web_portfolio.git
 
 학습을 위해 분석/설계/기획 부터 개발을 진행했으며
 
-기존 코드를 MVC 패턴으로 구조화하고, 하드코딩 된 부분들을 데이터베이스 기반으로 변경했으며 
+기존 코드를 MVC 패턴으로 구조화하고, 하드코딩 된 부분들을 데이터베이스 기반으로 변경했습니다.
 
 고립성과 확장성을 고려하여 데이터베이스 테이블을 재설계 했습니다. 
 
@@ -124,7 +133,7 @@ github actions이 특정 코드 변경을 감지하여
 
 Docker iamge를 build하고 ECR에 push.
 
-이후 EC2 인스턴스에 새 container를 띄운다.
+이후 EC2 인스턴스에 새 container를 띄웁니다.
 
 ---
 
@@ -629,6 +638,39 @@ At the end, the word "error" appears reversed on the screen, signifying that our
   },
 
   //기타============================================================================
+  {
+    title: "Warehouse Digital Twin",
+    short_description: "Metafactory Warehouse Digital Twin",
+    technologies: ["Python", "Unity","FastAPI"],
+    icon:"/web_portfolio/assets/image/icons/pose_icon.svg",
+    image: "/web_portfolio/assets/image/icons/pose_icon.svg",
+    type:"AI",
+    description:`
+<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
+  "Unity 3D Warehouse Digital Twin 개발 + Python 백엔드 개발"
+</div>
+
+---
+
+**진행 일정**: 2025.07.02 - 2025.09.04  
+**참여 인원**: Unity 개발 2명, 디자인 2명, WPF 2명
+
+---
+
+### ■ 개발 환경
+
+- Unity 3D
+- python fastapi
+- WPF
+
+---
+
+### ■ 프로젝트 설명
+
+
+    `
+
+  },
   {
     title: "Human Pose Estimation",
     short_description: "Human pose estimation + action recognition",

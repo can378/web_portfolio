@@ -136,7 +136,7 @@ export default function Introduction({ title, onClose, onMinimize }) {
             </div>
             
           </div>
-
+          {/* 
           <aside className={styles.profilesRight}>
             <div className={styles.profileCard}>
               <div className={styles.profileInner}>
@@ -154,6 +154,7 @@ export default function Introduction({ title, onClose, onMinimize }) {
               <span className={styles.bottomChevron} />
             </div>
           </aside>
+          */}
         </div>
 
         <footer className={styles.statusBar}>

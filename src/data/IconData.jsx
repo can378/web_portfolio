@@ -58,7 +58,7 @@ const iconArray = [
         icon: "/web_portfolio/assets/image/icons/memo_icon.svg",
         fixed: true,
         component: Memo,
-        props: { title: "메모 1", initialText: `
+        props: { title: "Metanet", initialText: `
 인턴 경력
 
 메타넷디지털 - 모던팩토리
@@ -91,7 +91,8 @@ Unity LiDAR 구현 구상 및 설계
 Coroutine → UniTask 변환 작업 (Unitask, Coroutine 정리 후 일부 교체)
 프로젝트를 AWS CodeCatalyst에 업로드하여 협업/배포 환경 구축
 AI Navigation을 활용한 AGV 구현
-            
+
+내용 추가 수정!!!!!!!!!!!!!!!!!!!!!!!!!!!
             `
             
             , editable: true }
