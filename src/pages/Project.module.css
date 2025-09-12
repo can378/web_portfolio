@@ -320,6 +320,7 @@
 
 /* ===== 하단 푸터(상태바) ======================================= */
 .footer {
+  height: 28px; 
   display: flex;
   justify-content: space-between;
   align-items: center;
