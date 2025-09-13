@@ -9,22 +9,46 @@ const projects = [
     image: "/web_portfolio/assets/image/icons/star_icon.svg",
     type:"web",
     description: `
-MCP Server & AI Agent 공유 웹사이트 개발
-개발된 MCP Server와 AI Agent를 등록하고 공유할 수 있는 플랫폼을 구현했습니다. 사용자가 직접 제작한 MCP를 간단히 등록할 수 있도록 설계하였으며 검색 및 관리 기능을 통해 쉽게 원하는 리소스를 검색할 수 있게 하였습니다.
+<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
+  "MCP Server & AI Agent 공유 웹사이트"
+</div> 
+
+---
+
+**진행 일정**: 2025.06.18 ~ 2025.07.22  
+**참여 인원**: 개인
 
 
-1. 주요 기능 구현
-• 등록 및 검색 기능
-MCP Server와 AI Agent를 카테고리 및 태그 등 으로 등록하여 원하는 리소스를 빠르게 찾을 수 있도록 구현.
+개발된 MCP Server와 AI Agent를 등록하고 공유할 수 있는 플랫폼 구현. 
+
+사용자가 직접 제작한 MCP를 손쉽게 등록할 수 있도록 설계하였으며 
+
+검색 및 관리 기능을 통해 쉽게 원하는 리소스를 검색할 수 있게 하였습니다.
+
+---
+
+### ■ 기술 스택
+
+- 백엔드 : Go
+- 프론트엔드 : vue3
+- 배포 환경 : 완성된 프로젝트를 컴퓨터 서버에 업로드하고 Tar 파일로 패키징하여 관리 및 배포.
+
+---
+
+### ■ 주요 기능
+
+- 등록 및 검색 기능
+
+MCP Server와 AI Agent를 카테고리 및 태그 등을 통해 원하는 리소스를 빠르게 찾을 수 있도록 구현.
+
 상세 설명 업로드 기능을 지원하여 각 서버·에이전트의 특성을 명확히 전달 가능.
 
-• 회원가입 및 로그인 기능
-사용자 계정을 생성하고 로그인할 수 있도록 회원 인증 시스템을 구현.
 
-2. 기술 스택 및 배포
-• 백엔드 : Go 언어
-• 프론트엔드 : vue3
-• 배포 환경 : 완성된 프로젝트를 컴퓨터 서버에 업로드하고, Tar 파일로 패키징하여 관리 및 배포가 용이하도록 하였습니다.
+- 회원가입 및 로그인
+
+사용자 계정을 생성하고 로그인할 수 있도록 회원 인증 시스템 구현.
+
+
 
 `
   },
@@ -37,7 +61,7 @@ MCP Server와 AI Agent를 카테고리 및 태그 등 으로 등록하여 원하
     type:"web",
     description: `
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
-  "윈도우 XP 스타일의 레트로 UI 웹 포트폴리오입니다."
+  "윈도우 XP 스타일의 레트로 UI 웹 포트폴리오."
 </div> 
 
 ---
@@ -58,7 +82,7 @@ AI 기술을 활용하여 사용자가 자연어로 포트폴리오 정보를 �
 - LangChain + Groq LLM (Llama3-70b-8192) — AI 에이전트 시스템  
 - MCP (Model Context Protocol) — AI 도구  
 - Gmail API — 이메일 전송 서비스  
-- Docker — Oracle Cloud 서버 CI/CD 배포 구현
+- Docker, Oracle Cloud 서버 Github Actions를 통해 CI/CD 파이프라인
 
 #### 프론트엔드
 - React 19.1.0 + Vite  
@@ -658,13 +682,20 @@ At the end, the word "error" appears reversed on the screen, signifying that our
     type:"AI",
     description:`
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
-  "Unity 3D Warehouse Digital Twin 개발 + Python 백엔드 개발"
+  "Unity 3D Warehouse Digital Twin"
 </div>
 
 ---
 
 **진행 일정**: 2025.07.02 - 2025.09.04  
 **참여 인원**: Unity 개발 2명, 디자인 2명, WPF 2명
+
+
+본래는 실제 공장이나 창고의 데이터를 받아 Unity3D 상에 나타내는 digital twin을 구현하지만 
+
+사이드 프로젝트로 진행했기 때문에 가상의 창고를 unity 3d 디지털 트윈 형태로 구현 하였습니다. 
+
+데이터는 백엔드를 통해 데이터베이스에서 불러왔습니다.
 
 ---
 
@@ -676,58 +707,48 @@ At the end, the word "error" appears reversed on the screen, signifying that our
 
 ---
 
-### ■ 프로젝트 설명
-창고 Digital Twin 프로젝트
+### ■ 프로젝트 담당 개발
+#### 1. 백엔드
+#### DB 설계 및 API 전담 구현  
+  - 기존에 TXT 파일로 저장되던 데이터를 **MariaDB**로 관리하기 위해 데이터베이스 설계 및 API 개발.  
+  - 창고의 **배치, 물품, 적재 상품 정보** 등을 저장하는 데이터베이스를 설계.  
+  - **Python FastAPI**를 활용하여 백엔드 서버 구현.  
 
-본래는 실제 공장이나 창고의 데이터를 받아 Unity3D 상에 나타내는 digital twin을 구현하지만 사이드 프로젝트로 진행했기 때문에 가상의 창고를 unity 3d 디지털 트윈 형태로 구현 하였습니다. 데이터는 백엔드를 통해 데이터베이스에서 불러왔습니다.
 
+#### 2. Unity 기능
 
+#### AGV (Automated Guided Vehicle)
+- Unity **NavMesh**를 활용하여 AGV가 지정된 지점들을 최적 경로로 이동하도록 구현.  
 
-담당 역할
-1. 백엔드
-• DB 설계 및 API 구현
-Txt 파일로 저장되어 있던 데이터들을 MariaDB로 관리하기 위해 데이터베이스 설계 및 api 개발.
+#### Snapshot 기능
+- 사용자가 원하는 위치에 랙(Rack) 등의 오브젝트를 배치하고 상태를 저장할 수 있는 기능 구현.  
+- 오브젝트의 삭제, 수정, 추가, 스냅샷 추가 및 이름 변경 가능.  
 
-창고의 배치, 물품, 적재 상품 정보 등을 저장하는 데이터베이스를 설계.
-python fastapi로 백엔드서버를 구현.
+#### Recording 기능
+- Unity에서 캡처한 화면을 **FFmpeg**으로 인코딩하여 런타임 녹화 기능 구현 
+  - Unity 상에서 사용자가 보고 있는 화면 녹화.  
+  - 미리 지정한 경로를 일정 속도로 촬영.  
+  +) 경로 촬영 시 Unity 내부의 배속 처리를 적용하여 실제 촬영 시간을 단축하고 원하는 영상을 효율적으로 추출 가능.  
 
-2. Unity 기능
-• AGV (Automated Guided Vehicle)
-Unity NavMesh를 활용하여 AGV가 지정된 지점들을 최적 경로로 이동하도록 구현.
+#### AI Detection 기능
+- 실제 카메라 실시간 영상을 AI 모델로 분석한 결과(사람/차량 위치)를 Unity에 반영.  
+- 사람의 경우 **애니메이션 적용**.  
+- 물체 생성에는 **오브젝트 풀링(Object Pooling)** 도입.  
 
-• Snapshot 기능
-사용자가 원하는 위치에 랙(Rack) 등의 오브젝트를 배치하고 상태를 저장하는 기능 구현.
+#### MCP AI Agent
+- **MariaDB**에 저장된 데이터를 기반으로 API 호출·조회.  
+- **ChatGroq** 및 **LLaMA 3 모델**을 연동하여 **AI Agent** 기능 구현.  
 
-오브젝트의 삭제, 수정 추가. 스냅샷 추가 및 이름 변경 등이 가능.
+#### Focusing 기능
+- **Cinemachine**을 사용하여 지정된 오브젝트들을 카메라가 한 화면에 담아 **자동 포커싱**.  
 
-• Recording 기능
-Unity에서 캡처한 화면을 FFmpeg으로 인코딩하여 아래와 같은 유니티 런타임 녹화 기능 구현.
-ㅡUnity 상에서 사용자가 보고있는 화면을 녹화.
-ㅡ미리 지정한 경로를 일정 속도로 촬영.
-경로 촬영의 경우 유니티 내부의 배속처리를 통해 실제 촬영 시간은 단축하고 원하는 영상을 효율적으로 추출할 수 있도록 구현했습니다.
+#### 날씨 구현
+- **Particle System**으로 눈, 비, 안개 효과 구현.  
+- **Light intensity, Fog, Skybox** 조절을 통해 흐림 효과 및 시간 변화 구현.  
 
-• AI Detection 기능
-실제 카메라 영상을 AI 모델로 분석한 후의 결과(사람/차량 위치)를 Unity에 반영
-
-사람의 경우 3D 애니메이션을 적용.
-물체 생성에는 오브젝트 풀링(Object Pooling)을 도입.
-
-• MCP AI Agent
-MariaDB에 저장된 데이터를 기반으로 API를 호출·조회하여, ChatGroq 및 LLaMA 3 모델을 연동한 AI Agent 기능을 구현.
-
-• Focusing 기능
-Cinemachine 사용
-지정된 오브젝트들을 카메라가 한 화면에 담아 포커싱할 수 있도록 구현.
-
-• 날씨 구현
-Particle System으로 눈, 비, 안개 효과를 구현.
-Light intensity와 Fog, Skybox 조절을 통해 흐림 효과와 시간 변화를 구현.
-
-• 리팩토링
-코루틴(Coroutine)을 UniTask로 일부 대체하여 비동기 처리 효율성 향상.
-
-Update 문에서 Find로  컴포넌트를 Inspector에서 직접 연결하는 방식으로 변경.
-
+#### 리팩토링
+- 일부 **Coroutine**을 **UniTask**로 대체하여 비동기 처리 효율성 향상.  
+- Update 문에서 Find 대신 **Inspector 직접 연결 방식**으로 개선.  
 
     `
 
