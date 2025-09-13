@@ -5,8 +5,8 @@ const projects = [
     title: "Metafactory Pluto Hub",
     short_description: "MCP Server, agent를 등록하는 사이트입니다.",
     technologies: ["React", "fastApi", "MCP", "AI agent"],
-    icon:"/web_portfolio/assets/image/icons/star_icon.svg",
-    image: "/web_portfolio/assets/image/icons/star_icon.svg",
+    icon:"/web_portfolio/assets/image/icons/pluto_icon.svg",
+    image: "/web_portfolio/assets/image/icons/pluto_icon.svg",
     type:"web",
     description: `
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
@@ -677,8 +677,8 @@ At the end, the word "error" appears reversed on the screen, signifying that our
     title: "Warehouse Digital Twin",
     short_description: "Metafactory Warehouse Digital Twin",
     technologies: ["Python", "Unity","FastAPI"],
-    icon:"/web_portfolio/assets/image/icons/pose_icon.svg",
-    image: "/web_portfolio/assets/image/icons/pose_icon.svg",
+    icon:"/web_portfolio/assets/image/icons/warehouse_icon.svg",
+    image: "/web_portfolio/assets/image/icons/warehouse_icon.svg",
     type:"AI",
     description:`
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
