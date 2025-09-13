@@ -2,7 +2,7 @@ const projects = [
 
   //웹개발============================================================================
   {
-    title: "Metafactory Pluto Hub",
+    title: "Pluto - MCP Hub",
     short_description: "MCP Server, agent를 등록하는 사이트입니다.",
     technologies: ["React", "fastApi", "MCP", "AI agent"],
     icon:"/web_portfolio/assets/image/icons/pluto_icon.svg",
