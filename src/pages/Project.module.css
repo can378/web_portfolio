@@ -71,6 +71,7 @@
   color: #ffffff !important;
 }
 
+
 .treeText { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 
@@ -372,4 +373,22 @@
   width: 100%;
   height: 100%;
   display: block;
+}
+
+
+
+/* 버튼 안 자식들도 흰색 */
+.treeBtn:hover .treeText,
+.treeBtn:hover .iconFile,
+.treeBtn:hover .iconFile::before,
+.treeBtn:hover .iconFolder,
+.treeBtn:hover .iconFolder::before,
+.treeBtn:hover .countMuted,
+.active .treeText,
+.active .iconFile,
+.active .iconFile::before,
+.active .iconFolder,
+.active .iconFolder::before,
+.active .countMuted {
+  color: #ffffff !important;
 }

@@ -127,51 +127,45 @@ useEffect(() => {
             <div className={styles.treeHeader}>All Folders</div>
             <ul className={styles.tree}>
                 <li className={styles.treeItem}>
-                <button
-                    className={`${styles.treeBtn} ${(selectedType === null && selectedProject === null) ? styles.active : ""}`}
-                    onClick={selectNone}
-                    title="Open Archives"
-                >
-                    <span  aria-hidden />
-                    <span className={styles.treeText}>Archives</span>
-                </button>
+                    <button
+                        className={`${styles.treeBtn} ${(selectedType === null && selectedProject === null) ? styles.active : ""}`}
+                        onClick={selectNone}
+                        title="Open Archives"
+                    >
+                        <span  aria-hidden />
+                        <span className={styles.treeText}>Archives</span>
+                    </button>
+                    {/* folder, project list */}
+                    <ul className={styles.treeChildren}>
+                        {groupedByType.map(([type, arr]) => (
+                            <li key={type} className={styles.treeItem}>
 
-                <ul className={styles.treeChildren}>
-                    {groupedByType.map(([type, arr]) => (
-                        <li key={type} className={styles.treeItem}>
-                        <button
-                            className={`${styles.treeBtn} ${
-                            selectedType === type && !selectedProject ? styles.active : ""
-                            }`}
-                            onClick={() => selectType(type)}
-                        >
-                            <span className={styles.iconFolder} aria-hidden="true">
-                                {/* <img src="/web_portfolio/assets/image/icons/folder_icon.png" alt="" /> */}
-                            </span>
-                            <span className={styles.treeText}>
-                                {type} <span className={styles.countMuted}>({arr.length})</span>
-                            </span>
-                        </button>
-
-                        <ul className={styles.treeChildren}>
-                            {arr.map((p) => (
-                            <li key={`${type}-${p.title}`} className={styles.treeItem}>
+                                {/* group folder=========================== */}
                                 <button
-                                className={`${styles.treeBtn} ${
-                                    selectedProject?.title === p.title ? styles.active : ""
-                                }`}
-                                onClick={() => selectProject(p)}
+                                    className={`${styles.treeBtn} ${selectedType === type && !selectedProject ? styles.active : ""}`}
+                                    onClick={() => selectType(type)}
                                 >
-                                <span className={styles.iconFile} aria-hidden />
-                                <span className={styles.treeText}>{p.title}</span>
+                                    <span className={styles.treeText}>
+                                        {type} <span className={styles.countMuted}>({arr.length})</span>
+                                    </span>
                                 </button>
+                                {/* projects================================== */}
+                                <ul className={styles.treeChildren}>
+                                    {arr.map((p) => (
+                                    <li key={`${type}-${p.title}`} className={styles.treeItem}>
+                                        <button
+                                        className={`${styles.treeBtn} ${selectedProject?.title === p.title ? styles.active : ""}`}
+                                        onClick={() => selectProject(p)}
+                                        >
+                                            <span className={styles.iconFile} aria-hidden />
+                                            <span className={styles.treeText}>{p.title}</span>
+                                        </button>
+                                    </li>
+                                    ))}
+                                </ul>
                             </li>
-                            ))}
-                        </ul>
-                        </li>
-                    ))}
-                </ul>
-
+                        ))}
+                    </ul>
                 </li>
             </ul>
             </aside>
