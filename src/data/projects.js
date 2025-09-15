@@ -712,7 +712,8 @@ At the end, the word "error" appears reversed on the screen, signifying that our
 #### DB 설계 및 API 전담 구현  
   - 기존에 TXT 파일로 저장되던 데이터를 **MariaDB**로 관리하기 위해 데이터베이스 설계 및 API 개발.  
   - 창고의 **배치, 물품, 적재 상품 정보** 등을 저장하는 데이터베이스를 설계.  
-  - **Python FastAPI**를 활용하여 백엔드 서버 구현.  
+  - **Python FastAPI**를 활용하여 백엔드 서버 구현.
+  - Githun actions를 통한 AWS CI/CD  
 
 
 #### 2. Unity 기능
@@ -749,6 +750,9 @@ At the end, the word "error" appears reversed on the screen, signifying that our
 #### 리팩토링
 - 일부 **Coroutine**을 **UniTask**로 대체하여 비동기 처리 효율성 향상.  
 - Update 문에서 Find 대신 **Inspector 직접 연결 방식**으로 개선.  
+
+### Git 도입
+- 프로젝트 용량으로 인해 code catalyst 사용 도입
 
     `
 

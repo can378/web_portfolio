@@ -62,40 +62,40 @@ const iconArray = [
         fixed: true,
         component: Memo,
         props: { title: "Metanet", initialText: `
-인턴 경력
+■ 메타넷디지털 - 모던팩토리팀 인턴
 
-메타넷디지털 - 모던팩토리
-인턴
-2025.03.04-2025.05.02
-- 기존 하드코딩된 구조를 MariaDB 기반으로 전환하여 유지보수성과 확장성 확보
+직급: 인턴
+기간: 2025.03.04-2025.05.02
+
+<Node.js vue3 교육 수강>
+inflearn 교육 수강
+Node.js 학습 내용 세미나 진행
+
+<사내 자산화 프로젝트>
+- 기존 하드코딩 된 구조를 MariaDB 기반으로 전환하여 유지보수성과 확장성 확보
 - 프론트(Vue3 Nuxt) 전면 개편 및 백엔드(Node.js Express) MVC 패턴 적용
-- 5개 이상의 기능 수정 및 추가
+- 기능 수정 및 추가
 - 웹 크롤링을 통한 키워드 기반 네이버 뉴스 기사 제공 기능 구현
 - MPC 툴 기반 AI Agent 챗봇 API 개발, DB 연동형 지능형 서비스 구축
 - AWS CI/CD 파이프라인 및 S3 업로드 다운로드 기능 구현
-- AWS CodeCatalyst 기반 Git 환경 도입으로 협업 효율 향상
 
 
 
-메타넷디지털-모던팩토리
-사원
-2025.05.06
+■ 메타넷디지털 - 모던팩토리 정규직
+직급: 사원
+기간: 2025.05.06-
+
 <m.pluto-hub>
-= MCP tool이나 AI Agent 상세 정보 및 사용 방법을 등록하는 웹사이트 개발 
-(회원 가입, 등록, 목록 필터링 등 핵심 기능 전반 구현)
+= Go + Vue3
+MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫폼 개발.
 
-<metanet-warehouse-backend>
-창고 관련 unity digital twin의 Backend 개발
-AWS 기반 CI/CD 적용 (MCP MSIS Web & MSIS Unity 빌드/배포 자동화)
+<metanet-warehouse>
+- Unity 3D 기반 가상 창고 디지털 트윈 구현 프로젝트 (백엔드·Unity·WPF 협업).
+- MariaDB + FastAPI로 데이터베이스 및 API 설계·구현.
+- Unity에서 AGV 최적 경로 이동, Snapshot/Recording, AI Detection 기능 개발.
+- Object Pooling, Cinemachine, Particle System 활용한 성능 최적화와 시각 효과 구현.
+- ChatGroq + LLaMA3 연동 AI Agent와 코드 리팩토링.
 
-<metanet-warehouse-unity>
-Computer Vision 기반 AI Detection 결과를 Unity 환경에 적용
-Unity LiDAR 구현 구상 및 설계
-Coroutine → UniTask 변환 작업 (Unitask, Coroutine 정리 후 일부 교체)
-프로젝트를 AWS CodeCatalyst에 업로드하여 협업/배포 환경 구축
-AI Navigation을 활용한 AGV 구현
-
-내용 추가 수정!!!!!!!!!!!!!!!!!!!!!!!!!!!
             `
             
             , editable: true }
