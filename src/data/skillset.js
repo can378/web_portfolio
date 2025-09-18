@@ -13,17 +13,17 @@ export default {
             },
             {
                 name: "Java",
-                level: 3,
+                level: 2,
                 description: "2024.12부터 학습 시작. 웹 백엔드 개발."
             },
             {
                 name: "JavaScript",
-                level: 3,
+                level: 2,
                 description: "2024.12부터 학습 시작. 웹 백엔드 개발."
             },
             {
                 name: "Python",
-                level: 2,
+                level: 3,
                 description: "Computer Vision 공부, 웹 크롤링, 파일 처리, FastAPI 사용 경험."
             }
         ],

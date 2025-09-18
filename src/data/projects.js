@@ -438,6 +438,8 @@ https://github.com/can378/SpiritGameProject.git
 
 - 오디오, setting 구현
 
+- 미로 생성 + A* algorithm으로 길을 찾는 enemy 개발
+
 - 기획 및 아트
 
 
