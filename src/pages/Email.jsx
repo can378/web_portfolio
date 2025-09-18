@@ -31,11 +31,7 @@ export default function Email({ title, onClose, onMinimize }) {
       // 429: 너무 잦은 전송
       if (errorResult?.code === 429) {
         setStatus(
-          `1분에 1회만 이메일 전송이 가능합니다${
-            typeof errorResult.retryAfter === "number"
-              ? ` · ${errorResult.retryAfter}초 후 재시도`
-              : ""
-          }`
+          `1분에 1회만 이메일 전송이 가능합니다`
         );
         return;
       }
