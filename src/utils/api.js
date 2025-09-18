@@ -7,7 +7,7 @@ export async function checkConnect() {
   return res.text();  // 혹은 return res.json() 등 명시적으로 반환
 }
 
-// 이메일 전송
+// 이메일 전송 (429 → "1분에 1회만 이메일 전송이 가능합니다"로 치환)
 export async function sendEmail(payload) {
   const res = await fetch(`${API_BASE}/email/send`, {
     method: "POST",
@@ -16,8 +16,39 @@ export async function sendEmail(payload) {
   });
 
   if (!res.ok) {
-    const errorResult = await res.json();
-    throw errorResult; // 에러 객체를 던짐
+    let errBody = null;
+    try { errBody = await res.json(); } catch {}
+
+    if (res.status === 429) {
+      // Retry-After 헤더(초 또는 날짜) → 남은 초 계산 (없으면 60초)
+      const h = res.headers.get("Retry-After");
+      let retryAfter;
+      if (h) {
+        const n = Number(h);
+        if (!Number.isNaN(n)) retryAfter = n;
+        else {
+          const t = new Date(h).getTime();
+          if (!Number.isNaN(t)) {
+            const diff = Math.ceil((t - Date.now()) / 1000);
+            retryAfter = diff > 0 ? diff : 0;
+          }
+        }
+      }
+      if (retryAfter == null) retryAfter = 60;
+
+      // 호출부에서 err.code === 429 확인 가능
+      throw {
+        error: "1분에 1회만 이메일 전송이 가능합니다",
+        code: 429,
+        retryAfter,
+        serverMessage: errBody?.error,
+      };
+    }
+
+    throw {
+      error: errBody?.error || "이메일 전송 실패",
+      code: res.status,
+    };
   }
 
   return res.json();
