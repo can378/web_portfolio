@@ -65,3 +65,18 @@ export async function askAgent(question) {
   if (!res.ok) throw new Error("AI 에이전트 호출 실패");
   return res.json();
 }
+
+// 방문 로그 전송
+export async function sendVisitLog({ path, referrer, user_agent, ip } = {}) {
+  const url = `${API_BASE}/log/visit/`;
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ path, referrer, user_agent, ip }),
+  });
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    throw new Error(`visit log failed: ${res.status} ${body}`);
+  }
+  return res.json(); // response_model=int 이면 숫자 반환
+}
