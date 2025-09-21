@@ -7,7 +7,7 @@ const API_BASE = import.meta.env?.VITE_API_BASE_URL;
 function App() {
   useEffect(() => {
     // 페이지 첫 로딩 시 방문 로그 전송
-    fetch(`${API_BASE}/logs/visit`, {
+    fetch(`${API_BASE}/log/visit`, {
       method: "POST",
       body: JSON.stringify({
         path: window.location.pathname,
