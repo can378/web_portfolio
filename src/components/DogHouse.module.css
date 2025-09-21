@@ -1,6 +1,5 @@
 .wrapper {
   position: fixed;
-  z-index: 1;         /* 강아지(9999)보다 살짝 아래 */
   pointer-events: auto;  /* 클릭 가능 */
 }
 
@@ -16,12 +15,12 @@
 /* 눈======================================== */
 .eyes {
   position: absolute;
-  left: 20%;
+  left: 22%;
   top: 55%;
   /* 개집 이미지 안에서 대략 입구 위치로 보이게 약간 왼/아래로 이동하고 싶다면 eyesOffset으로 조정 */
   transform: translate(-10px, 5px);
   display: flex;
-  gap: 10px;
+  gap: 7px;
 }
 
 .eye {
