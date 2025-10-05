@@ -1,0 +1,179 @@
+/* === Start menu container (Win95 look) ======================= */
+.menuWrapper {
+  position: fixed;
+  left: 0;
+  bottom: 35px;
+  width: 230px;
+
+  display: grid;
+  grid-template-columns: 37px 1fr;
+
+  background: #c0c0c0;
+  border: 2px solid var(--main-border-color);
+  color: #000;
+
+  border-radius: 2px;
+  overflow: visible;  /* 상세 패널 보이게 */
+  z-index: 1000;
+
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  image-rendering: pixelated;
+}
+
+/* === Left vertical sidebar =================================== */
+/* 부모: Flex로 아래/왼쪽 정렬 */
+.sidebar {
+  display: flex;
+  flex-direction: column;   /* 세로 스택 */
+  justify-content: flex-end;/* 아래쪽으로 붙이기 */
+  align-items: flex-start;   /* 왼쪽으로 붙이기 */
+  background-color: #808080;
+  border-right: 1px solid var(--main-border-color);
+  
+  padding-left: 1px;
+  padding-bottom: 4px;
+}
+
+/* 텍스트: 세로 글자 + 기존 스타일 유지 */
+.sidebarText {
+  writing-mode: vertical-rl;
+  font-weight: 800;
+  transform: rotate(180deg);
+  font-size: 25px;
+  letter-spacing: 1px;
+  opacity: 0.95;
+  color:white;
+
+}
+
+
+/* === Items ===================================================== */
+.menuList {
+  list-style: none;
+  margin: 0;
+  padding: 6px 6px 8px;
+}
+
+/* Win95 구분선(음각) */
+.separator {
+  position: relative;
+  height: 10px;   /* 클릭 쉬운 간격 포함 */
+  margin: 4px 2px 8px;
+}
+.separator::before,
+.separator::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  height: 0;
+}
+.separator::before {
+  top: 2px;
+  border-top: 1px solid #808080;   /* dark line */
+}
+.separator::after {
+  top: 3px;
+  border-top: 1px solid #ffffff;   /* light line */
+}
+
+
+
+
+
+/* 라벨(오른쪽 ▶ 포함) */
+.itemLabel {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.itemIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+/* 기본 항목 버튼(아이콘 없음) */
+.menuItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px; /*메뉴별 여분*/
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.2;
+  cursor: default;
+  color: #000;
+  border-radius: 0;
+}
+
+/* hover/keyboard focus 시 파란 바 + 흰 글자 (Win95 하이라이트) */
+.menuItem:hover,
+.menuItem:focus {
+  outline: none;
+  background: var(--main-blue-color);
+  color: #ffffff;
+}
+
+
+
+.arrow {
+  display: inline-block;
+  margin-left: auto; /* 오른쪽 끝으로 정렬 */
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid #000;
+  opacity: 0.7;
+}
+
+.menuItem:hover .arrow,
+.menuItem:focus .arrow {
+  border-left-color: #fff;
+  opacity: 1;
+}
+
+/* 위험 항목 색 (Shut Down) */
+.danger {
+  color: #a80000;
+}
+.menuItem:hover .danger,
+.menuItem:focus .danger {
+  color: #ffffff;
+}
+
+
+
+
+
+/* === Detail panel (오른쪽) =========================================== */
+.detailPanel {
+  position: absolute;
+  left: 100%;
+  width: 230px;
+  top: -2px;
+  bottom: -2px;
+  background: #c0c0c0;
+  box-sizing: border-box;
+  border:2px solid var(--main-border-color);
+  padding: 10px 12px;
+  z-index: 2000;
+}
+
+.detailTitle {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.detailBody {
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}

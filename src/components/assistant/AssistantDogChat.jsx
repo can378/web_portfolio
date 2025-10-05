@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { askAgent } from "../utils/api";
+import { askAgent } from "../../utils/api";
 import styles from "./AssistantDogChat.module.css";
 
 const AssistantDogChat = ({ onClose, style }) => {

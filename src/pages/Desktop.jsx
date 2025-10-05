@@ -1,9 +1,9 @@
 import iconMap from "../data/IconData";
 import Icon from "../components/Icon";
-import Taskbar from "../components/Taskbar";
+import Taskbar from "../components/footer/Taskbar";
 import styles from "./Desktop.module.css";
-import AssistantDog from "../components/AssistantDog";
-import DogHouse from "../components/DogHouse";
+import AssistantDog from "../components/assistant/AssistantDog";
+import DogHouse from "../components/assistant/DogHouse";
 import { useRef, useState } from "react";
 
 // ✅ 처음에 자동으로 열고 싶은 아이디들

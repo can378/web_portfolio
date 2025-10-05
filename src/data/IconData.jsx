@@ -10,7 +10,7 @@ import History from "../pages/History";
 import Email from "../pages/Email";
 
 
-const iconArray = [
+export const iconArray = [
     // 📂 폴더
     {
         id: 100,
@@ -19,6 +19,7 @@ const iconArray = [
         icon: "/web_portfolio/assets/image/icons/folder_icon.svg",
         path: "desktop",
         component: FolderWindow,
+        description:"근무 경력 / 경력 요약",
         props: { folderId: 100 },
         childIds: [200],
     },
@@ -29,6 +30,7 @@ const iconArray = [
         icon: "/web_portfolio/assets/image/icons/user_icon.svg",
         path: "desktop",
         component: FolderWindow,
+        description:"개인적인 정보가 담김 파일입니다. \n 취미, 좋아하는 게임 등을\n 확인할 수 있습니다.",
         props: { 
             folderId: 101, 
             defaultSize:{ width: 400, height: 200 }, 
@@ -42,6 +44,7 @@ const iconArray = [
         icon: "/web_portfolio/assets/image/icons/favorite_icon.svg",
         path: "desktop",
         component: FolderWindow,
+        description:"포트폴리오에서 가장 중요한 정보들이 담긴 폴더입니다.",
         props: { 
             folderId: 102,
             defaultPosition:{ x: 70, y: 260 },
@@ -189,6 +192,7 @@ MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫�
         path: "desktop",
         icon: "/web_portfolio/assets/image/icons/sticky_icon.svg",
         component: Sticky,
+        description:"개발자로서의 목표가 적힌 스티커입니다.",
         props: {
             title: "Goal",
             initialText: `
@@ -259,6 +263,7 @@ MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫�
         icon:"/web_portfolio/assets/image/icons/projects_icon.svg",
         fixed:false,
         component:Project,
+        description:"진행한 프로젝트들이 담겨있습니다.",
         props: { 
             title: "Projects",
         }
@@ -271,6 +276,7 @@ MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫�
         icon:"/web_portfolio/assets/image/icons/welcome_icon.svg",
         fixed:false,
         component:Welcome,
+        description:"포트폴리오에 오신 것을 환영합니다.\n 간단한 사용법이 담겨있습니다.",
     },
     {
         id:1003,
@@ -280,6 +286,7 @@ MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫�
         icon:"/web_portfolio/assets/image/icons/messanger_icon.svg",
         fixed:false,
         component:Introduction,
+        description:"포트폴리오 오너에 대한 소개입니다.",
     },
     {
         id:1005,
@@ -289,6 +296,7 @@ MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫�
         icon:"/web_portfolio/assets/image/icons/email_icon.svg",
         fixed:false,
         component:Email,
+        description:"이메일 전송 기능이 있는 창입니다.",
         props: { 
             title: "Email",
         }
