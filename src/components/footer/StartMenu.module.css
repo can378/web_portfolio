@@ -1,0 +1,66 @@
+.menuWrapper {
+  position: "fixed";
+
+  left: 0;
+  bottom:35px;
+  width:250px;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+
+  background: var(--main-beige-color);
+  border: 2px solid var(--main-border-color);
+
+  border-radius: 2px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+
+/* 좌측 사이드바============ */
+.sidebar {
+  background: linear-gradient(#2b579a, #1b3e73);
+  color: #fff;
+}
+
+.sidebarText {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* 메뉴들=================== */
+.menuList {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+}
+.separator {
+  height: 1px;
+  margin: 6px 4px;
+  border-top:1px solid #a7a6aa;
+}
+
+.menuItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+}
+.menuItem:hover,
+.menuItem:focus {
+  outline: none;
+  background: #d7e4f2;
+}
+
+.itemLabel {
+  flex: 1;
+}
+
+.danger {
+  color: #b00020;
+}
