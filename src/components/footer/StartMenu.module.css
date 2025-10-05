@@ -1,5 +1,5 @@
 .menuWrapper {
-  position: "fixed";
+  position: fixed;
 
   left: 0;
   bottom:35px;
@@ -11,7 +11,7 @@
   border: 2px solid var(--main-border-color);
 
   border-radius: 2px;
-  overflow: hidden;
+  overflow: visible;
   z-index: 1000;
 }
 
@@ -63,4 +63,33 @@
 
 .danger {
   color: #b00020;
+}
+
+
+/* detail======================= */
+
+/* 상세 패널 (메뉴의 오른쪽에 붙는 패널) */
+.detailPanel {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 260px;
+  height: 100%;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  background: #f7f7f7;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  z-index: 2000;
+}
+
+/* 상세 패널 제목/본문 */
+.detailTitle {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.detailBody {
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: pre-wrap;
 }
