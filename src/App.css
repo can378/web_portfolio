@@ -22,6 +22,7 @@ html, body, #root {
   --second-beige-color:#f7f4ee;
   --main-border-color: #333;
   --main-gray-color:#D9D9D9;
+  --main-blue-color:#0a246a;
 }
 
 /* Force all text to black across the app */

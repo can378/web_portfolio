@@ -80,9 +80,9 @@ export default function Introduction({ title, onClose, onMinimize }) {
               <div className={styles.toName}>
                 To: Yunji Heo
               </div>
-              <div className={styles.toFieldDeco}>
+              {/* <div className={styles.toFieldDeco}>
                 <img src="/web_portfolio/assets/image/etc/Group 71.svg"></img>
-              </div>
+              </div> */}
             </div>
 
             {/* ✅ 이 영역만 스크롤 */}

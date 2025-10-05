@@ -1,16 +1,27 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import styles from "./StartMenu.module.css";
+import iconMap, { iconArray } from "../../data/IconData";
 
-const DEFAULT_ITEMS = [
-  { id: "programs",  label: "Programs",  detail: "Installed programs and groups." },
-  { id: "documents", label: "Documents", detail: "Recently opened files." },
-  { id: "settings",  label: "Settings",  detail: "Control Panel and system settings." },
-  { id: "find",      label: "Find",      detail: "Search for files or folders." },
-  { id: "run",       label: "Run",       detail: "Run a program or command." },
-  { id: "separator" },
-  { id: "shutdown",  label: "Shut Down", danger: true, detail: "Turn off or restart the computer." },
-];
+const DEFAULT_ITEMS = iconArray
+  .filter(item => item.description) // description 존재하는 것만
+  .map(item => ({
+    id: item.id,
+    label: item.name,
+    detail: item.description,
+    icon:item.icon,
+  }));
+
+
+// const DEFAULT_ITEMS = [
+//   { id: "programs",  label: "Programs",  detail: "Installed programs and groups." },
+//   { id: "documents", label: "Documents", detail: "Recently opened files." },
+//   { id: "settings",  label: "Settings",  detail: "Control Panel and system settings." },
+//   { id: "find",      label: "Find",      detail: "Search for files or folders." },
+//   { id: "run",       label: "Run",       detail: "Run a program or command." },
+//   { id: "separator" },
+//   { id: "shutdown",  label: "Shut Down", danger: true, detail: "Turn off or restart the computer." },
+// ];
 
 export default function StartMenu({
   items = DEFAULT_ITEMS,
@@ -111,7 +122,7 @@ export default function StartMenu({
     >
       {/* left side bar */}
       <div className={styles.sidebar} aria-hidden>
-        <div className={styles.sidebarText}>Start</div>
+        <div className={styles.sidebarText}>App Description</div>
       </div>
 
       {/* menu items */}
@@ -136,7 +147,11 @@ export default function StartMenu({
                     : -1
                 }
               >
-                <span className={styles.itemLabel}>{item.label}▶</span>
+                <span className={styles.itemLabel}>
+                  <img src={item.icon} alt="" className={styles.itemIcon} />
+                  {item.label}
+                  <span className={styles.arrow}></span>
+                </span>
               </button>
             </li>
           )
