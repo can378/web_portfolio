@@ -4,38 +4,84 @@ import Taskbar from "../components/footer/Taskbar";
 import styles from "./Desktop.module.css";
 import AssistantDog from "../components/assistant/AssistantDog";
 import DogHouse from "../components/assistant/DogHouse";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
-// ✅ 처음에 자동으로 열고 싶은 아이디들
-const INITIAL_OPEN_IDS = [1001, 1002,102];
+
+// ✅ 처음에 자동으로 열릴 창 + 위치까지 한 번에 정의
+const INITIAL_WINDOWS = [
+  { id: 1001, x: 40,  y: 40 },   // Projects
+  { id: 1002, x: 380, y: 600 },   // Welcome
+  { id: 102,  x: 120, y: 460 },  // Introduction
+];
+
 
 // ✅ 초기 창 목록 생성 유틸 (link/pdf 제외)
 function buildInitialWindows() {
   const list = [];
   let z = 1;
-  for (const id of INITIAL_OPEN_IDS) {
+
+  for (const { id, x, y } of INITIAL_WINDOWS) {
     const icon = iconMap.get(id);
     if (!icon) continue;
-    if (icon.type === "link" || icon.type === "pdf") continue; // 다운로드/외부링크는 창이 아님
+    if (icon.type === "link" || icon.type === "pdf") continue;
+
     list.push({
       id,
       type: icon.type,
       isVisible: true,
+      isMaximized: false,
       zIndex: z++,
       title: icon.name,
+      x,
+      y,
     });
   }
+
   return list;
 }
 
+
 export default function Desktop() {
-  // ✅ 초기 진입 시 지정한 창들이 열린 상태
+  // ✅ localStorage에서 상태 복원 또는 초기값 사용
   const initialWindows = buildInitialWindows();
-  const [openWindows, setOpenWindows] = useState(initialWindows);
-  const [zCounter, setZCounter] = useState(initialWindows.length + 1);
-  const [dogInHouse, setDogInHouse] = useState(false);
+
+  const [openWindows, setOpenWindows] = useState(() => {
+    const saved = localStorage.getItem("openWindows");
+    if (!saved) return initialWindows;
+
+    try {
+      const parsed = JSON.parse(saved);
+      return parsed.map((w, idx) => ({
+        ...w,
+        x: typeof w.x === "number" ? w.x : 80 + idx * 30,
+        y: typeof w.y === "number" ? w.y : 60 + idx * 30,
+        isMaximized: typeof w.isMaximized === "boolean" ? w.isMaximized : false,
+      }));
+    } catch {
+      return initialWindows;
+    }
+  });
+
+  const [zCounter, setZCounter] = useState(() => {
+    const saved = localStorage.getItem("zCounter");
+    return saved ? JSON.parse(saved) : initialWindows.length + 1;
+  });
+  const [dogInHouse, setDogInHouse] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.localStorage.getItem("assistant_dog_in_house") === "true";
+  });
+
   const houseRef = useRef(null);
   const dogRef = useRef(null);
+
+  // ✅ 상태 변경 시 localStorage에 저장
+  useEffect(() => {
+    localStorage.setItem("openWindows", JSON.stringify(openWindows));
+  }, [openWindows]);
+
+  useEffect(() => {
+    localStorage.setItem("zCounter", JSON.stringify(zCounter));
+  }, [zCounter]);
 
   const handleHouseClick = () => {
     if (dogInHouse && houseRef.current && dogRef.current?.comeOutAt) {
@@ -83,14 +129,18 @@ export default function Desktop() {
         // zCounter는 아래에서 증가
         return next;
       }
+      const offset = prev.length; 
       const next = [
         ...prev,
         {
           id,
           type: icon.type,
           isVisible: true,
+          isMaximized: false,
           zIndex: zCounter,
           title: icon.name,
+          x: 80 + offset * 30,   // ★ 새 창 X
+          y: 60 + offset * 30,   // ★ 새 창 Y
         },
       ];
       return next;
@@ -105,6 +155,12 @@ export default function Desktop() {
   const minimizeWindow = (id) => {
     setOpenWindows((prev) =>
       prev.map((w) => (w.id === id ? { ...w, isVisible: false } : w))
+    );
+  };
+
+  const setWindowMaximized = (id, value) => {
+    setOpenWindows((prev) =>
+      prev.map((w) => (w.id === id ? { ...w, isMaximized: value } : w))
     );
   };
 
@@ -128,6 +184,12 @@ export default function Desktop() {
       }
     });
   };
+   // 드래그 종료 시 위치 저장
+  const updateWindowPosition = (id, x, y) => {
+      setOpenWindows((prev) =>
+      prev.map((w) => (w.id === id ? { ...w, x, y } : w))
+    );
+  };
 
   return (
     <div className={styles.desktopContainer}>
@@ -148,7 +210,7 @@ export default function Desktop() {
         </div>
 
         {/* 열린 창들 */}
-        {openWindows.map(({ id, isVisible, zIndex }) => {
+        {openWindows.map(({ id, isVisible, zIndex, x, y }) => {
           const icon = iconMap.get(id);
           if (!icon?.component || !isVisible) return null;
           const Component = icon.component;
@@ -163,6 +225,8 @@ export default function Desktop() {
                 {...icon.props}
                 onClose={() => closeWindow(id)}
                 onMinimize={() => minimizeWindow(id)}
+                defaultPosition={{ x, y }}
+                onDragEnd={(pos) => updateWindowPosition(id, pos.x, pos.y)}
                 onOpen={openWindow}
               />
             </div>
