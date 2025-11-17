@@ -1,23 +1,44 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./Sticky.module.css";
 
 export default function Sticky({ title, initialText, editable, onClose }) {
   const [content, setContent] = useState(initialText);
-  const [position, setPosition] = useState({ x: 10, y: 20 });
+  const [position, setPosition] = useState(() => {
+    if (typeof window === "undefined") {
+      return { x: 10, y: 20 };
+    }
+    const saved = window.localStorage.getItem(`sticky_pos_${title}`);
+    if (!saved) return { x: 10, y: 20 };
+    try {
+      const parsed = JSON.parse(saved);
+      return typeof parsed.x === "number" && typeof parsed.y === "number"
+        ? parsed
+        : { x: 10, y: 20 };
+    } catch {
+      return { x: 10, y: 20 };
+    }
+  });
   const [dragging, setDragging] = useState(false);
   const offset = useRef({ x: 0, y: 0 });
   const stickyRef = useRef(null);
 
+  // 위치 변경될 때마다 localStorage에 저장
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(
+      `sticky_pos_${title}`,
+      JSON.stringify(position)
+    );
+  }, [position, title]);
+
   const handlePointerDown = (e) => {
     if (e.target.closest("button")) return;
-    // 제목바에서만 시작
     setDragging(true);
     offset.current = {
       x: e.clientX - position.x,
       y: e.clientY - position.y,
     };
 
-    // 포인터 캡처해서 요소 밖으로 나가도 move/up 받기
     if (stickyRef.current && e.pointerId != null) {
       try {
         stickyRef.current.setPointerCapture(e.pointerId);
