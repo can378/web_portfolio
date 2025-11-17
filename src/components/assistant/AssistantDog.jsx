@@ -30,12 +30,38 @@ const AssistantDog = forwardRef(function AssistantDog(
   const [isDragging, setIsDragging] = useState(false);
   const [showChat, setShowChat] = useState(false);
   const [currentStatus, setCurrentStatus] = useState(status);
-  const [dogPosition, setDogPosition] = useState({ x: 200, y: 200 });
+
+  const [dogPosition, setDogPosition] = useState(() => {
+    if (typeof window === "undefined") {
+      return { x: 200, y: 200 };
+    }
+
+    try {
+      const saved = window.localStorage.getItem("assistant_dog_position");
+      if (!saved) return { x: 200, y: 200 };
+
+      const parsed = JSON.parse(saved);
+      if (typeof parsed.x === "number" && typeof parsed.y === "number") {
+        // 화면 밖에 나가 있지 않도록 한 번 클램프
+        return clampPosition(parsed.x, parsed.y, size);
+      }
+
+      return { x: 200, y: 200 };
+    } catch {
+      return { x: 200, y: 200 };
+    }
+  });
+
   const [lastFacing, setLastFacing] = useState("right"); // 'left' | 'right'
 
   const flipScale = lastFacing === "left" ? 1 : -1;
 
-  const [inHouse, setInHouse] = useState(false); // ✅ 집 안 상태
+  const [inHouse, setInHouse] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const saved = window.localStorage.getItem("assistant_dog_in_house");
+    // 저장된 값이 "true"면 집 안, 그 외엔 집 밖
+    return saved === "true";
+  });
 
   const mouseDownPos = useRef({ x: 0, y: 0 });
   const pointerPos = useRef({ x: 0, y: 0 });
@@ -63,6 +89,25 @@ const AssistantDog = forwardRef(function AssistantDog(
       setShowChat((prev) => !prev);
     }
   };
+
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(
+      "assistant_dog_position",
+      JSON.stringify(dogPosition)
+    );
+  }, [dogPosition]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(
+      "assistant_dog_in_house",
+      inHouse ? "true" : "false"
+    );
+  }, [inHouse]);
+
+
 
   // 👉 포인터(마우스/터치/펜) 위치 추적
   useEffect(() => {
