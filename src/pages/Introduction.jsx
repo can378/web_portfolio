@@ -4,7 +4,7 @@ import styles from "./Introduction.module.css";
 import chatData from "../data/chatData";
 import ReactMarkdown from "react-markdown";
 
-export default function Introduction({ title, onClose, onMinimize }) {
+export default function Introduction({ title, onClose, defaultPosition,onMinimize,onDragEnd }) {
   const [visibleChats, setVisibleChats] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [typingChat, setTypingChat] = useState(null);
@@ -65,8 +65,9 @@ export default function Introduction({ title, onClose, onMinimize }) {
       title="Messenger"
       onClose={onClose}
       onMinimize={onMinimize}
-      defaultPosition={{ x: 50, y: 80 }}
+      defaultPosition={defaultPosition || { x: 50, y: 80 }}
       defaultSize={{ width: 700, height: 600 }}
+      onDragEnd={onDragEnd}
     >
       <div className={styles.container}>
         {/*

@@ -5,7 +5,7 @@ import projects from "../data/projects";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 
-export default function Project({ title, onClose, onMinimize }) {
+export default function Project({ title, onClose, defaultPosition,onMinimize,onDragEnd }) {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
 
@@ -98,9 +98,10 @@ useEffect(() => {
     <ModalWindow
       title={title}
       onClose={onClose}
-      defaultPosition={{ x: 150, y: 600 }}
+      defaultPosition={defaultPosition || {  x: 150, y: 600 }}
       defaultSize={{ width: 800, height: 530 }}
       onMinimize={onMinimize}
+      onDragEnd={onDragEnd}
     >
         <div className={styles.container}>
              

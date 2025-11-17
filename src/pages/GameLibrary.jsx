@@ -6,7 +6,7 @@ import gameConfig from "../data/gameLibrary";
 const LIB = gameConfig.gameLibraryData; // { favorite: [...], yet: [...], default: [...] }
 const DIRS = Object.keys(LIB); // ["favorite","yet","default"]
 
-export default function GameLibrary({ title, onClose, onMinimize }) {
+export default function GameLibrary({ title, onClose, defaultPosition,onMinimize,onDragEnd }) {
   const [path, setPath] = useState([]);
   const [lines, setLines] = useState([
     "Welcome to my real Steam Game Library\n(type 'help' for commands)\n...",
@@ -122,8 +122,14 @@ export default function GameLibrary({ title, onClose, onMinimize }) {
   };
 
   return (
-    <ModalWindow title={title} onClose={onClose} onMinimize={onMinimize}
-      defaultSize={{ width: 820, height: 520 }}>
+    <ModalWindow 
+      title={title} 
+      onClose={onClose} 
+      onMinimize={onMinimize}
+      defaultPosition={defaultPosition || { x: 30, y: 30 }}
+      defaultSize={{ width: 820, height: 520 }}
+      onDragEnd={onDragEnd}
+    >
       <div className={styles.container}>
         <div className={styles.terminal} onClick={() => inputRef.current?.focus()}>
           <div className={styles.output} ref={scrollRef}>

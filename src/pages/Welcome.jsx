@@ -6,7 +6,7 @@ const OPEN = {
   projects: 1001,
   contact: 1005,
 };
-export default function Welcome({ title, onClose, onMinimize, onOpen }) {
+export default function Welcome({ title, onClose, onMinimize, onOpen,onDragEnd,defaultPosition }) {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
@@ -23,9 +23,10 @@ export default function Welcome({ title, onClose, onMinimize, onOpen }) {
     <ModalWindow
       title="Welcome"
       onClose={onClose}
-      defaultPosition={{ x: 30, y: 30 }}
+      defaultPosition={defaultPosition || { x: 30, y: 30 }}
       defaultSize={{ width: 600, height: 300 }}
       onMinimize={onMinimize}
+      onDragEnd={onDragEnd}
     >
       <div className={`${styles.container} ${showContent ? styles.fadeIn : ""}`}>
         {/* Retro Header */}

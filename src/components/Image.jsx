@@ -2,7 +2,7 @@ import { useState, useRef, useMemo, useEffect } from "react";
 import ModalWindow from "./ModalWindow";
 import styles from "./Image.module.css";
 
-export default function ImageViewer({ title, imageUrl, onClose, onMinimize }) {
+export default function ImageViewer({ title, imageUrl, onClose, defaultPosition,onMinimize,onDragEnd }) {
   const [zoom, setZoom] = useState(1);          // 1 = 100%
   const [rotate, setRotate] = useState(0);      // deg
   const [flip, setFlip] = useState(false);      // horizontal flip
@@ -55,8 +55,9 @@ const [displayScale, setDisplayScale] = useState(1);
       title={title}
       onClose={onClose}
       onMinimize={onMinimize}
-      defaultPosition={{ x: 120, y: 160 }}
+      defaultPosition={defaultPosition ||  {x: 120, y: 160 }}
       defaultSize={{ width: 680, height: 520 }}
+      onDragEnd={onDragEnd} 
     >
       <div className={styles.container}>
         {/* 헤더 툴바 */}

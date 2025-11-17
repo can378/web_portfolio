@@ -10,6 +10,7 @@ export default function ModalWindow({
   defaultPosition,
   defaultSize,
   isVisible = true,
+  onDragEnd,
 }) {
   const modalRef = useRef(null);
 
@@ -77,6 +78,10 @@ export default function ModalWindow({
     try {
       if (modalRef.current && e.pointerId != null) modalRef.current.releasePointerCapture(e.pointerId);
     } catch {}
+
+    if (onDragEnd) {
+      onDragEnd({ ...position.current }); // { x, y }
+    }
   };
   const handleMouseUp = () => { dragging.current = false; };
 
