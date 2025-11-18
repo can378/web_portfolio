@@ -210,7 +210,7 @@ export default function Desktop() {
         </div>
 
         {/* 열린 창들 */}
-        {openWindows.map(({ id, isVisible, zIndex, x, y }) => {
+        {openWindows.map(({ id, isVisible, zIndex, x, y, isMaximized }) => {
           const icon = iconMap.get(id);
           if (!icon?.component || !isVisible) return null;
           const Component = icon.component;
@@ -228,6 +228,8 @@ export default function Desktop() {
                 defaultPosition={{ x, y }}
                 onDragEnd={(pos) => updateWindowPosition(id, pos.x, pos.y)}
                 onOpen={openWindow}
+                isMaximized={isMaximized}
+                onMaximizeChange={(val) => setWindowMaximized(id, val)}
               />
             </div>
           );
