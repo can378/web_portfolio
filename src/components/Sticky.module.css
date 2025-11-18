@@ -3,8 +3,8 @@
     top: 20px;
     right: 20px;
     width: 350px;
-    background-color: #fff388;
-    border-radius: 2px;
+    background-color: #fdf39a;
+    border-radius: 4px;
     border:2px solid var(--main-border-color);
     padding: 10px;
     font-family: inherit;
@@ -29,15 +29,17 @@
 
 .closeButton {
     background: none;
-    border: 2px solid #333;
     font-size: 16px;
     border-radius:2px;
     padding:2px 5px;
     cursor: pointer;
     font-weight: bold;
+    border:none;
 }
-.closeButton :hover{
-    border: 2px solid #5e3232;
+.closeButton:hover {
+    background: #fff8b9;
+    border-radius: 4px;
+    border:none;
 }
 
 .textarea {
