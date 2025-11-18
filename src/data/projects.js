@@ -3,75 +3,88 @@ const projects = [
   //웹개발============================================================================
   {
     title: "Pluto - MCP Hub",
-    short_description: "MCP Server, agent를 등록하는 사이트입니다.",
-    technologies: ["React", "fastApi", "MCP", "AI agent"],
+    short_description: "MCP Server와 AI Agent를 한 곳에서 등록·검색·공유하는 허브 서비스입니다.",
+    technologies: ["vue3", "Go"],
     icon:"/web_portfolio/assets/image/icons/pluto_icon.svg",
     image: "/web_portfolio/assets/image/icons/pluto_icon.svg",
     type:"web",
     description: `
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
-  "MCP Server & AI Agent 공유 웹사이트"
+  "MCP Server & AI Agent 공유 허브 플랫폼"
 </div> 
 
 ---
 
 **진행 일정**: 2025.06.18 ~ 2025.07.22  
-**참여 인원**: 개인
+**참여 인원**: 개인  
+**역할**: 기획 · 설계 · 프론트엔드 · 백엔드 · 배포 전 과정 단독 수행
 
+---
 
-개발된 MCP Server와 AI Agent를 등록하고 공유할 수 있는 플랫폼 구현. 
+### ■ 프로젝트 개요
 
-사용자가 직접 제작한 MCP를 손쉽게 등록할 수 있도록 설계하였으며 
+팀/개인이 각각 개발한 MCP Server와 AI Agent가 흩어져 있어  
+어떤 도구가 있는지 찾기 어렵다는 문제를 해결하고자 시작한 프로젝트입니다.
 
-검색 및 관리 기능을 통해 쉽게 원하는 리소스를 검색할 수 있게 하였습니다.
+Pluto는 MCP Server와 AI Agent를 한 곳에 모아  
+**등록 → 검색 → 상세 정보 확인 → 관리**까지 할 수 있는 허브 역할을 합니다.  
+새 프로젝트를 시작할 때 기존 MCP를 재활용하기 쉽게 만들어  
+중복 개발을 줄이고 도구 활용도를 높이는 데에 목표를 두었습니다.
 
 ---
 
 ### ■ 기술 스택
 
-- 백엔드 : Go
-- 프론트엔드 : vue3
-- 배포 환경 : 완성된 프로젝트를 컴퓨터 서버에 업로드하고 Tar 파일로 패키징하여 관리 및 배포.
+- 백엔드: Go  
+- 프론트엔드: Vue3  
+- 배포: 빌드 결과를 Tar 파일로 패키징하여 서버에 업로드해 배포
 
 ---
 
 ### ■ 주요 기능
 
-- 등록 및 검색 기능
+- **MCP Server / AI Agent 등록 및 관리**  
+  - 사용자가 직접 MCP Server와 AI Agent 정보를 등록  
+  - 등록한 리소스를 목록/상세 화면에서 확인 및 수정·삭제 가능  
 
-MCP Server와 AI Agent를 카테고리 및 태그 등을 통해 원하는 리소스를 빠르게 찾을 수 있도록 구현.
+- **검색 및 필터링 기능**  
+  - 키워드, 카테고리, 태그 기반 검색으로 원하는 MCP를 빠르게 찾을 수 있도록 구현  
+  - 상세 설명, 태그를 통해 각 서버·에이전트의 특성을 한눈에 파악 가능  
 
-상세 설명 업로드 기능을 지원하여 각 서버·에이전트의 특성을 명확히 전달 가능.
-
-
-- 회원가입 및 로그인
-
-사용자 계정을 생성하고 로그인할 수 있도록 회원 인증 시스템 구현.
-
-
-
+- **회원가입 및 로그인**  
+  - 계정 기반으로 MCP 리소스를 관리할 수 있도록 회원 인증 시스템 구현  
+  - 향후 조직/권한별 접근 제어 확장을 고려한 구조로 설계  
 `
   },
+
   {
     title: "Web Portfolio",
-    short_description: "윈도우 XP 스타일의 레트로 UI 웹 포트폴리오입니다.",
+    short_description: "윈도우 XP 스타일의 레트로 UI + AI 에이전트를 결합한 인터랙티브 웹 포트폴리오",
     technologies: ["React", "fastApi", "MCP", "AI agent"],
     icon:"/web_portfolio/assets/image/icons/star_icon.svg",
     image: "/web_portfolio/assets/image/icons/star_icon.svg",
     type:"web",
     description: `
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
-  "윈도우 XP 스타일의 레트로 UI 웹 포트폴리오."
+  "윈도우 XP 스타일의 레트로 UI에 AI 에이전트를 결합한 인터랙티브 웹 포트폴리오"
 </div> 
 
 ---
 
 **진행 일정**: 2025.07.09 ~ 2025.08.31  
 **참여 인원**: 개인
+**역할**: 전체 기획, UI 디자인, 프론트엔드, 백엔드, AI 에이전트 설계 및 CI/CD배포
 
-실제 Windows 환경처럼 아이콘을 클릭하고 창을 관리할 수 있는 인터페이스와 함께 
+---
 
-AI 기술을 활용하여 사용자가 자연어로 포트폴리오 정보를 탐색할 수 있도록 설계하였습니다.
+### ■ 프로젝트 개요
+
+정적인 포트폴리오의 한계를 넘어
+사용자가 대화로 정보를 탐색할 수 있는 AI 기반 인터랙티브 포트폴리오입니다.
+“프로젝트 설명해줘”, “자격증 보여줘” 같은 자연어로 포트폴리오 탐색이 가능합니다.
+
+아이콘을 클릭하면 창이 열리고 드래그로 이동도 가능하는 등
+Windows XP UI에 영감을 받아 조금 더 재미있고 색다른 방식으로 제 포트폴리오를 경험할 수 있도록 설계했습니다.
 
 ---
 
@@ -86,17 +99,29 @@ AI 기술을 활용하여 사용자가 자연어로 포트폴리오 정보를 �
 
 #### 프론트엔드
 - React 19.1.0 + Vite  
-- react-draggable  
+- react-draggable — 창 이동 시스템  
 - CSS Modules  
 - GitHub Pages — 프론트 배포  
 
 ---
 
 ### ■ 주요 기능
-- AI 에이전트 서비스: 자연어 질의로 포트폴리오 정보 탐색  
-- 이메일 서비스: Gmail API 연동으로 메시지 전송  
-- MCP 도구 시스템: 포트폴리오 데이터 조회/관리  
-- 보안/운영: Rate Limiting, CORS 설정, 로깅  
+
+- **AI 에이전트 서비스**  
+  - 자연어 질의로 프로젝트/경력/스킬 등의 정보를 자동 탐색  
+  - MCP 도구 호출로 실제 데이터 조회 후 응답 생성  
+
+- **창 기반 인터페이스 (Window Manager)**  
+  - Windows XP UI 스타일  
+  - 창 이동, 최소화/최대화, Z-index 관리, 아이콘 클릭으로 실행  
+
+- **이메일 서비스**  
+  - Gmail API로 실제 이메일 전송 가능  
+
+- **운영/보안 기능**  
+  - Rate Limiting 적용으로 비정상적인 다량 요청이나 봇 공격으로부터 API를 보호하고 서버 안정성을 향상
+  - 상세 로깅 시스템 구축  
+  - CORS 설정
 
 ---
 
@@ -123,13 +148,23 @@ AI 기술을 활용하여 사용자가 자연어로 포트폴리오 정보를 �
 
 **참여 인원:** 개인
 
-학습을 위해 분석/설계/기획 부터 개발을 진행했으며
+**역할:** 분석, 설계, 데이터베이스 재설계, 백엔드/프론트 개발, 리팩토링, 배포
 
-기존 코드를 MVC 패턴으로 구조화하고, 하드코딩 된 부분들을 데이터베이스 기반으로 변경했습니다.
+---
 
-고립성과 확장성을 고려하여 데이터베이스 테이블을 재설계 했습니다. 
+### ■ 프로젝트 개요
 
-Redis 캐싱 사용 등으로 성능 또한 개선하였습니다.
+기존 시연용 웹사이트는 하드코딩된 데이터, 비효율적인 구조, 중복된 로직 등으로  
+기능 확장과 유지보수가 어려운 상태였습니다.
+
+이를 해결하기 위해  
+전체 구조 분석, MVC 기반 리팩토링, DB 재설계, 기능 확장, 성능 개선까지  
+전 과정을 수행했습니다.
+
+특히 공장/창고의 구조를 DB로 유연하게 표현하고 
+자주 변경되지 않는 데이터는 Redis 캐싱으로 성능을 높였으며,  
+유저별 즐겨찾기, 스케줄 관리, 공지, 레이아웃 업데이트 등
+사용자의 편의성과 경험을 실질적으로 향상시키는 기능들을 실제 서비스 수준으로 구현했습니다.
 
 ---
 
@@ -164,18 +199,81 @@ Backend
 
 ### ■ CI/CD
 
-github actions이 특정 코드 변경을 감지하여
-
-Docker iamge를 build하고 ECR에 push.
-
-이후 EC2 인스턴스에 새 container를 띄웁니다.
+GitHub Actions로 코드 변경 시  
+- Docker Image 자동 Build  
+- Amazon ECR Push  
+- EC2에 새로운 Container 자동 Deploy  
 
 ---
 
 ### ■ 프로젝트 분석/설계
 
 **🔷 As-Is/To-Be**
-<img src="/web_portfolio/assets/image/projects/metafactory/asistobe.png" width="300" />
+
+<table style="width:100%; border-collapse:collapse; margin-top:10px;">
+  <thead>
+    <tr style="background:#f7f7f7;">
+      <th style="border:1px solid #ccc; padding:8px; text-align:center;">항목</th>
+      <th style="border:1px solid #ccc; padding:8px; text-align:center;">As-Is (기존)</th>
+      <th style="border:1px solid #ccc; padding:8px; text-align:center;">To-Be (개선/구현)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style="border:1px solid #ccc; padding:8px;">공지사항 표시</td>
+      <td style="border:1px solid #ccc; padding:8px;">전체 공지 노출</td>
+      <td style="border:1px solid #ccc; padding:8px;">사용자 권한, 기한 기반 공지 필터링</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc; padding:8px;">공지사항 수정</td>
+      <td style="border:1px solid #ccc; padding:8px;">공지사항 조회만 가능</td>
+      <td style="border:1px solid #ccc; padding:8px;">공지사항 수정/삭제 추가, 첨부 파일 업로드, 고정 핀</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc; padding:8px;">지도</td>
+      <td style="border:1px solid #ccc; padding:8px;">위치만 표기</td>
+      <td style="border:1px solid #ccc; padding:8px;">레이아웃 변경 시 업데이트 뱃지 표기, 기간 설정, 지역 확대</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc; padding:8px;">생산 스케줄</td>
+      <td style="border:1px solid #ccc; padding:8px;">미지원</td>
+      <td style="border:1px solid #ccc; padding:8px;">조회/등록/수정/삭제, 엑셀 업로드/다운로드, 공장 시간대 및 휴일 반영</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc; padding:8px;">UI 즐겨찾기</td>
+      <td style="border:1px solid #ccc; padding:8px;">미지원</td>
+      <td style="border:1px solid #ccc; padding:8px;">사용자별 메뉴 즐겨찾기, 순서 변경, 검색</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc; padding:8px;">공장 즐겨찾기</td>
+      <td style="border:1px solid #ccc; padding:8px;">미지원</td>
+      <td style="border:1px solid #ccc; padding:8px;">공장별 즐겨찾기 추가/삭제, 마커로 지도에 표시, 리스트 제공</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc; padding:8px;">언어 지원</td>
+      <td style="border:1px solid #ccc; padding:8px;">한국어만 지원</td>
+      <td style="border:1px solid #ccc; padding:8px;">영어/한국어 국제화(i18n) 적용</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc; padding:8px;">파일 저장</td>
+      <td style="border:1px solid #ccc; padding:8px;">미지원</td>
+      <td style="border:1px solid #ccc; padding:8px;">AWS S3 + 서명 URL로 보안 강화</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc; padding:8px;">마이페이지</td>
+      <td style="border:1px solid #ccc; padding:8px;">미지원</td>
+      <td style="border:1px solid #ccc; padding:8px;">유저 본인의 정보 확인</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc; padding:8px;">뉴스</td>
+      <td style="border:1px solid #ccc; padding:8px;">미지원</td>
+      <td style="border:1px solid #ccc; padding:8px;">스마트 팩토리 관련 뉴스 항목 조회</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 **🔷 ERD 설계**
 
@@ -308,9 +406,13 @@ Lighthouse통해 성능 개선 확인
 **벤치마킹**: 교보문고
 
 
-도서 검색 및 추천, 대여 및 예약, 구매 기능을 제공하며
+도서 검색 및 추천, 대여 및 예약, 구매 기능을 갖춘 온라인 도서관 웹서비스로
 
-관리자 기능을 통해 원활한 운영 및 관리가 가능하게 한 웹사이트입니다.
+유저 기능과 관리자 기능을 모두 포함하며. 실제 운영 형태에 가깝게 개발했습니다.
+
+저는 **백엔드 핵심 API, 외부 연동 기능, 관리자 기능 UI**,  
+
+그리고 **다양한 부가 기능(문자 전송·QR·S3·결제)**을 중심으로 담당했습니다.
 
 ---
 
@@ -322,56 +424,115 @@ https://github.com/hyeran0920/Bible.git
 ---
 
 ### ■ 기술 스택
-Vue, Spring Boot, Docker, Azure
+- **Frontend**: Vue2  
+- **Backend**: Spring Boot  
+- **Infra**: Docker, Azure  
+- **Storage**: AWS S3, Redis  
 
 ---
 
 ### ■ 형상 관리 및 협업 툴
-Notion, Googl Drive, drow.io, git+github, Figma, erd cloud
+Notion, Google Drive, draw.io, Git + GitHub, Figma, ERD Cloud
 
 ---
 
 ### ■ 담당 기능
-- Rest API 설계
-- 도서 목록 관리, 조회, 추가, 삭제
-- 도서, 유저 관리를 위한 QR 생성, 인식, 암호화
-- 이미지나 파일을 aws S3를 통해 관리
-- 웹 소켓 알람
-- coolsms를 사용한 문자 전송
-- 스케줄러 활용
-- Apache POI Excel파일 업로드 다운로드
-- 장바구니 기능
-- toss 결제 api 적용
-- 구매 내역 조회, 관리 기능
-- 마이 페이지 디자인
-- 관리자 페이지 디자인
-- Redis 적용
-- 국제화 적용
+
+- **REST API 설계 및 백엔드 구현**
+  - 도서, 유저, 대여/예약 관련 CRUD API 설계 및 개발
+
+- **QR 기능**
+  - 도서/유저 정보를 QR로 생성 및 인식
+  - 데이터 변조 방지를 위한 암호화 적용
+
+- **파일 관리 기능**
+  - 이미지/문서 파일을 AWS S3에 업로드/조회
+  - 서명 URL을 적용해 안전한 접근 방식 구현
+
+- **웹소켓 알림**
+  - 예약 만료, 도서 상태 변경 등 실시간 알림 처리
+
+- **문자 발송(coolsms)**  
+  - 인증번호, 예약 안내 등 SMS 발송 기능 구현
+
+- **스케줄러**
+  - 예약 만료·대여 기간 자동 처리 등 배치 작업 구현
+
+- **Excel 업로드·다운로드**
+  - Apache POI 기반 도서 데이터 일괄 등록 및 관리
+
+- **장바구니 + 결제(toss API)**
+  - 주문 생성, 결제 승인/실패 처리 로직 구현
+
+- **마이페이지·관리자 페이지 디자인 및 일부 기능 구현**
+
+- **Redis 도입**
+  - 자주 조회되는 데이터 캐싱하여 응답 성능 개선
+
+- **국제화(i18n)**
+  - 다국어(한국어/영어) 지원
 
 ---
 
 ### ■ 개발 환경
 
-![dev-env](/web_portfolio/assets/image/projects/bible/개발환경.png)
+
+<div style="width:100%; display:flex; justify-content:left;">
+  <div style="width:100%; max-width:900px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/bible/개발환경.png" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px;" 
+    />
+  </div>
+</div>
 
 ---
 
 ### ■ 시스템 구성도
 
-![screen2](/web_portfolio/assets/image/projects/bible/시스템구성도.png)
+<div style="width:100%; display:flex; justify-content:left;">
+  <div style="width:100%; max-width:900px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/bible/시스템구성도.png" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px;"
+    />
+  </div>
+</div>
 
 ---
 
 ### ■ ERD
 
-![ERD](/web_portfolio/assets/image/projects/bible/erd.png)
+<div style="width:100%; display:flex; justify-content:left;">
+  <div style="width:100%; max-width:900px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/bible/erd.png" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px;"
+    />
+  </div>
+</div>
 
 ---
 
 ### ■ 화면 설계
 
-![screen1](/web_portfolio/assets/image/projects/bible/화면설계1.png)
-![screen2](/web_portfolio/assets/image/projects/bible/화면설계2.png)
+<div style="width:100%; display:flex; justify-content:left; margin-bottom:10px;">
+  <div style="width:100%; max-width:900px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/bible/화면설계1.png" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px; margin-bottom:10px;"
+    />
+  </div>
+</div>
+
+<div style="width:100%; display:flex; justify-content:left;">
+  <div style="width:100%; max-width:900px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/bible/화면설계2.png" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px;"
+    />
+  </div>
+</div>
 
 
 `
@@ -394,14 +555,23 @@ Notion, Googl Drive, drow.io, git+github, Figma, erd cloud
 
 **참여 인원:** 3인
 
+**장르:** 2D 조선풍 로그라이크 / 스테이지 기반 진행
+
 **챕터:** 저퀴-그슨대-장산범-지하국대적
 
+---
 
-여동생이 지하국대적에게 납치되었다
+### ■ 프로젝트 개요
 
-언니는 다양한 무기를 사용해 방마다 무작위로 등장하는 한국 요괴들을 물리치며 여동생을 구하기 위한 모험을 떠난다.
+로그라이크 PC 게임으로 한국 요괴와 조선풍 분위기를 활용해 
 
-유용한 스킬과 방어구를 선택해 강력한 최종 보스에 도전하자
+스테이지마다 무작위 배치된 방, 다채로운 적을 구현한 프로젝트입니다.
+
+플레이어는 다양한 무기와 스킬을 조합하며 방을 돌파하고  
+
+최종 보스인 지하국대적에게 납치된 여동생을 구하는 스토리입니다.
+
+전체 시스템 개발, Enemy, 미로 생성, UI·플레이어 로직, 기획 및 아트를 담당했습니다.
 
 ---
 
@@ -420,30 +590,38 @@ https://github.com/can378/SpiritGameProject.git
 ---
 
 ### ■ 기술 스택
-- Unity 2D, C#
+- Unity 2D
+- C#
 
 ---
 
 ### ■ 담당 분야
 
-- Animation적용 구현
+- **플레이어 시스템**
+  - 이동, 점프, 피격, 무기 사용 등 기본 동작 구현
+  - 스킬 시스템 설계 및 UI 반영
 
-- Player 기본 동작, UI 구현
+- **Enemy / Boss 시스템**
+  - 일반 몬스터 및 보스 패턴 개발
+  - Enemy AI 이동/추격 로직, 공격 패턴 구현
+  - 챕터별 Enemy 세팅 및 데이터 로드 구조 개발
 
-- Enemy, Boss 구현
+- **게임 진행 구조**
+  - 스테이지 전환 구조
+  - 리스폰/게임 클리어 조건 처리
 
-- 챕터 - 챕터별 데이터 load, enemy setting 등..
+- **UI/UX**
+  - 인벤토리 및 상태 UI
+  - 게임 설정 메뉴 및 오디오 시스템 구현
 
-- 데이터 local 저장, 조회 구현
+- **데이터 관리**
+  - JSON 기반 로컬 데이터 저장/로드 시스템 자체 구현
 
-- 오디오, setting 구현
+- **기획 및 아트 참여**
+  - 스토리 구조, 챕터 구분 및 난이도 설계
+  - 일부 배경 / 오브젝트 컨셉 아트 제작
 
-- 미로 생성 + A* algorithm으로 길을 찾는 enemy 개발
-
-- 기획 및 아트
-
-
-    `
+`
   },
 
   //게임개발============================================================================
@@ -488,22 +666,57 @@ Android
 
 연구, 아르바이트, 도전 과제 시스템, 미니 게임, 오디오 등..개발
 
-![berry1](/web_portfolio/assets/image/projects/berry/berry1.png)
+<div style="width:100%; display:flex; justify-content:left; margin-bottom:10px;">
+  <div style="width:100%; max-width:700px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/berry/berry1.png" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px;"
+    />
+  </div>
+</div>
 
-![berry2](/web_portfolio/assets/image/projects/berry/berry2.png)
+<div style="width:100%; display:flex; justify-content:left; margin-bottom:10px;">
+  <div style="width:100%; max-width:700px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/berry/berry2.png" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px;"
+    />
+  </div>
+</div>
 
-![berry3](/web_portfolio/assets/image/projects/berry/berry3.png)
+<div style="width:100%; display:flex; justify-content:left; margin-bottom:10px;">
+  <div style="width:100%; max-width:700px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/berry/berry3.png" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px;"
+    />
+  </div>
+</div>
 
-![berry4](/web_portfolio/assets/image/projects/berry/berry4.png)
+<div style="width:100%; display:flex; justify-content:left; margin-bottom:10px;">
+  <div style="width:100%; max-width:700px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/berry/berry4.png" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px;"
+    />
+  </div>
+</div>
 
-![berry5](/web_portfolio/assets/image/projects/berry/berry5.png)
+<div style="width:100%; display:flex; justify-content:left;">
+  <div style="width:100%; max-width:700px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/berry/berry5.png" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px;"
+    />
+  </div>
+</div>
 
     `
   },
   {
     title: "멍냥멍냥",
-    short_description: "Classifies walking, running, and standing from webcam data.",
-    technologies:  ["C++", "SDL2", "OpenGL", "Team Management"],
+    short_description: "OpenGL · SDL2 기반 2인 협동 퍼즐 게임 (팀장/기획·개발 담당)",
+    technologies: ["C++", "SDL2", "OpenGL", "Team Management"],
     icon:"/web_portfolio/assets/image/icons/dog_cat_icon.svg",
     image: "/web_portfolio/assets/image/icons/dog_cat_icon.svg",
     type:"game",
@@ -522,19 +735,32 @@ Android
 
 **참여 인원**: 4명
 
-![berry5](/web_portfolio/assets/image/projects/dogCat/dogcat.png)
+**역할**: 팀장, 기획, 주요 시스템 개발
 
-OpenGL, SDL2로 개발한 2D 2인 협동 퍼즐 게임
+<div style="width:100%; display:flex; justify-content:left; margin:10px 0 20px;">
+  <div style="width:100%; max-width:700px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/dogCat/dogcat.png" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px;"
+    />
+  </div>
+</div>
 
-기획/개발을 맡으며 팀장으로써 팀을 이끌었습니다.
+### ■ 프로젝트 개요
 
-두 명의 플레이어가 한 대의 PC로 플레이하는 2인 협동 게임입니다.
+OpenGL, SDL2로 개발한 로컬 2인 협동 퍼즐 게임입니다.  
 
-오지 않는 주인을 마중 나가기 위해 집안 곳곳을 헤쳐나간다는 스토리를 기반으로
-각 플레이어는 강아지와 고양이 중 하나를 맡아
-맵들을 하나씩 클리어 해냅니다.
+한 대의 PC에서 강아지와 고양이 캐릭터를 각각 조작하여  
 
-고양이와 강아지는 각자 가지고 있는 패널티와 한계, 능력이 다르기 때문에 서로가 서로를 꼭 필요로 합니다
+오지 않는 주인을 마중 나가기 위해 집 안의 다양한 방을 함께 클리어하는 구조입니다.
+
+
+
+각 캐릭터는 서로 다른 제약과 능력(액체화, 냄새 맡기 등)을 가지고 있어  
+
+혼자서는 클리어할 수 없고 협동을 해야지만 클리어할 수 있도록 레벨을 디자인 했습니다.
+
+저는 팀장으로서 전체 기획, 게임 구조 설계, 주요 시스템 개발을 담당했습니다.
 
 
 ---
@@ -557,19 +783,6 @@ OpenGL, SDL2로 개발한 2D 2인 협동 퍼즐 게임
 <a href="https://youtu.be/SdC8TNcZ2sU?si=pcIDDEzaBsRHx351" target="_blank" rel="noopener noreferrer">
   유튜브 플레이 영상 보러가기
 </a>
-
-
----
-
-### ■ 제작 동기
-
-컴퓨터로 할 수 있는 놀이가 바로 게임이라고 생각합니다.
-예로부터 놀이는 혼자서 하는 것이 아닌 여러명이서 즐기는 문화였습니다.
-하지만 현대의 게임은 과거의 놀이와는 다른 모습을 보입니다.
-
-기술의 덕택으로 혼자서 게임을 즐길 수도 있고, 혹은 익명의 누군가와 별다른 인사 없이 게임을 시작할 수도 있죠. 과거와는 달라진 놀이의 양상 속에서 플레이어들은 혼자 게임을 즐기며 타인과의 연결을 차단하기도 하고 익명성 뒤에서 타인에게 상처가 되는 말을 내뱉기도 합니다.
-
-저희 팀은 이러한 문제 상황을 해결하고 놀이의 또 다른 본질인 ‘유대’의 가치를 회복하고자 멍냥 멍냥을 만들었습니다. 사랑스러운 강아지, 고양이 캐릭터와 함께, 사람과 직접 마주하여 게임을 플레이하는 과정에서, 함께 해냈다는 따뜻하고 뭉클한 성취감이 플레이어 분들께 전달될 수 있길 진심으로 바랍니다
 
 ---
 
@@ -597,83 +810,25 @@ OpenGL, SDL2로 개발한 2D 2인 협동 퍼즐 게임
 
 ### ■ 업데이트
 
-맵 2개 추가
-
-새로운 오브젝트 5개 추가 
-
-(램프, 흔들 발판, 텔레포트, 로봇청소기)
+- 신규 맵 2개 추가  
+- 신규 오브젝트 5개 추가  
+  (램프, 흔들 발판, 텔레포트, 로봇청소기 등)
 
 ---
 
 ### ■ 게임 설명서
 <a href="/web_portfolio/assets/pdf/dogCat.pdf" download>명냥 게임 설명서 다운로드</a>
 
-![berry5](/web_portfolio/assets/image/projects/dogCat/dogcat2.jpg)
+<div style="width:100%; display:flex; justify-content:left; margin:10px 0 0;">
+  <div style="width:100%; max-width:700px;">
+    <img 
+      src="/web_portfolio/assets/image/projects/dogCat/dogcat2.jpg" 
+      style="width:100%; height:auto; border:1px solid #ddd; border-radius:6px;"
+    />
+  </div>
+</div>
     `
   },
-  {
-    title: "ERROR",
-    short_description: "Unreal short film",
-    technologies: ["Urnreal Engine", "C++"],
-    icon:"/web_portfolio/assets/image/icons/error_icon.svg",
-    image: "/web_portfolio/assets/image/icons/error_icon.svg",
-    type:"media",
-    description:`
-<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
-  "Unreal short film"
-</div>
-
----
-
-**진행 일정**: 2024.04 one week  
-
-**참여 인원**: 개인
-
-![berry5](/web_portfolio/assets/image/projects/error/image.png)
-
----
-
-### ■ Description
-
-This is a one-person production video.
-
-Except for the initial subway scene, all backgrounds were created by me.
-
-In the scene with the white monitors, I had intended to include videos on each monitor, but due to insufficient computer specifications, they were ultimately removed from the final version.
-
----
-
-### ■ Final Video
-
-+) I recommend watching it at 2x speed.
-
-<a href="https://youtu.be/HBr-nuXH8xA?si=cn3ZKZRcgBWvvWza" target="_blank" rel="noopener noreferrer">
-  ERROR 최종 완성본 확인
-</a>
-
-
----
-
-### ■ Plot Summary
-
-While taking the subway, Megan suddenly finds herself transported to an unknown place. In this new space, she encounters a monster and begins to run in fear, not understanding what's happening.
-
-At one point, the monster disappears, but strange phenomena continue to occur(The sky turns dark) and she sees someone who looks just like her standing in front of her.
-
-As she realizes this, the errors escalate, ultimately leading to an unmanageable situation where Megan's data is deleted.
-
-The story reveals that Megan was in a virtual space within a computer, and it ends by showing that there are numerous similar virtual spaces.
-
-At the end, the word "error" appears reversed on the screen, signifying that our world is also a virtual one. It represents the idea that we have uncovered this secret through the video, resulting in the display of the "error" message.
-
-    `,
-    summary:`4인 팀 프로젝트로 기획 및 개발을 맡아 팀을 이끌며 PC 기반 2인 협동 퍼즐 게임을 제작. 
-강아지·고양이 캐릭터의 상호 보완적 능력을 활용해 스테이지를 클리어하는 구조로 설계. 
-게임 인트로·매뉴얼·스테이지 인터페이스, 캐릭터 이동/점프/스킬, 충돌 감지, 발판·열쇠·자물쇠 등 다양한 오브젝트 동작을 구현. 
-업데이트로 신규 맵과 오브젝트(램프·발판·텔레포트 등) 추가. 
-직접 마주 보며 협력하는 놀이의 유대 가치 회복을 목표로 개발.`
-  },
-
   //기타============================================================================
   {
     title: "Warehouse Digital Twin",
@@ -691,25 +846,34 @@ At the end, the word "error" appears reversed on the screen, signifying that our
 
 **진행 일정**: 2025.07.02 - 2025.09.04  
 **참여 인원**: Unity 개발 2명, 디자인 2명, WPF 2명
+**역할:** 백엔드 단독 개발 + Unity 기능 다수 구현
 
+---
 
-본래는 실제 공장이나 창고의 데이터를 받아 Unity3D 상에 나타내는 digital twin을 구현하지만 
+### ■ 프로젝트 개요
 
-사이드 프로젝트로 진행했기 때문에 가상의 창고를 unity 3d 디지털 트윈 형태로 구현 하였습니다. 
+본래는 실제 창고 데이터를 연결해 운영 상태를 시각화하는 디지털 트윈 프로젝트를 수행하지만  
 
-데이터는 백엔드를 통해 데이터베이스에서 불러왔습니다.
+이 프로젝트는 사이드 프로젝트로 진행했기 때문에 가상의 3D 창고를 Unity에서 구현하고  
+
+Python FastAPI + MariaDB 기반으로 데이터를 관리 하도록 개발했습니다.
+
+Unity에서는 AGV 이동, 배치 저장 시각화, 녹화, AI Detection, 카메라 포커싱, 날씨 효과 등 실제 서비스 수준의 기능을 구현했습니다.
 
 ---
 
 ### ■ 개발 환경
 
-- Unity 3D
-- python fastapi
-- WPF
+- Unity 3D  
+- Python FastAPI  
+- WPF (협업팀)  
+- MariaDB  
+- AWS (EC2, ECR, GitHub Actions CI/CD)
 
 ---
 
-### ■ 프로젝트 담당 개발
+### ■ 담당 분야
+
 #### 1. 백엔드
 #### DB 설계 및 API 전담 구현  
   - 기존에 TXT 파일로 저장되던 데이터를 **MariaDB**로 관리하기 위해 데이터베이스 설계 및 API 개발.  
@@ -752,6 +916,7 @@ At the end, the word "error" appears reversed on the screen, signifying that our
 #### 리팩토링
 - 일부 **Coroutine**을 **UniTask**로 대체하여 비동기 처리 효율성 향상.  
 - Update 문에서 Find 대신 **Inspector 직접 연결 방식**으로 개선.  
+등..
 
 ### Git 도입
 - 프로젝트 용량으로 인해 code catalyst 사용 도입
@@ -773,40 +938,39 @@ At the end, the word "error" appears reversed on the screen, signifying that our
 
 ---
 
-**진행 일정**: 2024.08 1주일  
+**진행 일정**: 2024.08 1주  
 **참여 인원**: 개인
 
 ---
 
 ### ■ 개발 환경
 
-- jupyter notebook
+- Python, Jupyter Notebook  
+- Mediapipe Holistic  
 - numpy, pandas, metaplotlib …
-- python
 
 ---
 
-### ■ 판정 기준
+### ■ 프로젝트 개요
 
-관절 각도 기준 판별 → Ensemble(Random Forest) →  LSTM
+웹캠 기반 실시간 Pose Keypoints(관절 좌표)를 추출하고  
+이를 기반으로 5가지 동작(neutral / walking / running / crouch / crouch-walk)을 분류하는 모델을 제작했습니다.
 
-accuracy : 85%
+단순 Rule-based → 전통 ML → LSTM 딥러닝 모델까지  
+3가지 접근을 모두 실험해 성능을 비교한 프로젝트입니다.
 
 ---
 
-### ■ 프로젝트 설명
+### ■ 데이터 수집
 
+- Mediapipe Holistic 사용  
+- 총 33개 관절의 3D 좌표(x,y,z) + visibility  
+- 웹캠 입력 → TXT/CSV 파일로 자동 저장  
+- LSTM 입력을 위한 sequence 형태로 전처리  
 
-**데이터 수집**
+---
 
-Mediapipe Holistic을 활용해 신체의 joint position (관절 좌표) 추출.
-
-실시간 웹캠 입력을 기반으로 pose keypoints 데이터를 txt / csv 파일로 저장.
-
-이후 모델 학습을 위한 입력 데이터로 활용.
-
-
-**시도한 접근 방법**
+### ■ 프로젝트, 접근 과정
 
 **1. 관절 각도 기반 분류 (Rule-based)**
 
@@ -818,6 +982,7 @@ Mediapipe로 계산한 관절 각도를 기준으로 임계값 기반 단순 분
 
 ▷ 하지만 동적인 동작(걷기, 달리기 등)에서는 정확도가 낮음 → 시계열적 변화를 반영하기 어려움.
 
+<br>
 
 **2. Ensemble 기반 분류 (전통 ML 접근)**
 
@@ -829,6 +994,7 @@ Pipeline: StandardScaler (정규화), RandomForestClassifier (앙상블 기법)
 
 ▷ 복잡한 연속 동작 구분에는 성능 한계.
 
+<br>
 
 **3. LSTM 기반 시계열 분류 (딥러닝 접근)**
 
@@ -858,15 +1024,15 @@ Sequential Model (LSTM) 구조를 사용하여 동작 시계열 패턴 학습.
 
 ▶ 가장 효과적인 방법으로 확인됨. 동적 동작 구분에서 좋은 성능을 보임.
 
+---
 
-
-**결론**
+### ■ 결론
 
 - Rule-based (관절 각도) → 단순 포즈 구분에는 유효하지만 동작 분류에는 부적합.
 
 - Random Forest (Ensemble) → 기본적인 분류 가능하나 시계열 패턴 반영 한계.
 
-- LSTM (Sequential Model) → 동작의 시간적 연속성을 반영하여 가장 높은 정확도를 달성.
+- LSTM (Sequential Model) → 동작의 시간적 연속성을 반영하여 가장 높은 정확도를 달성. (최종)
 
 <a href="/web_portfolio/assets/pdf/humanPoseEstimation+ActionRecognition.pdf" download>자세한 구현 설명서 다운로드</a>
 
@@ -875,11 +1041,14 @@ Sequential Model (LSTM) 구조를 사용하여 동작 시계열 패턴 학습.
 
 ### ■ 추후 기획
 
-제자리에서 **Running, Walking, Crouching, Crouching and Walking**을 구분하기 위해
+- 속도 기반 feature 추가 → walking / running 정확도 향상  
 
-속도 feature값을 추가하여 정확도를 높일 계획입니다.
+- Occlusion 보정 / smoothing / joint jittering 보강  
 
-추후에 완벽하게 classification이 가능해지면 Unreal혹은 Unity 3D와 연결하여 사람의 모션 캡쳐로 상호 작용하는 게임을 제작할 계획입니다.
+- 수집 데이터 확대 후 CNN-LSTM, Transformer Encoder 실험  
+
+- 최종적으로 Unity / Unreal Engine과 연결해  
+  실시간 모션 캡쳐 연동 디모(게임·트래킹) 제작 예정
 
 ---
 
