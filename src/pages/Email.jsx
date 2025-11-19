@@ -3,7 +3,16 @@ import ModalWindow from "../components/ModalWindow";
 import styles from "./Email.module.css";
 import { sendEmail } from "../utils/api";
 
-export default function Email({ title, onClose, defaultPosition,onMinimize,onDragEnd }) {
+export default function Email({ 
+  title, 
+  onClose, 
+  defaultPosition,
+  onMinimize,
+  onDragEnd,
+  initialIsMaximized,
+  onMaximizedChange,
+ }) 
+{
   const [senderEmail, setSenderEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
@@ -58,6 +67,8 @@ export default function Email({ title, onClose, defaultPosition,onMinimize,onDra
       defaultPosition={defaultPosition || { x: 150, y: 100 }}
       defaultSize={{ width: 600, height: 700 }}
       onDragEnd={onDragEnd}
+      initialIsMaximized={initialIsMaximized}
+      onMaximizedChange={onMaximizedChange}
     >
       <form className={styles.container} onSubmit={handleSubmit} aria-busy={loading}>
         {/* 메뉴바 */}

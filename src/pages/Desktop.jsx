@@ -228,8 +228,8 @@ export default function Desktop() {
                 defaultPosition={{ x, y }}
                 onDragEnd={(pos) => updateWindowPosition(id, pos.x, pos.y)}
                 onOpen={openWindow}
-                isMaximized={isMaximized}
-                onMaximizeChange={(val) => setWindowMaximized(id, val)}
+                initialIsMaximized={isMaximized}
+                onMaximizedChange={(val) => setWindowMaximized(id, val)}
               />
             </div>
           );

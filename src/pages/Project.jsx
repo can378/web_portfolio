@@ -5,7 +5,7 @@ import projects from "../data/projects";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 
-export default function Project({ title, onClose, defaultPosition,onMinimize,onDragEnd }) {
+export default function Project({ title, onClose, defaultPosition,onMinimize,  initialIsMaximized,  onMaximizedChange,onDragEnd }) {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
 
@@ -102,6 +102,8 @@ useEffect(() => {
       defaultSize={{ width: 800, height: 530 }}
       onMinimize={onMinimize}
       onDragEnd={onDragEnd}
+      initialIsMaximized={initialIsMaximized}
+      onMaximizedChange={onMaximizedChange}
     >
         <div className={styles.container}>
              

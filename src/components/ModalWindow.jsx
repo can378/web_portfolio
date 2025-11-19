@@ -11,6 +11,8 @@ export default function ModalWindow({
   defaultSize,
   isVisible = true,
   onDragEnd,
+  initialIsMaximized = false,
+  onMaximizedChange,
 }) {
   const modalRef = useRef(null);
 
@@ -35,7 +37,7 @@ export default function ModalWindow({
   };
 
   const [size, setSize] = useState(getResponsiveSize());
-  const [isMaximized, setIsMaximized] = useState(false);
+  const [isMaximized, setIsMaximized] = useState(initialIsMaximized);
   const [isCompact, setIsCompact] = useState(() => window.innerWidth < MOBILE_MAX_W);
   const [isAutoMax, setIsAutoMax] = useState(() => window.innerWidth < MOBILE_MAX_W); // ★ 자동 최대화 여부
 
@@ -105,13 +107,22 @@ export default function ModalWindow({
     const clamped = clamp(centerX, centerY, nextSize.width, nextSize.height);
     position.current = clamped;
     modalRef.current.style.transform = `translate(${clamped.x}px, ${clamped.y}px)`;
+    if (onDragEnd) { onDragEnd({...clamped}); }
   };
 
   const toggleMaximize = () => {
-    if (isAutoMax) return; // ★ 자동 최대화 모드에서는 토글 막기(버튼도 숨기지만 방어적으로)
-    if (!isMaximized) maximizeWindow(); else restoreWindow();
-    setIsMaximized((v) => !v);
+    if (isAutoMax) return; // 자동 최대화 모드에서는 토글 막기
+
+    const next = !isMaximized;
+
+    if (next) { maximizeWindow(); } 
+    else { restoreWindow();}
+
+    setIsMaximized(next);
+
+    if (onMaximizedChange) { onMaximizedChange(next);}
   };
+
 
   useEffect(() => {
     const onResize = () => {
@@ -122,7 +133,8 @@ export default function ModalWindow({
       setIsAutoMax(shouldAutoMax);
 
       if (shouldAutoMax) {
-        if (!isMaximized) setIsMaximized(true);
+        setIsMaximized(true);
+        if (onMaximizedChange) onMaximizedChange(true);
         maximizeWindow();
         return;
       }
@@ -130,6 +142,7 @@ export default function ModalWindow({
       // 데스크톱 폭으로 돌아오면 자동 최대화 해제 및 복원
       if (isMaximized && isAutoMax) {
         setIsMaximized(false);
+        if (onMaximizedChange) onMaximizedChange(false);
         restoreWindow();
         return;
       }

@@ -3,7 +3,7 @@ import ModalWindow from "../components/ModalWindow";
 import historyData from "../data/history"; // 프로젝트 데이터
 import styles from "./History.module.css";
 
-export default function History({ onClose, defaultPosition,onMinimize,onDragEnd }) {
+export default function History({ onClose, defaultPosition,onMinimize,  initialIsMaximized,  onMaximizedChange,onDragEnd }) {
     const [position, setPosition] = useState({ x: 100, y: 0 });
     const [velocity, setVelocity] = useState({ x: 0, y: 0 });
     const [isJumping, setIsJumping] = useState(false);
@@ -103,6 +103,8 @@ export default function History({ onClose, defaultPosition,onMinimize,onDragEnd 
             defaultPosition={defaultPosition || { x: 50, y: 80 }}
             defaultSize={{ width: viewportWidth, height: 600 }}
             onDragEnd={onDragEnd}
+            initialIsMaximized={initialIsMaximized}
+            onMaximizedChange={onMaximizedChange}
         >
             {/* 오른쪽 상단 버튼 */}
             <button

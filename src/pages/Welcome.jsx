@@ -6,7 +6,7 @@ const OPEN = {
   projects: 1001,
   contact: 1005,
 };
-export default function Welcome({ title, onClose, onMinimize, onOpen,onDragEnd,defaultPosition }) {
+export default function Welcome({ title, onClose, onMinimize, onOpen,onDragEnd,  initialIsMaximized,  onMaximizedChange,defaultPosition }) {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
@@ -27,6 +27,8 @@ export default function Welcome({ title, onClose, onMinimize, onOpen,onDragEnd,d
       defaultSize={{ width: 600, height: 300 }}
       onMinimize={onMinimize}
       onDragEnd={onDragEnd}
+      initialIsMaximized={initialIsMaximized}
+      onMaximizedChange={onMaximizedChange}
     >
       <div className={`${styles.container} ${showContent ? styles.fadeIn : ""}`}>
         {/* Retro Header */}

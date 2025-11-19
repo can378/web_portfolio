@@ -2,7 +2,18 @@ import { useState, useMemo } from "react";
 import ModalWindow from "./ModalWindow";
 import styles from "./Memo.module.css";
 
-export default function Memo({ title, initialText, editable, defaultPosition,onClose, onMinimize,onDragEnd}) {
+export default function Memo({ 
+  title, 
+  initialText, 
+  editable, 
+  defaultPosition,
+  onClose, 
+  onMinimize,
+  onDragEnd,
+  initialIsMaximized,
+  onMaximizedChange,
+}) 
+{
   const [content, setContent] = useState(initialText || "");
   const charCount = useMemo(() => content.length, [content]);
 
@@ -14,6 +25,8 @@ export default function Memo({ title, initialText, editable, defaultPosition,onC
       defaultPosition={defaultPosition || { x: 30, y: 30 }}
       defaultSize={{ width: 500, height: 600 }}
       onDragEnd={onDragEnd}
+      initialIsMaximized={initialIsMaximized}
+      onMaximizedChange={onMaximizedChange}
     >
       <div className={styles.container}>
         {/* 헤더 메뉴바 */}

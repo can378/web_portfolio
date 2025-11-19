@@ -12,6 +12,8 @@ export default function FolderWindow({
   defaultSize,
   onMinimize,
   onDragEnd,
+  initialIsMaximized,
+  onMaximizedChange,
 }) {
   const folder = iconMap.get(folderId);
   if (!folder) return null;
@@ -25,6 +27,8 @@ export default function FolderWindow({
       defaultPosition={defaultPosition}
       defaultSize={defaultSize}
       onDragEnd={onDragEnd}
+      initialIsMaximized={initialIsMaximized}
+      onMaximizedChange={onMaximizedChange}
     >
       <div className={styles.frame}>
 
