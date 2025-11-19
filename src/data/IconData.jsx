@@ -171,16 +171,16 @@ MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫�
         component: ImageViewer,
         props: { title: "Childhood", imageUrl: "/web_portfolio/assets/image/childhood.jpg" }
     },
-    {
-        id: 401,
-        type: "image",
-        name: "favorite",
-        imageUrl: "/web_portfolio/assets/image/henri_rousseau.jpg",
-        path: "user",
-        icon: "/web_portfolio/assets/image/henri_rousseau.jpg",
-        component: ImageViewer,
-        props: { title: "favorite", imageUrl: "/web_portfolio/assets/image/henri_rousseau.jpg" }
-    },
+    // {
+    //     id: 401,
+    //     type: "image",
+    //     name: "favorite",
+    //     imageUrl: "/web_portfolio/assets/image/henri_rousseau.jpg",
+    //     path: "user",
+    //     icon: "/web_portfolio/assets/image/henri_rousseau.jpg",
+    //     component: ImageViewer,
+    //     props: { title: "favorite", imageUrl: "/web_portfolio/assets/image/henri_rousseau.jpg" }
+    // },
 
     
     // 📌 스티커
