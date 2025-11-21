@@ -89,3 +89,13 @@
   line-height: 1.4;
   white-space: pre-wrap; /* description에 줄바꿈 있으면 반영 */
 }
+
+
+
+
+/* 모바일에서는 타임라인/연도 눈금 숨김 */
+@media (max-width: 640px) {
+  .timeline { display: none; }
+  .years { display: none; }
+  .list { margin-top: 0; }
+}
