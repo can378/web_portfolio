@@ -4,7 +4,7 @@ import Skill from "../components/Skill.jsx";
 
 const chatData = [
   { sender: "question", text: "당신은 누구인가요?" },
-  { sender: "me", text: "저는 개발자 지망생 허윤지입니다." },
+  { sender: "me", text: "저는 개발자 허윤지입니다." },
   { sender: "question", text: "가지고 있는 스킬은 무엇인가요?" },
   { sender: "me", text: "저는 아래와 같은 스킬들을 가지고 있습니다.",component: () => <Skill /> },
   { sender: "question", text: "지금까지 어떤 일들을 해왔나요?" },

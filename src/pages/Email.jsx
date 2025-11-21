@@ -32,7 +32,7 @@ export default function Email({
         subject: SUBJECT,
         body: message,
       });
-      setStatus("메일 전송 성공!");
+      setStatus("이메일 전송을 완료했습니다.");
       setSenderEmail("");
       setMessage("");
     } catch (errorResult) {
@@ -40,7 +40,7 @@ export default function Email({
       // 429: 너무 잦은 전송
       if (errorResult?.code === 429) {
         setStatus(
-          `1분에 1회만 이메일 전송이 가능합니다`
+          `1분에 1회만 이메일 전송이 가능합니다.`
         );
         return;
       }
