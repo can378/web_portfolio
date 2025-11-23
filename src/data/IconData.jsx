@@ -35,7 +35,7 @@ export const iconArray = [
             folderId: 101, 
             defaultSize:{ width: 400, height: 200 }, 
         },
-        childIds: [203,401,1000],
+        childIds: [203,1000],
     },
     {
         id: 102,
@@ -104,28 +104,6 @@ MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫�
             , editable: true }
     },
     {
-        id: 201,
-        type: "memo",
-        name: "메모 2",
-        editable: false,
-        path: "projects",
-        icon: "/web_portfolio/assets/image/icons/memo_icon.svg",
-        fixed: true,
-        component: Memo,
-        props: { title: "메모 2", initialText: "메모 2의 기본 텍스트입니다.", editable: false }
-    },
-    {
-        id: 202,
-        type: "memo",
-        name: "메모 3",
-        editable: true,
-        path: "documents",
-        icon: "/web_portfolio/assets/image/icons/memo_icon.svg",
-        fixed: true,
-        component: Memo,
-        props: { title: "메모 3", initialText: "메모 3의 기본 텍스트입니다.", editable: true }
-    },
-    {
         id: 203,
         type: "memo",
         name: "Hobby",
@@ -161,16 +139,16 @@ MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫�
     },
 
     // 🖼️ 이미지
-    {
-        id: 400,
-        type: "image",
-        name: "Childhood",
-        imageUrl: "/web_portfolio/assets/image/childhood.jpg",
-        path: "user",
-        icon: "/web_portfolio/assets/image/childhood.jpg",
-        component: ImageViewer,
-        props: { title: "Childhood", imageUrl: "/web_portfolio/assets/image/childhood.jpg" }
-    },
+    // {
+    //     id: 400,
+    //     type: "image",
+    //     name: "Childhood",
+    //     imageUrl: "/web_portfolio/assets/image/childhood.jpg",
+    //     path: "user",
+    //     icon: "/web_portfolio/assets/image/childhood.jpg",
+    //     component: ImageViewer,
+    //     props: { title: "Childhood", imageUrl: "/web_portfolio/assets/image/childhood.jpg" }
+    // },
     // {
     //     id: 401,
     //     type: "image",
@@ -213,21 +191,6 @@ MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫�
 7. 끝까지 테스트하고 성능을 최적화하는 개발자
 `,
             editable: true
-        }
-    },
-    {
-        id: 501,
-        type: "sticker",
-        name: "스티커 2",
-        editable: false,
-        path: "documents",
-        icon: "/web_portfolio/assets/image/icons/sticky_icon.svg",
-        fixed: true,
-        component: Sticky,
-        props: {
-            title: "스티커 2",
-            initialText: "스티커 2 기본 텍스트입니다.",
-            editable: false
         }
     },
     {
