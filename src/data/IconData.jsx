@@ -1,12 +1,11 @@
 import FolderWindow from "../components/FolderWindow";
 import Memo from "../components/Memo";
 import Sticky from "../components/Sticky";
-import ImageViewer from "../components/Image";
+// import ImageViewer from "../components/Image";
 import GameLibrary from "../pages/GameLibrary";
 import Project from "../pages/Project";
 import Welcome from "../pages/Welcome";
 import Introduction from "../pages/Introduction";
-import History from "../pages/History";
 import Email from "../pages/Email";
 
 
