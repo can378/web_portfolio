@@ -212,13 +212,13 @@ export default function Desktop() {
         {/* 열린 창들 */}
         {openWindows.map(({ id, isVisible, zIndex, x, y, isMaximized }) => {
           const icon = iconMap.get(id);
-          if (!icon?.component || !isVisible) return null;
+          if (!icon?.component) return null;
           const Component = icon.component;
 
           return (
             <div
               key={id}
-              style={{ position: "absolute", zIndex }}
+              style={{ position: "absolute", zIndex, display: isVisible ? "block" : "none" }}
               onMouseDown={() => bringToFront(id)}
             >
               <Component
