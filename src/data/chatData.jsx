@@ -21,7 +21,7 @@ const chatData = [
     component: () => <Certification />
   },
   { sender: "question", text: "그 외에 자랑하고 싶은거 있나요?" },
-  { sender: "me", text: "2020,2021,2022 3회 성적 우수 장학금을 받은 적이 있습니다." },
+  { sender: "me", text: "2020,2021,2022 3회 성적 우수 장학금을 받은 적이 있습니다. 사내 해커톤 대회에서 수상한 이력도 있습니다." },
   { sender: "question", text: "연락하려면 어떻게 하나요?" },
   {
     sender: "me",

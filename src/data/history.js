@@ -65,6 +65,12 @@ export default {
             description: "메타넷 모던 팩토리팀 인턴십",
             start: "2025-03-01",
             end: "2025-05-02"
+        },
+        {
+            title:"정규직",
+            description:"메타넷 모던 팩토리팀 정규직",
+            start:"2025-05-07",
+            end:"now"
         }
     ]
 };

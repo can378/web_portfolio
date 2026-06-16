@@ -829,6 +829,95 @@ OpenGL, SDL2로 개발한 로컬 2인 협동 퍼즐 게임입니다.
   },
   //기타============================================================================
   {
+
+  title: "R&D Knowledge Platform",
+
+  short_description: "LLM 기반 연구개발 지식화 시스템",
+
+  technologies: ["Python", "LLM", "MCP", "RAG", "Milvus"],
+
+  icon:"/web_portfolio/assets/image/icons/ai_icon.svg",
+
+  image: "/web_portfolio/assets/image/icons/ai_icon.svg",
+
+  type:"AI",
+
+  description:`
+
+<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
+
+"R&D Knowledge Platform"
+
+</div>
+
+---
+
+**고객사**: 삼성디스플레이
+**진행 일정**: 2025.09 - 2026.04
+**역할**: 백엔드 개발
+
+---
+
+### ■ 프로젝트 개요
+
+연구개발 관련 데이터를 자연어로 조회하고, 논문 검색·추천·작성 업무를 지원하는 LLM 기반 지식화 시스템을 개발하였습니다.
+
+MCP 기반 데이터 조회 챗봇과 RAG 기반 논문 검색·추천·작성 챗봇을 개발하였으며, LLM 스트리밍 응답 제어 및 Text-to-SQL 기능을 통해 답변 품질과 데이터 활용성을 향상시켰습니다.
+
+---
+
+### ■ 개발 환경
+
+* Python
+* LLM
+* MCP
+* RAG
+* Milvus
+* Vector Search
+
+---
+
+### ■ 담당 분야
+
+#### LLM Tool Calling 기반 Agent Workflow 구현
+
+* 사용자 질의에 따라 적절한 Tool을 동적으로 호출하는 Agent Workflow 구현
+* 커스텀 태그 기반 스트리밍 응답 제어 기능 개발
+* 중요 정보 우선 노출, 즉시 응답, 응답 종료 등 출력 정책 구현
+
+#### MCP 기반 데이터 조회 챗봇 개발
+
+* LLM 기반 Text-to-SQL 기능 구현
+* 자연어 질의를 SQL로 변환하여 데이터 조회 수행
+* 데이터베이스 조회 결과를 자연어 형태로 제공
+* 사용자 권한 검증 단계를 강제 수행하도록 설계하여 비인가 데이터 접근 방지
+
+#### RAG 기반 논문 검색·추천·작성 챗봇 개발
+
+* 논문 데이터 임베딩 및 Milvus 기반 Vector DB 구축
+* Vector Search를 활용한 논문 검색 및 추천 기능 구현
+* 논문 요약 및 초안 작성 기능 개발
+* Hybrid Search(Vector Search + Query Search) 적용을 통한 검색 정확도 향상
+
+#### 조회 결과 Excel 다운로드 기능 개발
+
+* 조회 결과를 Excel 파일로 생성 및 다운로드할 수 있는 기능 구현
+
+---
+
+### ■ 주요 성과
+
+#### 논문 추천 기능 응답 성능 개선
+
+* 기존: LLM이 조회 필터 생성 후 MCP 호출, 데이터 조회
+* 개선: MCP Tool 내부에서 별도 LLM을 활용하여 필터 생성 및 조회 수행
+* Tool 호출 파라미터 단순화 및 불필요한 추론 과정 제거
+* 결과: 응답 시간 약 50% 단축
+
+  `
+  },
+
+  {
     title: "Warehouse Digital Twin",
     short_description: "Metafactory Warehouse Digital Twin",
     technologies: ["Python", "Unity","FastAPI"],
