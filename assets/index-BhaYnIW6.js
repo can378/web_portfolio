@@ -810,7 +810,7 @@ OpenGL, SDL2로 개발한 로컬 2인 협동 퍼즐 게임입니다.
     />
   </div>
 </div>
-    `},{title:"R&D Knowledge Platform",short_description:"LLM 기반 연구개발 지식화 시스템",technologies:["Python","LLM","MCP","RAG","Milvus"],icon:"/web_portfolio/assets/image/icons/ai_icon.svg",image:"/web_portfolio/assets/image/icons/ai_icon.svg",type:"AI",description:`
+    `},{title:"R&D Knowledge Platform",short_description:"LLM 기반 연구개발 지식화 시스템",technologies:["Python","LLM","MCP","RAG","Milvus"],icon:"/web_portfolio/assets/image/icons/chatbot_icon.svg",image:"/web_portfolio/assets/image/icons/chatbot_icon.svg",type:"AI",description:`
 
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
 
