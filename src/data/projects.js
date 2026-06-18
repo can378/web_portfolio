@@ -836,9 +836,9 @@ OpenGL, SDL2로 개발한 로컬 2인 협동 퍼즐 게임입니다.
 
   technologies: ["Python", "LLM", "MCP", "RAG", "Milvus"],
 
-  icon:"/web_portfolio/assets/image/icons/ai_icon.svg",
+  icon:"/web_portfolio/assets/image/icons/chatbot_icon.svg",
 
-  image: "/web_portfolio/assets/image/icons/ai_icon.svg",
+  image: "/web_portfolio/assets/image/icons/chatbot_icon.svg",
 
   type:"AI",
 
