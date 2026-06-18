@@ -814,7 +814,7 @@ OpenGL, SDL2로 개발한 로컬 2인 협동 퍼즐 게임입니다.
 
 <div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
 
-"R&D Knowledge Platform"
+"연구개발지식화 프로젝트"
 
 </div>
 
