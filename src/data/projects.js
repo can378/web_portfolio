@@ -1,5 +1,239 @@
 const projects = [
 
+  {
+    title: "제조 기업 Data Pipeline",
+    short_description: "MQTT-Kafka Bridge를 직접 개발하고 AWS ECR·EC2 Kubernetes·ALB/NLB 기반 외부 통신 인프라까지 통합 배포한 제조 데이터 파이프라인입니다.",
+    technologies: ["AWS", "Kubernetes", "Docker", "Kafka", "Kafka Connect", "MQTT", "Spark", "Iceberg", "Trino"],
+    icon: "/web_portfolio/assets/image/icons/warehouse_icon.svg",
+    image: "/web_portfolio/assets/image/icons/warehouse_icon.svg",
+    type: "data",
+    description: `
+<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
+  "제조 데이터 실시간 수집 Lakehouse 파이프라인 구축"
+</div>
+
+---
+
+**진행 일정**: 2026.05.06 ~ 2026.05.28  
+**참여 인원**: 4인  
+**역할**: MQTT-Kafka Bridge 개발 + 전체 AWS/Kubernetes 배포 및 외부 통신 인프라 담당  
+=> CI/CD, AWS ECR, EC2 Kubernetes 배포, ALB/NLB 외부 통신 구성, 전체 서비스 통합 배포  
+
+---
+
+### ■ 프로젝트 개요
+
+OPC UA 설비 데이터를 MQTT/Kafka로 수집하고, HOT 데이터는 실시간 Consumer/API/대시보드로 전달하며, COLD 데이터는 Spark Structured Streaming을 통해 Iceberg 테이블에 적재한 뒤 Trino로 조회할 수 있도록 구성한 제조 데이터 파이프라인 프로젝트입니다.
+
+전체 서비스는 Docker 이미지로 패키징해 AWS ECR에 저장하고, EC2에 구성된 Kubernetes 환경에서 Pod 단위로 배포했습니다. 저는 MQTT 데이터를 Kafka로 전달하는 mqtt-kafka-bridge를 직접 설계·개발하고, 팀원이 만든 Kafka 연동 서비스, 프론트엔드, Consumer, Spark, Trino 등 전체 컴포넌트를 AWS 환경에 통합 배포했습니다.
+
+---
+
+### ■ 기술 스택
+
+- Cloud/Infra: AWS EC2, Amazon ECR, ALB, NLB
+- CI/CD: GitHub Actions, Self-hosted Runner
+- Container/Orchestration: Docker, Kubernetes
+- Messaging: Kafka, Kafka Connect, MQTT
+- Connector: MQTT Source Connector
+- Industrial Data: OPC UA
+- Lakehouse: Spark Structured Streaming, Apache Iceberg, Trino, Nessie, MinIO
+- Application: Node.js, Consumer/API, Dashboard
+
+---
+
+### ■ 주요 구현 내용
+
+- **mqtt-kafka-bridge 개발**
+  - MQTT Broker의 HOT/COLD Topic 데이터를 Kafka HOT/COLD Topic으로 분리 전달하는 구조 구현
+  - Apache Kafka Connect와 Camel MQTT Source Connector를 활용해 MQTT Source Connector 기반 브리지 이미지 구성
+  - 환경 변수 기반으로 MQTT Broker, Kafka Bootstrap Server, Topic 정보를 주입 가능하도록 설계
+
+- **Docker 이미지 및 ECR 배포**
+  - Maven 멀티스테이지 Docker Build로 Kafka Connect 플러그인 의존성을 포함한 실행 이미지 생성
+  - GitHub Actions에서 Docker Build, AWS ECR Push, EC2 Kubernetes 배포까지 이어지는 CI/CD 파이프라인 구축
+  - AWS ECR, Kubernetes ImagePullSecret, ConfigMap, Secret을 활용해 수동 배포 절차를 줄이고 서비스별 독립 재배포가 가능한 구조로 개선
+
+- **EC2 Kubernetes 배포 자동화**
+  - GitHub Actions self-hosted runner를 EC2 배포 환경과 연동
+  - ECR 이미지 Pull Secret 생성, ConfigMap 생성, Kubernetes Deployment 적용, rollout status 검증 자동화
+  - consumer, opc, lakehouse, mqtt-kafka-connect 등 서비스별 Namespace와 Pod 구성
+  - ConfigMap/Secret으로 운영 환경 설정과 민감 정보를 분리 관리
+
+- **전체 컴포넌트 AWS 통합 배포**
+  - 팀원이 개발한 Kafka Consumer, 프론트엔드 대시보드, OPC UA Agent, Spark Streaming, Trino 컴포넌트를 AWS 환경에 통합 배포
+  - HOT Topic 데이터는 실시간 Consumer가 수신해 Receiver Web/Fanout API로 전달하도록 구성
+  - /health, /status, Swagger API, readiness/liveness probe를 활용해 서비스 상태 확인이 가능한 운영 환경 정비
+
+- **외부 통신 및 로드밸런싱**
+  - Kafka, PostgreSQL 등 TCP 기반 통신은 NLB를 통해 외부 접근 경로 구성
+  - Grafana, 대시보드 등 HTTP 기반 서비스는 ALB를 통해 접근 가능하도록 로드밸런싱 구조 설계
+
+- **Lakehouse 파이프라인 구성**
+  - Spark Structured Streaming 작업을 Kafka COLD Topic과 연동
+  - COLD 데이터를 Iceberg 테이블에 append 방식으로 적재
+  - Trino/Nessie/MinIO 기반 Lakehouse 조회 환경이 Kubernetes Pod에서 동작하도록 배포 구성
+
+`,
+    summary: `OPC UA/MQTT 기반 제조 데이터 수집 파이프라인에서 mqtt-kafka-bridge를 직접 개발해 MQTT HOT/COLD Topic 데이터를 Kafka HOT/COLD Topic으로 전달하는 구조를 구현했습니다. GitHub Actions, AWS ECR, EC2 Kubernetes, ALB/NLB를 활용해 팀원 개발 서비스까지 통합 배포하고, Spark Structured Streaming, Iceberg, Trino 기반 Lakehouse 조회 환경과 실시간 Consumer/API 흐름을 함께 구성했습니다.`
+  },
+
+  {
+    title: "폐쇄망 Claude Code",
+    short_description: "폐쇄망에서 Claude Code와 Claude Code Router 기반 개발을 빠르게 시작할 수 있도록 OS별 오프라인 템플릿 번들을 배포하는 템플릿 서버입니다.",
+    technologies: ["Python", "FastAPI", "Docker", "Claude Code Router", "PowerShell", "Bash", "Node.js", "Vue"],
+    icon: "/web_portfolio/assets/image/icons/projects_icon.svg",
+    image: "/web_portfolio/assets/image/icons/projects_icon.svg",
+    type: "tool",
+    description: `
+<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
+  "폐쇄망에서의 개발환경 구축을 위한 표준 프로젝트 템플릿 배포 시스템"
+</div>
+
+---  
+
+**진행 일정**: 2025.06.03 ~ 2025.06.30  
+**참여 인원**: 2인  
+**역할**: 템플릿 서버 설계, 설치 자동화, 오프라인 번들 구성, Docker 배포 구조, 템플릿 표준화
+
+---  
+
+### ■ 프로젝트 개요
+
+cc-template는 인터넷 접속이 제한된 폐쇄망 환경에서 Claude Code와 Claude Code Router 기반 개발을 빠르게 시작할 수 있도록 만든 템플릿 배포 서버입니다.
+
+Claude Code와 Claude Code Router를 폐쇄망에서 사용하려면 매번 프로젝트 구조, 실행 스크립트, 테스트 도구, 의존성 설치, 오프라인 패키지 준비를 반복해야 합니다. 특히 pip install, npm install처럼 인터넷에 의존하는 초기 설정이 막히기 때문에 개발자가 실제 기능 개발 전에 환경 구성에 많은 시간을 쓰게 됩니다.
+
+이 문제를 줄이기 위해 Python/FastAPI, Node/Express 백엔드, Vue/Vite 프론트엔드 템플릿을 서버에서 선택해 내려받고, Windows/Linux에 맞는 오프라인 의존성 번들을 함께 포함해 바로 실행 가능한 개발 환경을 만들 수 있도록 구성했습니다.
+
+---
+
+### ■ 주요 사용자와 사용 시점
+
+- 인터넷이 제한된 사내망에서 AI 코딩 도구를 써야 하는 개발자
+- Claude Code Router와 로컬 LLM/vLLM 기반 환경을 운영하는 담당자
+- 새 프로젝트마다 동일한 구조와 검증 방식을 맞춰야 하는 팀
+- Windows와 Linux 환경을 모두 지원해야 하는 내부 플랫폼 담당자
+- Claude Code가 이해하기 쉬운 표준 프로젝트 구조를 제공하고 싶은 팀
+
+새 프로젝트를 폐쇄망에서 시작할 때 템플릿 서버를 Docker로 실행한 뒤, Windows에서는 install.ps1, Linux에서는 install.sh를 내려받아 실행합니다. 설치기는 템플릿 선택, 다운로드, 압축 해제, 초기화 스크립트 실행까지 자동으로 처리합니다.
+
+---
+
+### ■ 기술 스택
+
+- Backend: Python, FastAPI, Uvicorn
+- Distribution: ZIP, tar.gz 동적 패키징
+- DevOps: Docker, Docker Compose
+- Installer: Windows PowerShell, Linux Bash
+- Template: Python/FastAPI, Node/Express, Vue 3/Vite
+- Offline Bundle: Python .venv, Node node_modules
+- AI Dev Environment: Claude Code, Claude Code Router
+
+---
+
+### ■ 주요 구현 내용
+
+- **FastAPI 기반 템플릿 서버**
+  - /templates, /templates/{template}, /templates/{template}/download?os=windows|linux, /install.ps1, /install.sh, /health API 제공
+  - 템플릿 다운로드 시 Windows는 ZIP, Linux는 tar.gz로 동적 패키징
+  - 선택한 OS에 맞는 오프라인 번들만 포함되도록 처리
+
+- **Docker 기반 배포**
+  - Dockerfile과 Docker Compose를 구성해 docker compose up -d --build 한 번으로 템플릿 서버 실행
+  - 내부망 또는 개인 서버에서 8181 포트로 템플릿 배포가 가능하도록 구성
+
+- **OS별 설치 자동화**
+  - Windows PowerShell 설치기와 Linux Bash 설치기를 별도로 제공
+  - 서버에서 템플릿 목록을 조회하고 사용자가 선택한 템플릿을 다운로드
+  - 기존 파일을 덮어쓰지 않는 방식으로 복사한 뒤 scripts/init.ps1 또는 scripts/init.sh를 자동 실행
+
+- **오프라인 의존성 번들**
+  - Python 템플릿은 Windows/Linux용 .venv 번들을 포함
+  - Node 템플릿은 OS별 node_modules 번들을 포함
+  - 인터넷 연결 없이도 초기 실행, 테스트, 검증이 가능하도록 구성
+
+- **Claude Code 친화적 표준화**
+  - 각 템플릿에 README, 실행 스크립트, 테스트, 검증 스크립트를 포함
+  - Claude Code가 프로젝트 구조와 실행 방식을 안정적으로 이해할 수 있도록 템플릿별 구조를 표준화
+
+
+    `,
+    summary: `폐쇄망 AI 개발환경을 위한 템플릿 배포 플랫폼을 개발했습니다. FastAPI로 템플릿 서버를 구현하고 Python/FastAPI, Node/Express, Vue/Vite 템플릿을 OS별 오프라인 의존성 번들과 함께 제공했습니다. Windows PowerShell 및 Linux Bash 설치기로 템플릿 선택, 다운로드, 압축 해제, 초기화 스크립트 실행을 자동화해 Claude Code와 Claude Code Router 사용자가 인터넷 연결 없이도 표준화된 프로젝트 구조와 검증 환경을 즉시 생성할 수 있도록 했습니다.`
+  },
+
+  {
+    title: "Daily Brief Agent",
+    short_description: "Outlook 메일·캘린더를 자동 수집하고 LLM으로 분류·요약해 하루 업무 브리핑을 제공하는 데스크톱 에이전트입니다.",
+    technologies: ["Python", "FastAPI", "Playwright", "LLM API", "SQLite", "PySide6"],
+    icon: "/web_portfolio/assets/image/icons/email_icon.svg",
+    image: "/web_portfolio/assets/image/icons/email_icon.svg",
+    type:"AI",
+    description: `
+<div style="text-align:center; font-weight:bold; font-size:1.15em; line-height:1.5;">
+  "Outlook 메일·일정을 자동 수집하고 LLM으로 분류·요약하는 데일리 업무 브리핑 에이전트"
+</div>
+
+---
+
+**진행 일정**: 2025.12.19 ~ 2025.12.28  
+**참여 인원**: 3인  
+**역할**: Outlook 자동화, 백엔드 API, 스케줄러, 로컬 DB, 데스크톱 UI, 패키징 구조 설계
+
+---
+
+### ■ 프로젝트 개요
+
+매일 아침 Outlook을 열어 메일과 일정을 직접 확인하는 반복 업무를 줄이기 위해 만든 개인 업무 자동화 도구입니다.
+
+Playwright로 Outlook Web의 로그인 세션을 저장하고, 저장된 인증 상태를 기반으로 최근 7일간의 메일과 당일 캘린더 일정을 수집했습니다. 수집된 메일은 외부 LLM API를 통해 긴급 메일, 액션 아이템, 일정 관련 메일로 분류하고 핵심 내용을 요약해 데일리 브리핑 형태로 제공합니다.
+
+FastAPI 서버를 로컬에서 실행하고 PySide6 QWebEngineView로 웹 UI를 감싸, 사용자가 별도 브라우저 없이 Windows 데스크톱 앱처럼 실행할 수 있도록 구성했습니다.
+
+---
+
+### ■ 기술 스택
+
+- Backend: Python, FastAPI, Uvicorn
+- Automation: Playwright, Outlook Web
+- AI/LLM: External LLM API, JSON 기반 메일 분류 및 요약
+- Scheduler: APScheduler
+- Database: SQLite
+- Frontend: HTML, CSS, Vanilla JavaScript
+- Desktop GUI: PySide6, Qt WebEngine
+- Packaging: PyInstaller, Windows batch script
+
+---
+
+### ■ 주요 구현 내용
+
+- **Outlook Web 자동화**
+  - Microsoft Graph API 없이 Outlook Web UI를 Playwright로 제어해 실제 사용자의 메일·캘린더 데이터를 수집
+  - 로그인 세션을 storage_state.json으로 저장해 반복 인증 절차를 최소화
+  - 최근 7일 메일 및 당일 캘린더 일정을 조회하고 발신자, 제목, 본문 원문, 수신 시각, Outlook 원문 링크를 추출
+  - 중복 데이터와 오래된 메일을 필터링해 브리핑 대상 데이터 정제
+
+- **LLM 기반 업무 분류**
+  - 단순 키워드 매칭이 아니라 LLM API에 메일 데이터를 전달해 urgent, action_item, schedule 유형으로 구조화 분류
+  - 각 메일의 핵심 요약을 생성하고 JSON 기반 브리핑 데이터로 변환
+
+- **FastAPI REST API 설계**
+  - Outlook 로그인, 브리핑 생성, 최신 브리핑 조회, 스케줄 시간 설정, 원문 메일 열기 기능 제공
+  - Vanilla JavaScript UI에서 긴급 메일, 액션 아이템, 오늘의 일정, 주요 알림 영역으로 브리핑 결과를 시각화
+
+- **스케줄링 및 캐싱**
+  - APScheduler로 매일 지정된 시간에 브리핑이 자동 생성되도록 구현
+  - 스케줄 변경 시 기존 작업을 제거하고 새 작업으로 재등록하는 구조 설계
+  - SQLite에 Outlook 수집 결과와 사용자 설정값을 저장하고 5분 캐시 정책을 적용해 불필요한 Outlook 재조회 및 LLM 호출 비용 감소
+
+- **데스크톱 앱 패키징**
+  - PySide6 QWebEngineView를 이용해 FastAPI 웹 UI를 데스크톱 앱 형태로 제공
+  - PyInstaller 설정 및 Windows 배치 스크립트로 실행 파일 배포가 가능한 패키징 구조 설계
+
+    `,
+    summary: `Outlook 메일·캘린더 데이터를 Playwright로 자동 수집하고 LLM API로 긴급 메일, 액션 아이템, 일정 관련 항목을 분류·요약하는 데일리 업무 브리핑 데스크톱 에이전트입니다. FastAPI REST API, APScheduler, SQLite 캐시, Vanilla JS UI, PySide6 WebView를 결합해 Windows에서 브라우저 없이 실행 가능한 업무 생산성 자동화 도구로 구현했습니다.`
+  },
+
   //웹개발============================================================================
   {
     title: "Pluto - MCP Hub",
