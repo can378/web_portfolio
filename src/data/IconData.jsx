@@ -11,17 +11,17 @@ import Email from "../pages/Email";
 
 export const iconArray = [
     // 📂 폴더
-    {
-        id: 100,
-        type: "folder",
-        name: "Work",
-        icon: "/web_portfolio/assets/image/icons/folder_icon.svg",
-        path: "desktop",
-        component: FolderWindow,
-        description:"근무 경력 / 경력 요약",
-        props: { folderId: 100 },
-        childIds: [200],
-    },
+    // {
+    //     id: 100,
+    //     type: "folder",
+    //     name: "Work",
+    //     icon: "/web_portfolio/assets/image/icons/folder_icon.svg",
+    //     path: "desktop",
+    //     component: FolderWindow,
+    //     description:"근무 경력 / 경력 요약",
+    //     props: { folderId: 100 },
+    //     childIds: [200],
+    // },
     {
         id: 101,
         type: "folder",
@@ -54,78 +54,78 @@ export const iconArray = [
     },
 
     // 📝 메모
-    {
-        id: 200,
-        type: "memo",
-        name: "Metanet",
-        editable: true,
-        path: "work",
-        icon: "/web_portfolio/assets/image/icons/memo_icon.svg",
-        fixed: true,
-        component: Memo,
-        props: { title: "Metanet", initialText: `
-■ 메타넷디지털 - 모던팩토리팀 인턴
+//     {
+//         id: 200,
+//         type: "memo",
+//         name: "Metanet",
+//         editable: true,
+//         path: "work",
+//         icon: "/web_portfolio/assets/image/icons/memo_icon.svg",
+//         fixed: true,
+//         component: Memo,
+//         props: { title: "Metanet", initialText: `
+// ■ 메타넷디지털 - 모던팩토리팀 인턴
 
-직급: 인턴
-기간: 2025.03.04-2025.05.02
+// 직급: 인턴
+// 기간: 2025.03.04-2025.05.02
 
-<Node.js vue3 교육 수강>
-- inflearn 교육 수강
-- Node.js 학습 내용 세미나 진행
+// <Node.js vue3 교육 수강>
+// - inflearn 교육 수강
+// - Node.js 학습 내용 세미나 진행
 
-<사내 자산화 프로젝트>
-- 기존 하드코딩 된 구조를 MariaDB 기반으로 전환하여 유지보수성과 확장성 확보
-- 프론트(Vue3 Nuxt) 전면 개편 및 백엔드(Node.js Express) MVC 패턴 적용
-- 기존 기능 개선 및 신규 기능 추가
-- 웹 크롤링을 통한 키워드 기반 네이버 뉴스 기사 제공 기능 구현
-- MPC 툴 기반 AI Agent 챗봇 API 개발, DB 연동형 지능형 서비스 구축
-- AWS CI/CD 파이프라인 및 S3 업로드 다운로드 기능 구현
-
-
-
-■ 메타넷디지털 - 모던팩토리 정규직
-직급: 사원
-기간: 2025.05.06-
-
-<m.pluto-hub>
-= Go + Vue3
-MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫폼 개발.
-
-<metanet-warehouse>
-- Unity 3D 기반 가상 창고 디지털 트윈 구현 프로젝트 (백엔드·Unity·WPF 협업).
-- MariaDB + FastAPI로 데이터베이스 및 API 설계·구현.
-- Unity에서 AGV 최적 경로 이동, Snapshot/Recording, AI Detection 기능 개발.
-- Object Pooling, Cinemachine, Particle System 활용한 성능 최적화와 시각 효과 구현.
-- ChatGroq + LLaMA3 연동 AI Agent와 코드 리팩토링.
+// <사내 자산화 프로젝트>
+// - 기존 하드코딩 된 구조를 MariaDB 기반으로 전환하여 유지보수성과 확장성 확보
+// - 프론트(Vue3 Nuxt) 전면 개편 및 백엔드(Node.js Express) MVC 패턴 적용
+// - 기존 기능 개선 및 신규 기능 추가
+// - 웹 크롤링을 통한 키워드 기반 네이버 뉴스 기사 제공 기능 구현
+// - MPC 툴 기반 AI Agent 챗봇 API 개발, DB 연동형 지능형 서비스 구축
+// - AWS CI/CD 파이프라인 및 S3 업로드 다운로드 기능 구현
 
 
-<연구개발지식화>
-연구개발 데이터를 자연어로 조회하고 활용할 수 있는 LLM 기반 지식화 시스템을 개발.
 
-MCP 기반 데이터 조회 챗봇과 RAG 기반 논문 검색·추천·작성 챗봇을 구축.
+// ■ 메타넷디지털 - 모던팩토리 정규직
+// 직급: 사원
+// 기간: 2025.05.06-
 
-LLM Tool Calling을 활용한 Agent Workflow를 구현. 
+// <m.pluto-hub>
+// = Go + Vue3
+// MCP Server와 AI Agent를 손쉽게 등록·검색·공유할 수 있는 플랫폼 개발.
 
-
-Text-to-SQL 기능을 통해 사용자가 자연어로 데이터베이스를 조회할 수 있도록 지원하고
-
-사용자 권한 검증 절차를 적용하여 비인가 데이터 접근을 방지. 
-
-
-Milvus 기반 Vector Search와 Hybrid Search를 적용하여 논문 검색 정확도를 향상시켰으며
-
-커스텀 태그 기반 스트리밍 응답 제어를 통해 답변 일관성을 개선. 
-
-
-조회 결과의 Excel 다운로드 기능을 개발.
-
-MCP Tool 내부에서 필터 생성 및 조회를 수행하도록 구조를 개선하여 논문 추천 응답 시간을 약 50% 단축.
+// <metanet-warehouse>
+// - Unity 3D 기반 가상 창고 디지털 트윈 구현 프로젝트 (백엔드·Unity·WPF 협업).
+// - MariaDB + FastAPI로 데이터베이스 및 API 설계·구현.
+// - Unity에서 AGV 최적 경로 이동, Snapshot/Recording, AI Detection 기능 개발.
+// - Object Pooling, Cinemachine, Particle System 활용한 성능 최적화와 시각 효과 구현.
+// - ChatGroq + LLaMA3 연동 AI Agent와 코드 리팩토링.
 
 
-            `
+// <연구개발지식화>
+// 연구개발 데이터를 자연어로 조회하고 활용할 수 있는 LLM 기반 지식화 시스템을 개발.
+
+// MCP 기반 데이터 조회 챗봇과 RAG 기반 논문 검색·추천·작성 챗봇을 구축.
+
+// LLM Tool Calling을 활용한 Agent Workflow를 구현. 
+
+
+// Text-to-SQL 기능을 통해 사용자가 자연어로 데이터베이스를 조회할 수 있도록 지원하고
+
+// 사용자 권한 검증 절차를 적용하여 비인가 데이터 접근을 방지. 
+
+
+// Milvus 기반 Vector Search와 Hybrid Search를 적용하여 논문 검색 정확도를 향상시켰으며
+
+// 커스텀 태그 기반 스트리밍 응답 제어를 통해 답변 일관성을 개선. 
+
+
+// 조회 결과의 Excel 다운로드 기능을 개발.
+
+// MCP Tool 내부에서 필터 생성 및 조회를 수행하도록 구조를 개선하여 논문 추천 응답 시간을 약 50% 단축.
+
+
+//             `
             
-            , editable: true }
-    },
+//             , editable: true }
+//     },
     {
         id: 203,
         type: "memo",
